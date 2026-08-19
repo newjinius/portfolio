@@ -238,16 +238,12 @@ title: "김유진 포트폴리오"
     border: 2px dashed var(--pink-hot);
 }
 
-.mhGame__yes,
-.mhGame__no {
+/* YES/NO는 처음엔 완전히 동일한 모양·위계로 나란히 배치.
+   NO만 상호작용 시점부터 도망다니기 시작 (JS에서 position만 덮어씀) */
+.mhGame__btn {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-.mhGame__yes { left: 35%; z-index: 1; }
-
-.mhGame__no {
-    left: 65%;
     font-family: var(--font-bold);
     font-size: 15px;
     padding: 12px 22px;
@@ -257,6 +253,8 @@ title: "김유진 포트폴리오"
     box-shadow: var(--shadow-hard);
     touch-action: none;
 }
+.mhGame__yes { left: 35%; z-index: 1; }
+.mhGame__no  { left: 65%; }
 
 .mhGame__taunt {
     min-height: 20px;
@@ -687,8 +685,8 @@ title: "김유진 포트폴리오"
         <p class="mhGame__q">저랑 같이 작업하고 싶으신가요?</p>
 
         <div class="mhGame" id="mhGame">
-            <button type="button" class="retroBtn mhGame__yes" id="mhYes">YES</button>
-            <button type="button" class="mhGame__no" id="mhNo" aria-label="No — 도망다니는 버튼이라 못 누릅니다">NO</button>
+            <button type="button" class="mhGame__btn mhGame__yes" id="mhYes">YES</button>
+            <button type="button" class="mhGame__btn mhGame__no" id="mhNo" aria-label="No — 도망다니는 버튼이라 못 누릅니다">NO</button>
         </div>
         <p class="mhGame__taunt" id="mhTaunt" aria-live="polite">&nbsp;</p>
 
@@ -780,12 +778,14 @@ title: "김유진 포트폴리오"
 
     if (game && yesBtn && noBtn && taunt && reveal) {
         var taunts = [
-            '어딜 도망가~ 안 잡혀요 ㅋㅋ',
-            'NO는 못 눌러요!',
-            '포기하고 YES 누르실래요?',
-            '헛수고예요 😉',
-            '그냥 YES 누르세요~'
+            '어이쿠, 도망가야지 ㅋㅋㅋ',
+            '거의 잡았는데 아깝다~',
+            'NO는 원래 못 누르는 버튼이에요',
+            '그냥... YES 누르시는 게 어때요? 👀',
+            '얘는 안 잡혀요, 포기하세요',
+            '오늘도 무사히 도망 성공'
         ];
+        var lastDodge = 0;
 
         function placeNoRandomly() {
             var rect = game.getBoundingClientRect();
@@ -798,11 +798,14 @@ title: "김유진 포트폴리오"
         }
 
         function dodge() {
+            var now = Date.now();
+            if (now - lastDodge < 150) return; // 연타/연속 이벤트로 인한 겹침·오클릭 방지
+            lastDodge = now;
             placeNoRandomly();
             taunt.textContent = taunts[Math.floor(Math.random() * taunts.length)];
         }
 
-        placeNoRandomly(); // 시작 위치도 랜덤
+        // 시작 위치는 CSS 그대로 (YES와 나란히, 같은 모양) — 상호작용 전엔 절대 움직이지 않음
 
         /* 마우스: 커서가 가까이 오면 미리 도망 */
         game.addEventListener('mousemove', function (e) {

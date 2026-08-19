@@ -81,6 +81,11 @@ body {
     body {
         cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20'%3E%3Cpath d='M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z' fill='%23EF3167' stroke='white' stroke-width='1'/%3E%3C/svg%3E") 2 2, auto;
     }
+
+    // 클릭 가능한 요소는 별 모양으로 바뀌어서 "누를 수 있다"는 게 보이게
+    a, button {
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='22' height='22'%3E%3Cpath d='M12 2l2.9 6.9L22 9.6l-5.5 4.8L18 22l-6-3.6L6 22l1.5-7.6L2 9.6l7.1-.7L12 2z' fill='%23EF3167' stroke='white' stroke-width='1'/%3E%3C/svg%3E") 11 11, pointer;
+    }
 }
 
 img { max-width: 100%; height: auto; display: block; }
