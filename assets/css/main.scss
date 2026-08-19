@@ -12,6 +12,16 @@
     font-display: swap;
 }
 
+// 강조용 — font-weight:700을 걸면 DosStory에 굵은 글립이 없어서 브라우저가
+// 합성(faux) bold를 만드는데, 이게 픽셀폰트에서 뭉개져 보임. 그래서 굵기 대신
+// 이 폰트로 자체 교체.
+@font-face {
+    font-family: 'StoryBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2512-1@1.0/IyagiGGC.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
 :root {
     --pink-hot:    #EF3167; // 보더 전용 — 항상 이 색
     --pink-mid:    #FF779E;
@@ -25,6 +35,7 @@
     // 강조용/본문용 구분 없이 전부 동일 웹폰트로 통일 (무드 일관성 우선)
     --font-pixel: 'DosStory', 'Dotum', 'Gulim', monospace;
     --font-body:  'DosStory', 'Dotum', 'Gulim', monospace;
+    --font-bold:  'StoryBold', 'Dotum', 'Gulim', monospace;
 
     --border-w: 3px;
     --shadow-hard: 4px 4px 0 var(--pink-hot);
@@ -63,10 +74,12 @@ body {
     line-height: 1.7;
 }
 
-// ── 커스텀 커서 (반짝이 하트) — 실제 마우스 있는 기기에서만 ──
+// ── 커스텀 커서 (하트) — 실제 마우스 있는 기기에서만 ──
+// 이모지 폰트 대신 직접 그린 벡터 heart path 사용 (이모지는 OS별 컬러 글립이라
+// 작은 사이즈에서 가장자리가 뭉개져 보임 — 누끼 깨짐 원인)
 @media (hover: hover) and (pointer: fine) {
     body {
-        cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>💗</text></svg>") 4 4, auto;
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20'%3E%3Cpath d='M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z' fill='%23EF3167' stroke='white' stroke-width='1'/%3E%3C/svg%3E") 2 2, auto;
     }
 }
 
