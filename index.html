@@ -1,304 +1,8 @@
-<!doctype html>
-<html lang="ko">
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="format-detection" content="telephone=no"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
-
-    <!-- PG크로스브라우징필수내용 -->
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <!-- // PG크로스브라우징필수내용 -->
-
-    <title>김유진 포트폴리오</title>
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/common.css"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/layout.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-ui.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-button.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-tab.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-table.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-tooltip.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-help.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-fold.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-box.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-desc.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-product.css">
-  	<link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-prdInfo.css">
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/ec-base-paginate.css">
-
-    <link rel="stylesheet" href="/portfolio/custom/customStyle.css">
-
-	<style>html { scroll-behavior: smooth; }</style>
-	<link rel="preconnect" href="https://cdn.jsdelivr.net">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
-
-    <link rel="stylesheet" href="/portfolio/layout/basic/css/swiper.min.css">
-	<script src="/portfolio/layout/basic/js/swiper-bundle.min.js"></script>
-
-    <script src="/portfolio/custom/customJs.js"></script>
-</head>
-<body class="theme01" data-ez-theme="theme01">
-	<div id="wrap">
-        <style>
-/* ════════════════════════════
-   CUSTOM HEADER
-   ════════════════════════════ */
-#customHeader {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 9000;
-    padding: 0 48px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    /* 기본: 투명 */
-    background: transparent;
-    border-bottom: 1px solid transparent;
-
-    /* 상태 전환 */
-    transition:
-        background .35s ease,
-        border-color .35s ease,
-        backdrop-filter .35s ease,
-        -webkit-backdrop-filter .35s ease,
-        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
-#customHeader.is-scrolled {
-    background: rgba(13, 13, 13, 0.55);
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-/* ── 스크롤 내릴 때: 헤더 숨김 ── */
-#customHeader.is-hidden {
-    transform: translateY(-100%);
-}
-
-/* ── LOGO ── */
-.ch-logo {
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: -.01em;
-    color: #fff;
-    text-decoration: none;
-    line-height: 1;
-}
-.ch-logo span {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #D42B2B; /* 포인트 컬러 */
-    margin-left: 2px;
-    vertical-align: top;
-    margin-top: 3px;
-}
-
-/* ── NAV ── */
-.ch-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-    margin: 0; padding: 0;
-}
-.ch-nav a {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    text-decoration: none;
-    transition: color .2s;
-    position: relative;
-}
-.ch-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0;
-    width: 0; height: 1px;
-    background: #fff;
-    transition: width .25s ease;
-}
-.ch-nav a:hover { color: #fff; }
-.ch-nav a:hover::after { width: 100%; }
-
-/* ── 모바일 햄버거 ── */
-.ch-menu-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px; height: 36px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-}
-.ch-menu-btn span {
-    display: block;
-    height: 2px;
-    background: #fff;
-    border-radius: 2px;
-    transition: transform .3s, opacity .3s, width .3s;
-}
-.ch-menu-btn span:nth-child(2) { width: 65%; }
-.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
-.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ── 모바일 드로어 ── */
-.ch-drawer {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 8999;
-    background: rgba(13, 13, 13, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s ease;
-}
-.ch-drawer.is-open {
-    opacity: 1;
-    pointer-events: all;
-}
-.ch-drawer a {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -.02em;
-    color: rgba(255,255,255,.5);
-    text-decoration: none;
-    transition: color .2s;
-}
-.ch-drawer a:hover { color: #fff; }
-
-@media (max-width: 768px) {
-    #customHeader { padding: 0 24px; }
-    .ch-nav       { display: none; }
-    .ch-menu-btn  { display: flex; }
-}
-</style>
-
-<header id="customHeader">
-    <a href="/portfolio/" class="ch-logo">
-        김유진<span></span>
-    </a>
-
-    <nav>
-        <ul class="ch-nav">
-            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
-            <li><a href="/portfolio/project/list.html">Works</a></li>
-            <li><a href="/portfolio/#about">About</a></li>
-            <li><a href="/portfolio/#skills">Skills</a></li>
-            <li><a href="/portfolio/#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</header>
-
-<!-- 모바일 드로어 -->
-<nav class="ch-drawer" id="chDrawer">
-    <a href="/portfolio/project/list.html" onclick="closeDrawer()">Works</a>
-    <a href="/portfolio/#about"            onclick="closeDrawer()">About</a>
-    <a href="/portfolio/#skills"           onclick="closeDrawer()">Skills</a>
-    <a href="/portfolio/#contact"          onclick="closeDrawer()">Contact</a>
-</nav>
-
-<script>
-(function () {
-    var header   = document.getElementById('customHeader');
-    var menuBtn  = document.getElementById('chMenuBtn');
-    var drawer   = document.getElementById('chDrawer');
-    var lastY    = 0;
-    var ticking  = false;
-    var drawerOpen = false;
-
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-            ticking = true;
-        }
-    }
-
-    function update() {
-        var y = window.scrollY;
-
-        /* 투명 ↔ 글래스 */
-        if (y > 10) {
-            header.classList.add('is-scrolled');
-        } else {
-            header.classList.remove('is-scrolled');
-            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
-        }
-
-        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
-        if (y > 80) {
-            if (y > lastY) {
-                header.classList.add('is-hidden');
-            } else {
-                header.classList.remove('is-hidden');
-            }
-        }
-
-        lastY   = y;
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    /* 햄버거 / 드로어 */
-    function closeDrawer() {
-        drawerOpen = false;
-        menuBtn.classList.remove('is-open');
-        drawer.classList.remove('is-open');
-        document.body.style.overflow = '';
-    }
-
-    menuBtn.addEventListener('click', function () {
-        drawerOpen = !drawerOpen;
-        menuBtn.classList.toggle('is-open', drawerOpen);
-        drawer.classList.toggle('is-open', drawerOpen);
-        document.body.style.overflow = drawerOpen ? 'hidden' : '';
-    });
-
-    /* ESC로 드로어 닫기 */
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && drawerOpen) closeDrawer();
-    });
-
-    window.closeDrawer = closeDrawer;
-
-    /* 초기 상태 */
-    update();
-}());
-</script>
-
-        <div id="container">
-			<div id="contents">
-				<style>
+---
+layout: default
+title: "김유진 포트폴리오"
+---
+<style>
 /* ═══════════════════════════════
    RESET / TOKENS
 ═══════════════════════════════ */
@@ -833,7 +537,7 @@ ul  { list-style: none; }
             유지보수 가능한 퍼블리싱을 설계하는 퍼블리셔입니다.
         </p>
         <div class="ix-hero__cta">
-            <a href="/portfolio/project/list.html" class="ix-btn ix-btn--primary">Works 보기</a>
+            <a href="{{ '/project/list.html' | relative_url }}" class="ix-btn ix-btn--primary">Works 보기</a>
             <a href="#contact" class="ix-btn ix-btn--ghost">Contact</a>
         </div>
     </div>
@@ -908,7 +612,7 @@ ul  { list-style: none; }
                 <p class="ix-eyebrow">Works</p>
                 <h2 class="ix-title">Featured Projects</h2>
             </div>
-            <a href="/portfolio/project/list.html" class="ix-link-more">
+            <a href="{{ '/project/list.html' | relative_url }}" class="ix-link-more">
                 All Projects
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                     <path d="M2 12L12 2M12 2H6M12 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -919,7 +623,7 @@ ul  { list-style: none; }
         <div class="ix-works-grid">
 
             <!-- 01 타이어프로 -->
-            <a href="/portfolio/project/detail/tirepro.html" class="ix-pj js-fade" data-d="1">
+            <a href="{{ '/project/detail/tirepro.html' | relative_url }}" class="ix-pj js-fade" data-d="1">
                 <!-- 썸네일: /resource/img/pj-tirepro.jpg 교체 권장 -->
                 <div class="ix-pj__thumb">
                     <img loading="lazy" src="https://picsum.photos/seed/pj01/780/488" alt="타이어프로">
@@ -943,7 +647,7 @@ ul  { list-style: none; }
             </a>
 
             <!-- 02 조선 Taste & Style -->
-            <a href="/portfolio/project/detail/josun_tns.html" class="ix-pj js-fade" data-d="2">
+            <a href="{{ '/project/detail/josun_tns.html' | relative_url }}" class="ix-pj js-fade" data-d="2">
                 <!-- 썸네일: /resource/img/pj-joseon.jpg 교체 -->
                 <div class="ix-pj__thumb">
                     <img loading="lazy" src="https://picsum.photos/seed/pj02/780/488" alt="조선 Taste &amp; Style">
@@ -966,7 +670,7 @@ ul  { list-style: none; }
             </a>
 
             <!-- 03 판도라 주얼리 -->
-            <a href="/portfolio/project/detail/pandora.html" class="ix-pj js-fade" data-d="3">
+            <a href="{{ '/project/detail/pandora.html' | relative_url }}" class="ix-pj js-fade" data-d="3">
                 <!-- 썸네일: /resource/img/pj-pandora.jpg 교체 -->
                 <div class="ix-pj__thumb">
                     <img loading="lazy" src="https://picsum.photos/seed/pj03/780/488" alt="판도라 주얼리">
@@ -989,7 +693,7 @@ ul  { list-style: none; }
             </a>
 
             <!-- 04 카페24 디자인 스킨제작 -->
-            <a href="/portfolio/project/detail/cafe24_skin.html" class="ix-pj js-fade" data-d="4">
+            <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}" class="ix-pj js-fade" data-d="4">
                 <!-- 썸네일: /resource/img/pj-skin.jpg 교체 -->
                 <div class="ix-pj__thumb">
                     <img loading="lazy" src="https://picsum.photos/seed/pj04/780/488" alt="카페24 스킨제작">
@@ -1456,20 +1160,3 @@ ul  { list-style: none; }
 
 }());
 </script>
-
-			</div>
-		</div>
-</div><!-- //wrap -->
-
-	<div class="layer_shadow" id="layer_shadow"></div>
-	<div id="layoutDimmed" class="dimmed"></div>
-
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/sub_style.css">
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/sub_theme.css">
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/add_theme01.css">
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/add_theme02.css">
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/add_theme03.css">
-	<link rel="stylesheet" href="/portfolio/layout/basic/css/add_layout.css">
-
-</body>
-</html>

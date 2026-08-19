@@ -1,0 +1,248 @@
+<style>
+/* ════════════════════════════
+   CUSTOM HEADER
+   ════════════════════════════ */
+#customHeader {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 기본: 투명 */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* 상태 전환 */
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        -webkit-backdrop-filter .35s ease,
+        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
+#customHeader.is-scrolled {
+    background: rgba(13, 13, 13, 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 스크롤 내릴 때: 헤더 숨김 ── */
+#customHeader.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── LOGO ── */
+.ch-logo {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+}
+.ch-logo span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #D42B2B; /* 포인트 컬러 */
+    margin-left: 2px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* ── NAV ── */
+.ch-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.ch-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+    position: relative;
+}
+.ch-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: width .25s ease;
+}
+.ch-nav a:hover { color: #fff; }
+.ch-nav a:hover::after { width: 100%; }
+
+/* ── 모바일 햄버거 ── */
+.ch-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.ch-menu-btn span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+}
+.ch-menu-btn span:nth-child(2) { width: 65%; }
+.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
+.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 모바일 드로어 ── */
+.ch-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 8999;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.ch-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.ch-drawer a {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color .2s;
+}
+.ch-drawer a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+    #customHeader { padding: 0 24px; }
+    .ch-nav       { display: none; }
+    .ch-menu-btn  { display: flex; }
+}
+</style>
+
+<header id="customHeader">
+    <a href="{{ '/' | relative_url }}" class="ch-logo">
+        김유진<span></span>
+    </a>
+
+    <nav>
+        <ul class="ch-nav">
+            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
+            <li><a href="{{ '/project/list.html' | relative_url }}">Works</a></li>
+            <li><a href="{{ '/#about' | relative_url }}">About</a></li>
+            <li><a href="{{ '/#skills' | relative_url }}">Skills</a></li>
+            <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- 모바일 드로어 -->
+<nav class="ch-drawer" id="chDrawer">
+    <a href="{{ '/project/list.html' | relative_url }}" onclick="closeDrawer()">Works</a>
+    <a href="{{ '/#about' | relative_url }}"            onclick="closeDrawer()">About</a>
+    <a href="{{ '/#skills' | relative_url }}"           onclick="closeDrawer()">Skills</a>
+    <a href="{{ '/#contact' | relative_url }}"          onclick="closeDrawer()">Contact</a>
+</nav>
+
+<script>
+(function () {
+    var header   = document.getElementById('customHeader');
+    var menuBtn  = document.getElementById('chMenuBtn');
+    var drawer   = document.getElementById('chDrawer');
+    var lastY    = 0;
+    var ticking  = false;
+    var drawerOpen = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    function update() {
+        var y = window.scrollY;
+
+        /* 투명 ↔ 글래스 */
+        if (y > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
+        }
+
+        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
+        if (y > 80) {
+            if (y > lastY) {
+                header.classList.add('is-hidden');
+            } else {
+                header.classList.remove('is-hidden');
+            }
+        }
+
+        lastY   = y;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* 햄버거 / 드로어 */
+    function closeDrawer() {
+        drawerOpen = false;
+        menuBtn.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        drawerOpen = !drawerOpen;
+        menuBtn.classList.toggle('is-open', drawerOpen);
+        drawer.classList.toggle('is-open', drawerOpen);
+        document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    });
+
+    /* ESC로 드로어 닫기 */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawerOpen) closeDrawer();
+    });
+
+    window.closeDrawer = closeDrawer;
+
+    /* 초기 상태 */
+    update();
+}());
+</script>

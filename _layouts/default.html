@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+    <!-- PG크로스브라우징필수내용 -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- // PG크로스브라우징필수내용 -->
+
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/layout/basic/css/common.css' | relative_url }}"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <link rel="stylesheet" href="{{ '/layout/basic/css/layout.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-ui.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-button.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-tab.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-table.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-tooltip.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-help.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-fold.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-box.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-desc.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-product.css' | relative_url }}">
+  	<link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-prdInfo.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/layout/basic/css/ec-base-paginate.css' | relative_url }}">
+
+    <link rel="stylesheet" href="{{ '/custom/customStyle.css' | relative_url }}">
+
+	<style>html { scroll-behavior: smooth; }</style>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+    <link rel="stylesheet" href="{{ '/layout/basic/css/swiper.min.css' | relative_url }}">
+	<script src="{{ '/layout/basic/js/swiper-bundle.min.js' | relative_url }}"></script>
+
+    <script src="{{ '/custom/customJs.js' | relative_url }}"></script>
+</head>
+<body class="theme01" data-ez-theme="theme01">
+	<div id="wrap">
+        {% include header.html %}
+        <div id="container">
+			<div id="contents">
+				{{ content }}
+			</div>
+		</div>
+</div><!-- //wrap -->
+
+	<div class="layer_shadow" id="layer_shadow"></div>
+	<div id="layoutDimmed" class="dimmed"></div>
+
+	<link rel="stylesheet" href="{{ '/layout/basic/css/sub_style.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/layout/basic/css/sub_theme.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/layout/basic/css/add_theme01.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/layout/basic/css/add_theme02.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/layout/basic/css/add_theme03.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/layout/basic/css/add_layout.css' | relative_url }}">
+
+</body>
+</html>
