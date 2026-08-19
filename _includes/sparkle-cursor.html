@@ -1,0 +1,42 @@
+<style>
+.sparkle {
+    position: fixed;
+    z-index: 99999;
+    pointer-events: none;
+    font-family: var(--font-pixel);
+    font-size: 14px;
+    line-height: 1;
+    animation: sparkleLife .7s steps(6) forwards;
+}
+@keyframes sparkleLife {
+    0%   { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-18px) scale(.4); }
+}
+</style>
+
+<script>
+(function () {
+    'use strict';
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var glyphs = ['★', '☆', '✦', '✧', '♥'];
+    var colors = ['var(--pink-hot)', 'var(--pink-mid)', 'var(--pink-cherry)'];
+    var last = 0;
+
+    document.addEventListener('mousemove', function (e) {
+        var now = Date.now();
+        if (now - last < 60) return; // 스로틀 — 촘촘한 스트림 대신 뚝뚝 끊기는 반짝임
+        last = now;
+
+        var s = document.createElement('span');
+        s.className = 'sparkle';
+        s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+        s.style.left = (e.clientX + (Math.random() * 16 - 8)) + 'px';
+        s.style.top = (e.clientY + (Math.random() * 16 - 8)) + 'px';
+        s.style.color = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(s);
+        setTimeout(function () { s.remove(); }, 700);
+    });
+}());
+</script>

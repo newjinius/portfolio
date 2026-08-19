@@ -63,6 +63,13 @@ body {
     line-height: 1.7;
 }
 
+// ── 커스텀 커서 (반짝이 하트) — 실제 마우스 있는 기기에서만 ──
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>💗</text></svg>") 4 4, auto;
+    }
+}
+
 img { max-width: 100%; height: auto; display: block; }
 a   { color: inherit; text-decoration: none; }
 ul  { list-style: none; margin: 0; padding: 0; }
@@ -94,7 +101,6 @@ ul  { list-style: none; margin: 0; padding: 0; }
     border: var(--border-w) solid var(--pink-hot);
     box-shadow: var(--shadow-hard);
     font-size: 15px;
-    cursor: pointer;
     transition: none;
 }
 .retroBtn:hover { background: var(--pink-hot); }
