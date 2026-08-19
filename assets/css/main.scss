@@ -22,8 +22,9 @@
     --ink:         #3a0f22;
     --white:       #fffafc;
 
+    // 강조용/본문용 구분 없이 전부 동일 웹폰트로 통일 (무드 일관성 우선)
     --font-pixel: 'DosStory', 'Dotum', 'Gulim', monospace;
-    --font-body:  'Dotum', 'Gulim', 'Malgun Gothic', sans-serif;
+    --font-body:  'DosStory', 'Dotum', 'Gulim', monospace;
 
     --border-w: 3px;
     --shadow-hard: 4px 4px 0 var(--pink-hot);

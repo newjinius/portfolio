@@ -668,12 +668,14 @@ title: "김유진 포트폴리오"
         var i = 0;
         nameEl.textContent = '';
         nameEl.appendChild(cursor);
-        var typer = setInterval(function () {
-            i++;
-            nameEl.textContent = full.slice(0, i);
-            nameEl.appendChild(cursor);
-            if (i >= full.length) clearInterval(typer);
-        }, 180);
+        setTimeout(function () {
+            var typer = setInterval(function () {
+                i++;
+                nameEl.textContent = full.slice(0, i);
+                nameEl.appendChild(cursor);
+                if (i >= full.length) clearInterval(typer);
+            }, 260);
+        }, 400);
     }
 
     /* ── 2. 스크롤 등장 (즉시 pop-in, easing 없음) ── */
