@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+    <!-- PG크로스브라우징필수내용 -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- // PG크로스브라우징필수내용 -->
+
+    <title>Ryan — 김유진 포트폴리오</title>
+    <link rel="stylesheet" href="/layout/basic/css/common.css"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <link rel="stylesheet" href="/layout/basic/css/layout.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-ui.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-button.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tab.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-table.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tooltip.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-help.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-fold.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-box.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-desc.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-product.css">
+  	<link rel="stylesheet" href="/layout/basic/css/ec-base-prdInfo.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-paginate.css">
+
+    <link rel="stylesheet" href="/custom/customStyle.css">
+
+	<style>html { scroll-behavior: smooth; }</style>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+    <link rel="stylesheet" href="/layout/basic/css/swiper.min.css">
+	<script src="/layout/basic/js/swiper-bundle.min.js"></script>
+
+    <script src="/custom/customJs.js"></script>
+</head>
+<body class="theme01" data-ez-theme="theme01">
+	<div id="wrap">
+        <style>
+/* ════════════════════════════
+   CUSTOM HEADER
+   ════════════════════════════ */
+#customHeader {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 기본: 투명 */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* 상태 전환 */
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        -webkit-backdrop-filter .35s ease,
+        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
+#customHeader.is-scrolled {
+    background: rgba(13, 13, 13, 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 스크롤 내릴 때: 헤더 숨김 ── */
+#customHeader.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── LOGO ── */
+.ch-logo {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+}
+.ch-logo span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #D42B2B; /* 포인트 컬러 */
+    margin-left: 2px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* ── NAV ── */
+.ch-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.ch-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+    position: relative;
+}
+.ch-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: width .25s ease;
+}
+.ch-nav a:hover { color: #fff; }
+.ch-nav a:hover::after { width: 100%; }
+
+/* ── 모바일 햄버거 ── */
+.ch-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.ch-menu-btn span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+}
+.ch-menu-btn span:nth-child(2) { width: 65%; }
+.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
+.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 모바일 드로어 ── */
+.ch-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 8999;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.ch-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.ch-drawer a {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color .2s;
+}
+.ch-drawer a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+    #customHeader { padding: 0 24px; }
+    .ch-nav       { display: none; }
+    .ch-menu-btn  { display: flex; }
+}
+</style>
+
+<header id="customHeader">
+    <a href="/" class="ch-logo">
+        김유진<span></span>
+    </a>
+
+    <nav>
+        <ul class="ch-nav">
+            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
+            <li><a href="/project/list.html">Works</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- 모바일 드로어 -->
+<nav class="ch-drawer" id="chDrawer">
+    <a href="/project/list.html" onclick="closeDrawer()">Works</a>
+    <a href="/#about"            onclick="closeDrawer()">About</a>
+    <a href="/#skills"           onclick="closeDrawer()">Skills</a>
+    <a href="/#contact"          onclick="closeDrawer()">Contact</a>
+</nav>
+
+<script>
+(function () {
+    var header   = document.getElementById('customHeader');
+    var menuBtn  = document.getElementById('chMenuBtn');
+    var drawer   = document.getElementById('chDrawer');
+    var lastY    = 0;
+    var ticking  = false;
+    var drawerOpen = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    function update() {
+        var y = window.scrollY;
+
+        /* 투명 ↔ 글래스 */
+        if (y > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
+        }
+
+        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
+        if (y > 80) {
+            if (y > lastY) {
+                header.classList.add('is-hidden');
+            } else {
+                header.classList.remove('is-hidden');
+            }
+        }
+
+        lastY   = y;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* 햄버거 / 드로어 */
+    function closeDrawer() {
+        drawerOpen = false;
+        menuBtn.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        drawerOpen = !drawerOpen;
+        menuBtn.classList.toggle('is-open', drawerOpen);
+        drawer.classList.toggle('is-open', drawerOpen);
+        document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    });
+
+    /* ESC로 드로어 닫기 */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawerOpen) closeDrawer();
+    });
+
+    window.closeDrawer = closeDrawer;
+
+    /* 초기 상태 */
+    update();
+}());
+</script>
+
+        <div id="container">
+			<div id="contents">
+				<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --black:   #0d0d0d;
+    --white:   #f5f5f3;
+    --accent:  #E8A598;
+    --g100: #1a1a1a;
+    --g200: #2a2a2a;
+    --g400: #555;
+    --g600: #888;
+    --g800: #ccc;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black); color: var(--white);
+    overflow-x: hidden; line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+#pjProgress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: var(--accent); z-index: 9999;
+    transition: width .1s linear;
+}
+
+/* ── HERO ── */
+.pj-hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden;
+}
+.pj-hero__bg {
+    position: absolute; inset: 0;
+    /* 히어로 배경: 리안베이비 메인 화면 스크린샷 (권장 1920×1080) */
+    background: url('https://picsum.photos/seed/rb-hero/1920/1080') center/cover no-repeat;
+    opacity: .3;
+    animation: kenBurns 8s var(--ease) forwards;
+}
+@keyframes kenBurns { from { transform: scale(1.08); } to { transform: scale(1); } }
+.pj-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+        rgba(13,13,13,1) 0%, rgba(13,13,13,.5) 55%, rgba(13,13,13,.15) 100%);
+}
+.pj-hero__body { position: relative; z-index: 2; padding: 0 80px 80px; }
+.pj-hero__cat {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 24px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .8s var(--ease) .3s forwards;
+}
+.pj-hero__cat::before { content: ''; display: block; width: 22px; height: 2px; background: var(--accent); }
+.pj-hero__title {
+    font-size: clamp(52px, 8.5vw, 128px);
+    font-weight: 900; line-height: .95; letter-spacing: -.035em; margin-bottom: 36px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp .9s var(--ease) .45s forwards;
+}
+.pj-hero__title em {
+    display: block; font-style: normal;
+    font-size: .28em; font-weight: 400; color: var(--g600);
+    letter-spacing: .06em; margin-bottom: 6px;
+}
+.pj-hero__meta {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .9s var(--ease) .6s forwards;
+}
+.pj-hero__meta-item strong {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--g600); margin-bottom: 3px;
+}
+.pj-hero__meta-item span { font-size: 15px; font-weight: 500; }
+.pj-hero__scroll {
+    position: absolute; bottom: 48px; right: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--g600);
+    opacity: 0; animation: fadeUp 1s var(--ease) 1s forwards;
+}
+.pj-hero__scroll-line {
+    width: 1px; height: 40px; background: var(--g400);
+    animation: scrollPulse 1.6s ease-in-out infinite;
+}
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+@keyframes scrollPulse { 0%,100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(.4); opacity: .3; } }
+
+/* ── OVERVIEW ── */
+.pj-overview {
+    padding: 120px 80px; max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start;
+}
+.pj-overview__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+}
+.pj-overview__bignum {
+    font-size: clamp(72px, 11vw, 144px); font-weight: 900; line-height: .85;
+    color: var(--g200); letter-spacing: -.04em; margin-bottom: 44px;
+}
+.pj-overview__infolist { display: flex; flex-direction: column; }
+.pj-overview__info {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 18px 0; border-bottom: 1px solid var(--g200);
+}
+.pj-overview__info:first-child { padding-top: 0; }
+.pj-overview__info-k {
+    font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--g600);
+}
+.pj-overview__info-v { font-size: 15px; font-weight: 500; }
+.pj-overview__desc {
+    font-size: clamp(17px, 1.8vw, 24px); font-weight: 400; line-height: 1.75;
+    color: var(--g800); margin-bottom: 36px;
+}
+.pj-overview__desc strong { color: var(--white); font-weight: 600; }
+
+/* 관련 프로젝트 배지 */
+.pj-related {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    background: var(--g100); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 32px;
+}
+.pj-related__label {
+    font-size: 10px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--g600);
+}
+.pj-related__link {
+    font-size: 13px; font-weight: 600;
+    color: var(--accent);
+    text-decoration: underline; text-underline-offset: 3px;
+}
+.pj-related__link:hover { opacity: .75; }
+
+.pj-overview__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 44px; }
+.pj-overview__tag {
+    padding: 5px 14px; border: 1px solid var(--g200); border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--g600);
+    transition: border-color .2s, color .2s;
+}
+.pj-overview__tag:hover { border-color: var(--accent); color: var(--accent); }
+.pj-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px; background: var(--accent); color: #0d0d0d;
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    border-radius: 4px; transition: background .2s, transform .2s;
+}
+.pj-btn:hover { background: #d08e80; transform: translateY(-2px); }
+.pj-btn svg { transition: transform .2s; }
+.pj-btn:hover svg { transform: translate(3px,-3px); }
+
+/* ── FULL IMG ── */
+.pj-fullimg { width: 100%; overflow: hidden; line-height: 0; }
+.pj-fullimg img {
+    width: 100%; height: clamp(280px, 40vw, 680px); object-fit: cover;
+    transition: transform .7s var(--ease);
+}
+.pj-fullimg:hover img { transform: scale(1.02); }
+
+/* ── SECTION ── */
+.pj-sec { padding: 120px 80px; max-width: 1400px; margin: 0 auto; }
+.pj-sec__hd {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    padding-bottom: 40px; border-bottom: 1px solid var(--g200); margin-bottom: 80px;
+}
+.pj-sec__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+}
+.pj-sec__title {
+    font-size: clamp(26px, 3.2vw, 44px); font-weight: 700;
+    letter-spacing: -.025em; line-height: 1.2;
+}
+.pj-sec__title em {
+    display: block; font-style: normal; font-size: .52em; font-weight: 400;
+    color: var(--g600); margin-bottom: 6px; letter-spacing: .02em;
+}
+
+/* ── FEATURE ── */
+.pj-feat {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    margin-bottom: 110px;
+}
+.pj-feat:last-child { margin-bottom: 0; }
+.pj-feat--rev { direction: rtl; }
+.pj-feat--rev > * { direction: ltr; }
+.pj-feat__img {
+    position: relative; border-radius: 12px; overflow: hidden;
+    background: var(--g100); aspect-ratio: 4/3;
+}
+.pj-feat__img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+.pj-feat__img:hover img { transform: scale(1.05); }
+.pj-feat__badge {
+    position: absolute; top: 18px; left: 18px;
+    padding: 5px 11px; background: var(--accent); color: #0d0d0d;
+    font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 4px;
+}
+.pj-feat__num {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-feat__title {
+    font-size: clamp(22px, 2.4vw, 32px); font-weight: 700; line-height: 1.25;
+    letter-spacing: -.02em; margin-bottom: 18px;
+}
+.pj-feat__desc { font-size: 15px; line-height: 1.85; color: var(--g800); margin-bottom: 26px; }
+.pj-feat__list { display: flex; flex-direction: column; gap: 10px; }
+.pj-feat__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--g800); line-height: 1.65;
+}
+.pj-feat__list li::before {
+    content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-top: 9px;
+}
+
+/* ── GALLERY ── */
+.pj-gallery { background: var(--g100); padding: 80px; }
+.pj-gallery__inner { max-width: 1400px; margin: 0 auto; }
+.pj-gallery__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-gallery__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -.02em; margin-bottom: 44px;
+}
+.pj-gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pj-gallery__item {
+    border-radius: 8px; overflow: hidden; background: var(--g200);
+    aspect-ratio: 16/10; position: relative;
+}
+.pj-gallery__item--wide { grid-column: span 2; }
+.pj-gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+.pj-gallery__item:hover img { transform: scale(1.04); }
+.pj-gallery__caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 18px;
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+    font-size: 12px; color: #fff; opacity: 0; transition: opacity .3s;
+}
+.pj-gallery__item:hover .pj-gallery__caption { opacity: 1; }
+
+/* ── MOBILE ── */
+.pj-mobile { padding: 120px 80px; background: linear-gradient(135deg, var(--g100), var(--black)); overflow: clip; }
+.pj-mobile__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.pj-mobile__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-mobile__title { font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; line-height: 1.2; letter-spacing: -.025em; margin-bottom: 22px; }
+.pj-mobile__desc { font-size: 15px; color: var(--g800); line-height: 1.85; margin-bottom: 36px; }
+.pj-mobile__checklist { display: flex; flex-direction: column; gap: 14px; }
+.pj-mobile__check {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px; background: var(--g200); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+.pj-mobile__check-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.pj-mobile__check strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.pj-mobile__check span  { font-size: 13px; color: var(--g600); }
+.pj-phones {
+    display: flex; gap: 16px; justify-content: center; align-items: flex-end;
+    perspective: 1000px;
+}
+.pj-phone {
+    width: 190px; border-radius: 32px; overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,.6); transition: transform .4s var(--ease);
+}
+.pj-phone:nth-child(1) { transform: rotate(-4deg) translateY(16px); }
+.pj-phone:nth-child(2) { transform: rotate(1deg) translateY(-24px); }
+.pj-phone:nth-child(3) { transform: rotate(4deg) translateY(10px); }
+.pj-phone:hover { transform: rotate(0) scale(1.06) !important; }
+.pj-phone img { width: 100%; aspect-ratio: 9/19; object-fit: cover; }
+
+/* ── CONTRIBUTION ── */
+.pj-contrib { padding: 120px 80px; max-width: 1400px; margin: 0 auto; }
+.pj-contrib__hd { margin-bottom: 56px; }
+.pj-contrib__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-contrib__title { font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; letter-spacing: -.025em; }
+.pj-contrib__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pj-card {
+    padding: 32px; background: var(--g100); border-radius: 12px;
+    border-top: 3px solid var(--g200); transition: border-color .25s, transform .25s;
+}
+.pj-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.pj-card__num { font-size: 36px; font-weight: 900; color: var(--g200); margin-bottom: 16px; line-height: 1; }
+.pj-card__title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.pj-card__desc  { font-size: 13px; color: var(--g600); line-height: 1.75; }
+
+/* ── STATS ── */
+.pj-stats { padding: 72px 80px; background: var(--accent); }
+.pj-stats__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;
+}
+.pj-stats__num {
+    font-size: clamp(40px, 5vw, 72px); font-weight: 900; line-height: 1;
+    letter-spacing: -.03em; margin-bottom: 8px; color: #0d0d0d;
+}
+.pj-stats__lbl { font-size: 13px; opacity: .7; color: #0d0d0d; }
+
+/* ── NAV ── */
+.pj-nav { border-top: 1px solid var(--g200); }
+.pj-nav__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; }
+.pj-nav__item {
+    padding: 60px 80px; display: flex; flex-direction: column; gap: 8px;
+    transition: background .25s;
+}
+.pj-nav__item:first-child { border-right: 1px solid var(--g200); }
+.pj-nav__item:hover { background: var(--g100); }
+.pj-nav__dir { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--g600); }
+.pj-nav__name { font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; transition: color .2s; }
+.pj-nav__item:hover .pj-nav__name { color: var(--accent); }
+
+/* ── CONTENT-VISIBILITY ── */
+.pj-overview, .pj-fullimg, .pj-sec, .pj-gallery,
+.pj-mobile, .pj-contrib, .pj-stats, .pj-nav {
+    content-visibility: auto; contain-intrinsic-size: 0 600px;
+}
+
+/* ── JS-FADE ── */
+.js-fade {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.js-fade.is-left  { transform: translateX(-36px); }
+.js-fade.is-right { transform: translateX(36px); }
+.js-fade.in { opacity: 1; transform: none; }
+.js-fade:nth-child(2) { transition-delay: .08s; }
+.js-fade:nth-child(3) { transition-delay: .16s; }
+.js-fade:nth-child(4) { transition-delay: .24s; }
+.js-fade:nth-child(5) { transition-delay: .32s; }
+.js-fade:nth-child(6) { transition-delay: .40s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+    .pj-hero__body, .pj-overview, .pj-sec, .pj-contrib { padding-left: 48px; padding-right: 48px; }
+    .pj-gallery { padding: 60px 48px; }
+    .pj-mobile  { padding: 80px 48px; }
+    .pj-stats   { padding: 60px 48px; }
+    .pj-nav__item { padding: 52px 48px; }
+}
+@media (max-width: 900px) {
+    .pj-overview { grid-template-columns: 1fr; gap: 40px; }
+    .pj-feat, .pj-feat--rev { grid-template-columns: 1fr; direction: ltr; }
+    .pj-gallery__grid { grid-template-columns: 1fr 1fr; }
+    .pj-gallery__item--wide { grid-column: span 2; }
+    .pj-mobile__inner { grid-template-columns: 1fr; }
+    .pj-phones { margin-top: 48px; }
+    .pj-contrib__grid { grid-template-columns: 1fr 1fr; }
+    .pj-stats__inner  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .pj-hero__body { padding: 0 24px 48px; }
+    .pj-hero__scroll { right: 24px; }
+    .pj-overview, .pj-sec, .pj-contrib { padding: 72px 24px; }
+    .pj-gallery { padding: 60px 24px; }
+    .pj-mobile  { padding: 72px 24px; }
+    .pj-stats   { padding: 56px 24px; }
+    .pj-nav__item { padding: 40px 24px; }
+    .pj-nav__inner { grid-template-columns: 1fr; }
+    .pj-nav__item:first-child { border-right: none; border-bottom: 1px solid var(--g200); }
+    .pj-gallery__grid { grid-template-columns: 1fr; }
+    .pj-gallery__item--wide { grid-column: span 1; }
+    .pj-contrib__grid { grid-template-columns: 1fr; }
+    .pj-stats__inner  { grid-template-columns: 1fr 1fr; }
+    .pj-mobile { overflow: visible; }
+    .pj-phones {
+        margin: 32px -24px 0; padding: 16px 24px 32px;
+        justify-content: flex-start; align-items: center;
+        perspective: none; overflow-x: auto;
+        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; gap: 14px;
+    }
+    .pj-phones::-webkit-scrollbar { display: none; }
+    .pj-phone {
+        min-width: 62vw; width: 62vw; flex-shrink: 0;
+        scroll-snap-align: center; border-radius: 24px;
+        transform: none !important; box-shadow: 0 16px 40px rgba(0,0,0,.5);
+    }
+    .pj-phone:last-child { margin-right: 24px; }
+    .pj-phone:hover { transform: none !important; }
+    .pj-sec__hd { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<div id="pjProgress"></div>
+
+<!-- ══ HERO ══ -->
+<section class="pj-hero">
+    <!-- 배경: 리안베이비 메인 화면 스크린샷 (권장 1920×1080) -->
+    <div class="pj-hero__bg"></div>
+    <div class="pj-hero__overlay"></div>
+    <div class="pj-hero__body">
+        <p class="pj-hero__cat">Commerce · Baby Brand</p>
+        <h1 class="pj-hero__title">
+            <em>Project.</em>
+            RYAN BABY
+        </h1>
+        <div class="pj-hero__meta">
+            <div class="pj-hero__meta-item"><strong>Period</strong><span>2024.11 – 2024.12</span></div>
+            <div class="pj-hero__meta-item"><strong>Platform</strong><span>Cafe24</span></div>
+            <div class="pj-hero__meta-item"><strong>Role</strong><span>Web Publisher</span></div>
+            <div class="pj-hero__meta-item"><strong>Type</strong><span>Swiper · 영상 슬라이드 · 배너매니저</span></div>
+        </div>
+    </div>
+    <div class="pj-hero__scroll">
+        <div class="pj-hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ══ OVERVIEW ══ -->
+<section class="pj-overview">
+    <div class="js-fade">
+        <p class="pj-overview__eyebrow">Project Overview</p>
+        <div class="pj-overview__bignum">08</div>
+        <ul class="pj-overview__infolist">
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Period</span><span class="pj-overview__info-v">2024.11 – 2024.12</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Platform</span><span class="pj-overview__info-v">Cafe24 커스텀 스킨</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Role</span><span class="pj-overview__info-v">Web Publisher</span></li>
+            <li class="pj-overview__info" style="border-bottom:none;">
+                <span class="pj-overview__info-k">Website</span>
+                <a href="https://ryanbaby.co.kr/" target="_blank" class="pj-btn" style="margin-top:10px;width:fit-content;">
+                    사이트 방문하기
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="js-fade">
+        <p class="pj-overview__desc">
+            유모차·카시트·인홈 제품을 다루는 <strong>리안베이비</strong> 공식 쇼핑몰의 프론트엔드 개편을 담당했습니다.<br>
+            다양한 레이아웃의 Swiper 슬라이드, 유튜브 영상 미디어 슬라이드, 배너매니저 기반 헤더·라인업 운영 구조와 <strong>미디어 게시판 팝업 커스터마이징</strong>까지 커머스 전반의 사용자 경험을 개선했습니다.
+        </p>
+        <div class="pj-related js-fade">
+            <span class="pj-related__label">Related</span>
+            <span>같은 A-ONE 그룹 브랜드</span>
+            <a href="/project/detail/joie.html" class="pj-related__link">→ Joie Baby 프로젝트 보기</a>
+        </div>
+        <div class="pj-overview__tags">
+            <span class="pj-overview__tag">#Cafe24</span>
+            <span class="pj-overview__tag">#Swiper</span>
+            <span class="pj-overview__tag">#YouTube연동</span>
+            <span class="pj-overview__tag">#배너매니저</span>
+            <span class="pj-overview__tag">#게시판커스터마이징</span>
+            <span class="pj-overview__tag">#JavaScript</span>
+            <span class="pj-overview__tag">#HTML</span>
+            <span class="pj-overview__tag">#CSS</span>
+        </div>
+        <a href="https://ryanbaby.co.kr/" target="_blank" class="pj-btn">
+            사이트 방문하기
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- 풀이미지: 리안베이비 메인 or 라인업 화면 스크린샷 (권장 1920×700) -->
+<div class="pj-fullimg">
+    <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rb-full/1920/700" alt="리안베이비 메인">
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="pj-sec">
+    <div class="pj-sec__hd js-fade">
+        <div>
+            <p class="pj-sec__eyebrow">— Key Features</p>
+            <h2 class="pj-sec__title">
+                <em>주요 구현 기능</em>
+                슬라이드 · 영상 · 게시판 커스텀
+            </h2>
+        </div>
+    </div>
+
+    <!-- F01 -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: 다양한 레이아웃 Swiper 슬라이드 화면 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rb-f1/800/600" alt="Swiper 슬라이드">
+            <span class="pj-feat__badge">Swiper</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 01</p>
+            <h3 class="pj-feat__title">다양한 레이아웃의<br>Swiper 슬라이드 구현</h3>
+            <p class="pj-feat__desc">홈페이지 내 섹션별로 다른 슬라이드 레이아웃을 구현했습니다. 메인 히어로 풀스크린 슬라이드, 제품 카테고리 카드형 슬라이드, 연령별 추천 슬라이드 등 컨텍스트에 맞는 레이아웃을 각각 설계·구현했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>메인 히어로 / 제품 카드 / 리뷰 등 섹션별 Swiper 레이아웃 분리 구성</li>
+                <li>루프·자동재생·페이지네이션·내비게이션 옵션 커스터마이징</li>
+                <li>breakpoints 설정으로 PC·태블릿·모바일 각각 최적 슬라이드 수 대응</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- F02 -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: 헤더 카테고리 커스텀 or 라인업 페이지 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rb-f2/800/600" alt="헤더 카테고리 & 라인업">
+            <span class="pj-feat__badge">배너매니저</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 02</p>
+            <h3 class="pj-feat__title">배너매니저 기반<br>헤더 카테고리 & 라인업 관리</h3>
+            <p class="pj-feat__desc">Cafe24 배너매니저 앱을 활용해 헤더 카테고리 이미지·링크를 직접 관리할 수 있도록 구조를 재설계했습니다. 유모차·카시트·인홈·액세서리 등 제품 라인업 페이지도 배너매니저로 콘텐츠를 교체할 수 있어 개발 의존도를 줄였습니다.</p>
+            <ul class="pj-feat__list">
+                <li>헤더 GNB 카테고리 이미지·링크를 배너매니저로 관리하는 구조 구현</li>
+                <li>라인업 페이지 주요 콘텐츠 영역을 배너매니저 기반 CMS 구조로 전환</li>
+                <li>운영팀 직접 시즌·이벤트 콘텐츠 교체 — 개발 요청 없이 운영 가능</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- F03 -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: 유튜브 영상 미디어 슬라이드 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rb-f3/800/600" alt="유튜브 미디어 슬라이드">
+            <span class="pj-feat__badge">YouTube</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 03</p>
+            <h3 class="pj-feat__title">유튜브 영상 기반<br>미디어 슬라이드 구현</h3>
+            <p class="pj-feat__desc">리안 유튜브 채널의 제품 리뷰·사용 가이드 영상을 슬라이드 형태로 노출하는 미디어 섹션을 구현했습니다. 썸네일 슬라이드에서 영상 선택 시 인라인 재생 또는 팝업 형태로 전환되어 페이지 이탈 없이 콘텐츠를 소비할 수 있습니다.</p>
+            <ul class="pj-feat__list">
+                <li>YouTube IFrame API 연동 Swiper 미디어 슬라이드 구현</li>
+                <li>썸네일 선택 시 해당 영상으로 포커스 전환 + 인라인 재생</li>
+                <li>자동 썸네일 로드로 영상 업데이트 시 운영 편의성 확보</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- F04 -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: 미디어 게시판 팝업 커스터마이징 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rb-f4/800/600" alt="미디어 게시판 팝업">
+            <span class="pj-feat__badge">팝업 커스텀</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 04</p>
+            <h3 class="pj-feat__title">Cafe24 미디어 게시판<br>팝업 형태 커스터마이징</h3>
+            <p class="pj-feat__desc">Cafe24 기본 게시판을 영상 전용 미디어 게시판으로 재활용했습니다. 게시글 클릭 시 새 페이지로 이동하는 대신 팝업 레이어로 유튜브 영상과 상세 정보가 노출되도록 전면 커스터마이징하여 사용자 이탈을 최소화했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Cafe24 기본 미디어 게시판을 영상 팝업 전용으로 구조 재정의</li>
+                <li>게시글 클릭 시 페이지 이동 없이 레이어 팝업 형태로 영상 노출</li>
+                <li>게시판 데이터(제목·날짜·내용)를 팝업 레이아웃에 맞게 재배치</li>
+                <li>ESC 키·배경 클릭 닫기 등 UX 편의 기능 추가 구현</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<div class="pj-gallery">
+    <div class="pj-gallery__inner">
+        <p class="pj-gallery__eyebrow js-fade">Screen Gallery</p>
+        <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
+        <div class="pj-gallery__grid">
+            <!-- 이미지: 메인 히어로 슬라이드 화면 (대표, 넓게) -->
+            <div class="pj-gallery__item pj-gallery__item--wide js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg1/1200/750" alt="메인 히어로 슬라이드">
+                <span class="pj-gallery__caption">메인 히어로 슬라이드</span>
+            </div>
+            <!-- 이미지: 헤더 카테고리 커스텀 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg2/600/375" alt="헤더 카테고리">
+                <span class="pj-gallery__caption">헤더 카테고리 커스텀</span>
+            </div>
+            <!-- 이미지: 제품 카드 슬라이드 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg3/600/375" alt="제품 슬라이드">
+                <span class="pj-gallery__caption">제품 카드 슬라이드</span>
+            </div>
+            <!-- 이미지: 라인업 페이지 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg4/600/375" alt="라인업 페이지">
+                <span class="pj-gallery__caption">라인업 페이지</span>
+            </div>
+            <!-- 이미지: 유튜브 미디어 슬라이드 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg5/600/375" alt="유튜브 미디어 슬라이드">
+                <span class="pj-gallery__caption">유튜브 미디어 슬라이드</span>
+            </div>
+            <!-- 이미지: 미디어 게시판 팝업 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbg6/600/375" alt="미디어 팝업">
+                <span class="pj-gallery__caption">미디어 게시판 팝업</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ MOBILE ══ -->
+<div class="pj-mobile">
+    <div class="pj-mobile__inner">
+        <div>
+            <p class="pj-mobile__eyebrow js-fade">Responsive Design</p>
+            <h2 class="pj-mobile__title js-fade">어디서 봐도<br>편안한 쇼핑 경험</h2>
+            <p class="pj-mobile__desc js-fade">
+                유모차·카시트 같은 고관여 상품을 탐색하는 부모는 PC·모바일·태블릿을 넘나들며 비교합니다. 모든 Swiper 슬라이드와 영상 팝업이 디바이스별로 최적화되어 어느 화면에서도 동일한 품질의 경험을 제공합니다.
+            </p>
+            <div class="pj-mobile__checklist js-fade">
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">🎠</div>
+                    <div>
+                        <strong>반응형 Swiper</strong>
+                        <span>breakpoints별 슬라이드 수·간격 자동 조절 — 화면 크기에 맞는 레이아웃</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">📹</div>
+                    <div>
+                        <strong>모바일 영상 팝업</strong>
+                        <span>모바일에서도 풀스크린 팝업으로 YouTube 영상 최적화 재생</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">🧭</div>
+                    <div>
+                        <strong>터치 최적화 내비게이션</strong>
+                        <span>모바일 GNB 카테고리·라인업 이동 터치 UX 최적화</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pj-phones js-fade">
+            <!-- phone 1: 모바일 메인 화면 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbmob1/390/844" alt="모바일 메인"></div>
+            <!-- phone 2: 모바일 제품 슬라이드 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbmob2/390/844" alt="모바일 슬라이드"></div>
+            <!-- phone 3: 모바일 미디어 팝업 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/rbmob3/390/844" alt="모바일 팝업"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ CONTRIBUTION ══ -->
+<section class="pj-contrib">
+    <div class="pj-contrib__hd js-fade">
+        <p class="pj-contrib__eyebrow">My Contribution</p>
+        <h2 class="pj-contrib__title">담당 역할 요약</h2>
+    </div>
+    <div class="pj-contrib__grid">
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">01</div>
+            <h3 class="pj-card__title">섹션별 Swiper 구현</h3>
+            <p class="pj-card__desc">히어로·제품 카드·리뷰 등 각 섹션 컨텍스트에 맞는 Swiper 레이아웃 설계 및 반응형 breakpoints 구성</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">02</div>
+            <h3 class="pj-card__title">헤더 카테고리 커스텀</h3>
+            <p class="pj-card__desc">배너매니저 앱 기반으로 GNB 카테고리 이미지·링크를 운영팀이 직접 관리할 수 있는 구조로 재설계</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">03</div>
+            <h3 class="pj-card__title">라인업 페이지 CMS화</h3>
+            <p class="pj-card__desc">유모차·카시트 등 제품 라인업 페이지 콘텐츠를 배너매니저로 관리하는 CMS 구조로 전환</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">04</div>
+            <h3 class="pj-card__title">YouTube 미디어 슬라이드</h3>
+            <p class="pj-card__desc">YouTube IFrame API + Swiper 조합으로 제품 영상 슬라이드 구현, 썸네일 선택 시 인라인 재생</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">05</div>
+            <h3 class="pj-card__title">미디어 게시판 팝업 커스텀</h3>
+            <p class="pj-card__desc">Cafe24 기본 게시판을 영상 전용 팝업 레이어로 전면 커스터마이징, 페이지 이탈 없는 영상 소비 UX 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">06</div>
+            <h3 class="pj-card__title">반응형 UI 전반</h3>
+            <p class="pj-card__desc">전 기능에 걸쳐 PC·태블릿·모바일 3 디바이스 반응형 구현, 터치 UX 최적화</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="pj-stats">
+    <div class="pj-stats__inner">
+        <div class="js-fade"><div class="pj-stats__num">4</div><div class="pj-stats__lbl">핵심 구현 기능</div></div>
+        <div class="js-fade"><div class="pj-stats__num">2mo</div><div class="pj-stats__lbl">작업 기간</div></div>
+        <div class="js-fade"><div class="pj-stats__num">YT</div><div class="pj-stats__lbl">YouTube API 연동</div></div>
+        <div class="js-fade"><div class="pj-stats__num">3</div><div class="pj-stats__lbl">대응 디바이스</div></div>
+    </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="pj-nav">
+    <div class="pj-nav__inner">
+        <a href="/project/detail/speed_order.html" class="pj-nav__item">
+            <span class="pj-nav__dir">← Prev Project</span>
+            <span class="pj-nav__name">SPEED ORDER</span>
+        </a>
+        <a href="/project/detail/joie.html" class="pj-nav__item" style="text-align:right;">
+            <span class="pj-nav__dir">Next Project →</span>
+            <span class="pj-nav__name">JOIE BABY</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+(function () {
+    'use strict';
+    var bar = document.getElementById('pjProgress');
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    function updateBar(y) { if (bar) bar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%'; }
+    var fadeEls = document.querySelectorAll('.js-fade');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+    } else { fadeEls.forEach(function (el) { el.classList.add('in'); }); }
+    var ticking = false, lastScrollY = 0;
+    window.addEventListener('scroll', function () {
+        lastScrollY = window.scrollY;
+        if (!ticking) { requestAnimationFrame(function () { updateBar(lastScrollY); ticking = false; }); ticking = true; }
+    }, { passive: true });
+    lastScrollY = window.scrollY; updateBar(lastScrollY);
+}());
+</script>
+
+			</div>
+		</div>
+</div><!-- //wrap -->
+
+	<div class="layer_shadow" id="layer_shadow"></div>
+	<div id="layoutDimmed" class="dimmed"></div>
+
+	<link rel="stylesheet" href="/layout/basic/css/sub_style.css">
+	<link rel="stylesheet" href="/layout/basic/css/sub_theme.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme01.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme02.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme03.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_layout.css">
+
+</body>
+</html>

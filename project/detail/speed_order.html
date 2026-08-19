@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+    <!-- PG크로스브라우징필수내용 -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- // PG크로스브라우징필수내용 -->
+
+    <title>Speed Order — 김유진 포트폴리오</title>
+    <link rel="stylesheet" href="/layout/basic/css/common.css"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <link rel="stylesheet" href="/layout/basic/css/layout.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-ui.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-button.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tab.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-table.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tooltip.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-help.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-fold.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-box.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-desc.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-product.css">
+  	<link rel="stylesheet" href="/layout/basic/css/ec-base-prdInfo.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-paginate.css">
+
+    <link rel="stylesheet" href="/custom/customStyle.css">
+
+	<style>html { scroll-behavior: smooth; }</style>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+    <link rel="stylesheet" href="/layout/basic/css/swiper.min.css">
+	<script src="/layout/basic/js/swiper-bundle.min.js"></script>
+
+    <script src="/custom/customJs.js"></script>
+</head>
+<body class="theme01" data-ez-theme="theme01">
+	<div id="wrap">
+        <style>
+/* ════════════════════════════
+   CUSTOM HEADER
+   ════════════════════════════ */
+#customHeader {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 기본: 투명 */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* 상태 전환 */
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        -webkit-backdrop-filter .35s ease,
+        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
+#customHeader.is-scrolled {
+    background: rgba(13, 13, 13, 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 스크롤 내릴 때: 헤더 숨김 ── */
+#customHeader.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── LOGO ── */
+.ch-logo {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+}
+.ch-logo span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #D42B2B; /* 포인트 컬러 */
+    margin-left: 2px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* ── NAV ── */
+.ch-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.ch-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+    position: relative;
+}
+.ch-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: width .25s ease;
+}
+.ch-nav a:hover { color: #fff; }
+.ch-nav a:hover::after { width: 100%; }
+
+/* ── 모바일 햄버거 ── */
+.ch-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.ch-menu-btn span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+}
+.ch-menu-btn span:nth-child(2) { width: 65%; }
+.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
+.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 모바일 드로어 ── */
+.ch-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 8999;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.ch-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.ch-drawer a {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color .2s;
+}
+.ch-drawer a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+    #customHeader { padding: 0 24px; }
+    .ch-nav       { display: none; }
+    .ch-menu-btn  { display: flex; }
+}
+</style>
+
+<header id="customHeader">
+    <a href="/" class="ch-logo">
+        김유진<span></span>
+    </a>
+
+    <nav>
+        <ul class="ch-nav">
+            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
+            <li><a href="/project/list.html">Works</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- 모바일 드로어 -->
+<nav class="ch-drawer" id="chDrawer">
+    <a href="/project/list.html" onclick="closeDrawer()">Works</a>
+    <a href="/#about"            onclick="closeDrawer()">About</a>
+    <a href="/#skills"           onclick="closeDrawer()">Skills</a>
+    <a href="/#contact"          onclick="closeDrawer()">Contact</a>
+</nav>
+
+<script>
+(function () {
+    var header   = document.getElementById('customHeader');
+    var menuBtn  = document.getElementById('chMenuBtn');
+    var drawer   = document.getElementById('chDrawer');
+    var lastY    = 0;
+    var ticking  = false;
+    var drawerOpen = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    function update() {
+        var y = window.scrollY;
+
+        /* 투명 ↔ 글래스 */
+        if (y > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
+        }
+
+        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
+        if (y > 80) {
+            if (y > lastY) {
+                header.classList.add('is-hidden');
+            } else {
+                header.classList.remove('is-hidden');
+            }
+        }
+
+        lastY   = y;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* 햄버거 / 드로어 */
+    function closeDrawer() {
+        drawerOpen = false;
+        menuBtn.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        drawerOpen = !drawerOpen;
+        menuBtn.classList.toggle('is-open', drawerOpen);
+        drawer.classList.toggle('is-open', drawerOpen);
+        document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    });
+
+    /* ESC로 드로어 닫기 */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawerOpen) closeDrawer();
+    });
+
+    window.closeDrawer = closeDrawer;
+
+    /* 초기 상태 */
+    update();
+}());
+</script>
+
+        <div id="container">
+			<div id="contents">
+				<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --black:   #0d0d0d;
+    --white:   #f5f5f3;
+    --accent:  #E8712A;
+    --g100: #1a1a1a;
+    --g200: #2a2a2a;
+    --g400: #555;
+    --g600: #888;
+    --g800: #ccc;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* ── PROGRESS ── */
+#pjProgress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: var(--accent);
+    z-index: 9999;
+    transition: width .1s linear;
+}
+
+/* ── HERO ── */
+.pj-hero {
+    position: relative;
+    height: 100vh; min-height: 600px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden;
+}
+.pj-hero__bg {
+    position: absolute; inset: 0;
+    /* 히어로 배경: 스피드랙 주문 화면 or 랙 이미지 (권장 1920×1080) */
+    background: url('https://picsum.photos/seed/sr-hero/1920/1080') center/cover no-repeat;
+    opacity: .3;
+    animation: kenBurns 8s var(--ease) forwards;
+}
+@keyframes kenBurns {
+    from { transform: scale(1.08); }
+    to   { transform: scale(1); }
+}
+.pj-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+        rgba(13,13,13,1) 0%,
+        rgba(13,13,13,.5) 55%,
+        rgba(13,13,13,.15) 100%);
+}
+.pj-hero__body {
+    position: relative; z-index: 2;
+    padding: 0 80px 80px;
+}
+.pj-hero__cat {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .8s var(--ease) .3s forwards;
+}
+.pj-hero__cat::before {
+    content: ''; display: block;
+    width: 22px; height: 2px; background: var(--accent);
+}
+.pj-hero__title {
+    font-size: clamp(52px, 8.5vw, 128px);
+    font-weight: 900; line-height: .95;
+    letter-spacing: -.035em;
+    margin-bottom: 36px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp .9s var(--ease) .45s forwards;
+}
+.pj-hero__title em {
+    display: block; font-style: normal;
+    font-size: .28em; font-weight: 400;
+    color: var(--g600); letter-spacing: .06em;
+    margin-bottom: 6px;
+}
+.pj-hero__meta {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .9s var(--ease) .6s forwards;
+}
+.pj-hero__meta-item strong {
+    display: block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--g600); margin-bottom: 3px;
+}
+.pj-hero__meta-item span { font-size: 15px; font-weight: 500; }
+
+.pj-hero__scroll {
+    position: absolute; bottom: 48px; right: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--g600);
+    opacity: 0; animation: fadeUp 1s var(--ease) 1s forwards;
+}
+.pj-hero__scroll-line {
+    width: 1px; height: 40px; background: var(--g400);
+    animation: scrollPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes fadeUp   { to { opacity: 1; transform: none; } }
+@keyframes scrollPulse {
+    0%,100% { transform: scaleY(1); opacity: 1; }
+    50%      { transform: scaleY(.4); opacity: .3; }
+}
+
+/* ── OVERVIEW ── */
+.pj-overview {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px;
+    align-items: start;
+}
+.pj-overview__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+}
+.pj-overview__bignum {
+    font-size: clamp(72px, 11vw, 144px);
+    font-weight: 900; line-height: .85;
+    color: var(--g200); letter-spacing: -.04em;
+    margin-bottom: 44px;
+}
+.pj-overview__infolist { display: flex; flex-direction: column; gap: 0; }
+.pj-overview__info {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--g200);
+}
+.pj-overview__info:first-child { padding-top: 0; }
+.pj-overview__info-k {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--g600);
+}
+.pj-overview__info-v { font-size: 15px; font-weight: 500; }
+
+.pj-overview__desc {
+    font-size: clamp(17px, 1.8vw, 24px);
+    font-weight: 400; line-height: 1.75;
+    color: var(--g800); margin-bottom: 36px;
+}
+.pj-overview__desc strong { color: var(--white); font-weight: 600; }
+
+.pj-overview__tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 44px;
+}
+.pj-overview__tag {
+    padding: 5px 14px;
+    border: 1px solid var(--g200); border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--g600);
+    transition: border-color .2s, color .2s;
+}
+.pj-overview__tag:hover { border-color: var(--accent); color: var(--accent); }
+
+.pj-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    border-radius: 4px;
+    transition: background .2s, transform .2s;
+}
+.pj-btn:hover { background: #c95e1e; transform: translateY(-2px); }
+.pj-btn svg { transition: transform .2s; }
+.pj-btn:hover svg { transform: translate(3px,-3px); }
+
+/* ── FULL-WIDTH IMAGE ── */
+.pj-fullimg { width: 100%; overflow: hidden; line-height: 0; }
+.pj-fullimg img {
+    width: 100%;
+    height: clamp(280px, 40vw, 680px);
+    object-fit: cover;
+    transition: transform .7s var(--ease);
+}
+.pj-fullimg:hover img { transform: scale(1.02); }
+
+/* ── SECTION HEADER ── */
+.pj-sec {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+}
+.pj-sec__hd {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--g200);
+    margin-bottom: 80px;
+}
+.pj-sec__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+}
+.pj-sec__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; letter-spacing: -.025em; line-height: 1.2;
+}
+.pj-sec__title em {
+    display: block; font-style: normal;
+    font-size: .52em; font-weight: 400;
+    color: var(--g600); margin-bottom: 6px; letter-spacing: .02em;
+}
+
+/* ── FEATURE BLOCK ── */
+.pj-feat {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    margin-bottom: 110px;
+}
+.pj-feat:last-child { margin-bottom: 0; }
+.pj-feat--rev { direction: rtl; }
+.pj-feat--rev > * { direction: ltr; }
+
+.pj-feat__img {
+    position: relative; border-radius: 12px; overflow: hidden;
+    background: var(--g100); aspect-ratio: 4/3;
+}
+.pj-feat__img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+.pj-feat__img:hover img { transform: scale(1.05); }
+
+.pj-feat__badge {
+    position: absolute; top: 18px; left: 18px;
+    padding: 5px 11px;
+    background: var(--accent); color: #fff;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.pj-feat__num {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-feat__title {
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 700; line-height: 1.25;
+    letter-spacing: -.02em; margin-bottom: 18px;
+}
+.pj-feat__desc {
+    font-size: 15px; line-height: 1.85;
+    color: var(--g800); margin-bottom: 26px;
+}
+.pj-feat__list { display: flex; flex-direction: column; gap: 10px; }
+.pj-feat__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--g800); line-height: 1.65;
+}
+.pj-feat__list li::before {
+    content: ''; flex-shrink: 0;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-top: 9px;
+}
+
+/* ── GALLERY ── */
+.pj-gallery { background: var(--g100); padding: 80px; }
+.pj-gallery__inner { max-width: 1400px; margin: 0 auto; }
+.pj-gallery__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-gallery__title {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 700; letter-spacing: -.02em; margin-bottom: 44px;
+}
+.pj-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.pj-gallery__item {
+    border-radius: 8px; overflow: hidden;
+    background: var(--g200); aspect-ratio: 16/10;
+    position: relative;
+}
+.pj-gallery__item--wide { grid-column: span 2; }
+.pj-gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+.pj-gallery__item:hover img { transform: scale(1.04); }
+.pj-gallery__caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 18px;
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+    font-size: 12px; color: #fff;
+    opacity: 0; transition: opacity .3s;
+}
+.pj-gallery__item:hover .pj-gallery__caption { opacity: 1; }
+
+/* ── MOBILE SHOWCASE ── */
+.pj-mobile {
+    padding: 120px 80px;
+    background: linear-gradient(135deg, var(--g100), var(--black));
+    overflow: clip;
+}
+.pj-mobile__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+}
+.pj-mobile__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-mobile__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -.025em; margin-bottom: 22px;
+}
+.pj-mobile__desc {
+    font-size: 15px; color: var(--g800);
+    line-height: 1.85; margin-bottom: 36px;
+}
+.pj-mobile__checklist { display: flex; flex-direction: column; gap: 14px; }
+.pj-mobile__check {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    background: var(--g200); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+.pj-mobile__check-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.pj-mobile__check strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.pj-mobile__check span  { font-size: 13px; color: var(--g600); }
+
+.pj-phones {
+    display: flex; gap: 16px;
+    justify-content: center; align-items: flex-end;
+    perspective: 1000px;
+}
+.pj-phone {
+    width: 190px; border-radius: 32px; overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,.6);
+    transition: transform .4s var(--ease);
+}
+.pj-phone:nth-child(1) { transform: rotate(-4deg) translateY(16px); }
+.pj-phone:nth-child(2) { transform: rotate(1deg) translateY(-24px); }
+.pj-phone:nth-child(3) { transform: rotate(4deg) translateY(10px); }
+.pj-phone:hover { transform: rotate(0) scale(1.06) !important; }
+.pj-phone img { width: 100%; aspect-ratio: 9/19; object-fit: cover; }
+
+/* ── CONTRIBUTION ── */
+.pj-contrib {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+}
+.pj-contrib__hd { margin-bottom: 56px; }
+.pj-contrib__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-contrib__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; letter-spacing: -.025em;
+}
+.pj-contrib__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.pj-card {
+    padding: 32px;
+    background: var(--g100); border-radius: 12px;
+    border-top: 3px solid var(--g200);
+    transition: border-color .25s, transform .25s;
+}
+.pj-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.pj-card__num {
+    font-size: 36px; font-weight: 900;
+    color: var(--g200); margin-bottom: 16px; line-height: 1;
+}
+.pj-card__title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.pj-card__desc  { font-size: 13px; color: var(--g600); line-height: 1.75; }
+
+/* ── STATS BAND ── */
+.pj-stats {
+    padding: 72px 80px;
+    background: var(--accent);
+}
+.pj-stats__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 40px; text-align: center;
+}
+.pj-stats__num {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 900; line-height: 1;
+    letter-spacing: -.03em; margin-bottom: 8px;
+    color: #fff;
+}
+.pj-stats__lbl { font-size: 13px; opacity: .75; color: #fff; }
+
+/* ── BOTTOM NAV ── */
+.pj-nav { border-top: 1px solid var(--g200); }
+.pj-nav__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+}
+.pj-nav__item {
+    padding: 60px 80px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: background .25s;
+}
+.pj-nav__item:first-child { border-right: 1px solid var(--g200); }
+.pj-nav__item:hover { background: var(--g100); }
+.pj-nav__dir {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--g600);
+}
+.pj-nav__name {
+    font-size: clamp(18px, 2.4vw, 30px);
+    font-weight: 700; transition: color .2s;
+}
+.pj-nav__item:hover .pj-nav__name { color: var(--accent); }
+
+/* ── CONTENT-VISIBILITY ── */
+.pj-overview,
+.pj-fullimg,
+.pj-sec,
+.pj-gallery,
+.pj-mobile,
+.pj-contrib,
+.pj-stats,
+.pj-nav {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.js-fade {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.js-fade.is-left  { transform: translateX(-36px); }
+.js-fade.is-right { transform: translateX(36px); }
+.js-fade.in { opacity: 1; transform: none; }
+.js-fade:nth-child(2) { transition-delay: .08s; }
+.js-fade:nth-child(3) { transition-delay: .16s; }
+.js-fade:nth-child(4) { transition-delay: .24s; }
+.js-fade:nth-child(5) { transition-delay: .32s; }
+.js-fade:nth-child(6) { transition-delay: .40s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+    .pj-hero__body,
+    .pj-overview,
+    .pj-sec,
+    .pj-contrib { padding-left: 48px; padding-right: 48px; }
+    .pj-gallery  { padding: 60px 48px; }
+    .pj-mobile   { padding: 80px 48px; }
+    .pj-stats    { padding: 60px 48px; }
+    .pj-nav__item { padding: 52px 48px; }
+}
+@media (max-width: 900px) {
+    .pj-overview { grid-template-columns: 1fr; gap: 40px; }
+    .pj-feat, .pj-feat--rev { grid-template-columns: 1fr; direction: ltr; }
+    .pj-gallery__grid { grid-template-columns: 1fr 1fr; }
+    .pj-gallery__item--wide { grid-column: span 2; }
+    .pj-mobile__inner { grid-template-columns: 1fr; }
+    .pj-phones { margin-top: 48px; }
+    .pj-contrib__grid { grid-template-columns: 1fr 1fr; }
+    .pj-stats__inner  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .pj-hero__body { padding: 0 24px 48px; }
+    .pj-hero__scroll { right: 24px; }
+    .pj-overview,
+    .pj-sec,
+    .pj-contrib { padding: 72px 24px; }
+    .pj-gallery  { padding: 60px 24px; }
+    .pj-mobile   { padding: 72px 24px; }
+    .pj-stats    { padding: 56px 24px; }
+    .pj-nav__item { padding: 40px 24px; }
+    .pj-nav__inner { grid-template-columns: 1fr; }
+    .pj-nav__item:first-child { border-right: none; border-bottom: 1px solid var(--g200); }
+    .pj-gallery__grid { grid-template-columns: 1fr; }
+    .pj-gallery__item--wide { grid-column: span 1; }
+    .pj-contrib__grid { grid-template-columns: 1fr; }
+    .pj-stats__inner  { grid-template-columns: 1fr 1fr; }
+    .pj-mobile { overflow: visible; }
+    .pj-phones {
+        margin: 32px -24px 0;
+        padding: 16px 24px 32px;
+        justify-content: flex-start;
+        align-items: center;
+        perspective: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 14px;
+    }
+    .pj-phones::-webkit-scrollbar { display: none; }
+    .pj-phone {
+        min-width: 62vw;
+        width: 62vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        border-radius: 24px;
+        transform: none !important;
+        box-shadow: 0 16px 40px rgba(0,0,0,.5);
+    }
+    .pj-phone:last-child { margin-right: 24px; }
+    .pj-phone:hover { transform: none !important; }
+    .pj-sec__hd { flex-direction: column; align-items: flex-start; gap: 0; }
+}
+</style>
+
+<div id="pjProgress"></div>
+
+<!-- ════════════════════════════
+     HERO
+═════════════════════════════ -->
+<section class="pj-hero">
+    <!-- 배경 이미지: 스피드랙 주문 화면 풀스크린 스크린샷 (권장 1920×1080) -->
+    <div class="pj-hero__bg"></div>
+    <div class="pj-hero__overlay"></div>
+    <div class="pj-hero__body">
+        <p class="pj-hero__cat">Commerce · Interactive UI</p>
+        <h1 class="pj-hero__title">
+            <em>Project.</em>
+            SPEED ORDER
+        </h1>
+        <div class="pj-hero__meta">
+            <div class="pj-hero__meta-item">
+                <strong>Period</strong>
+                <span>2025.07</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Platform</strong>
+                <span>Cafe24</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Role</strong>
+                <span>Web Publisher</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Type</strong>
+                <span>선택형 UI · 분기 처리 · Swiper</span>
+            </div>
+        </div>
+    </div>
+    <div class="pj-hero__scroll">
+        <div class="pj-hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     OVERVIEW
+═════════════════════════════ -->
+<section class="pj-overview">
+    <div class="js-fade">
+        <p class="pj-overview__eyebrow">Project Overview</p>
+        <div class="pj-overview__bignum">07</div>
+        <ul class="pj-overview__infolist">
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Period</span>
+                <span class="pj-overview__info-v">2025.07</span>
+            </li>
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Platform</span>
+                <span class="pj-overview__info-v">Cafe24 커스텀 스킨</span>
+            </li>
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Role</span>
+                <span class="pj-overview__info-v">Web Publisher</span>
+            </li>
+            <li class="pj-overview__info" style="border-bottom:none;">
+                <span class="pj-overview__info-k">Website</span>
+                <a href="https://espeedrack.cafe24.com/" target="_blank" class="pj-btn" style="margin-top:10px; width:fit-content;">
+                    사이트 방문하기
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="js-fade">
+        <p class="pj-overview__desc">
+            산업용 랙 전문 브랜드 <strong>스피드랙</strong>의 빠른 주문 경험을 위한 인터랙티브 UI를 구현했습니다.<br>
+            사용자가 단계별 선택지를 따라가면 <strong>경우의 수에 맞는 결과 페이지</strong>로 자동 분기되며, Swiper 기반의 부드러운 전환 효과로 쇼핑 경험을 높였습니다.
+        </p>
+        <div class="pj-overview__tags">
+            <span class="pj-overview__tag">#선택형UI</span>
+            <span class="pj-overview__tag">#Swiper</span>
+            <span class="pj-overview__tag">#JavaScript</span>
+            <span class="pj-overview__tag">#분기처리</span>
+            <span class="pj-overview__tag">#데이터구조설계</span>
+            <span class="pj-overview__tag">#HTML</span>
+            <span class="pj-overview__tag">#CSS</span>
+        </div>
+        <a href="https://espeedrack.cafe24.com/" target="_blank" class="pj-btn">
+            사이트 방문하기
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</section>
+
+<!-- 풀 이미지: 주문 플로우 전체 화면 or 랙 제품 이미지 (권장 1920×700) -->
+<div class="pj-fullimg">
+    <img loading="lazy" decoding="async" src="https://picsum.photos/seed/sr-full1/1920/700" alt="스피드랙 주문 화면">
+</div>
+
+<!-- ════════════════════════════
+     KEY FEATURES
+═════════════════════════════ -->
+<section class="pj-sec">
+    <div class="pj-sec__hd js-fade">
+        <div>
+            <p class="pj-sec__eyebrow">— Key Features</p>
+            <h2 class="pj-sec__title">
+                <em>주요 구현 기능</em>
+                단계별 선택 · 분기 · 데이터 관리
+            </h2>
+        </div>
+    </div>
+
+    <!-- ── Feature 01 ── -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: 선택지 분기 화면 — 1단계→2단계→결과 흐름 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/sr-f1/800/600" alt="선택지 기반 분기">
+            <span class="pj-feat__badge">Branching</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 01</p>
+            <h3 class="pj-feat__title">선택지 기반<br>결과 페이지 분기</h3>
+            <p class="pj-feat__desc">사용자가 선택한 항목에 따라 다음 단계와 최종 결과 페이지가 달라지도록 분기 처리를 구현했습니다. 어떤 조합을 선택해도 정확한 결과로 안내하는 흐름을 설계했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>단계별 선택지 UI 구성 및 조건 분기 로직 구현</li>
+                <li>선택 값에 따른 다음 단계 / 결과 페이지 동적 매핑</li>
+                <li>이전 선택 상태 유지 및 되돌아가기 처리</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 02 ── -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: Swiper 슬라이드 전환 — 항목 선택 시 부드러운 스크롤 효과 화면 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/sr-f2/800/600" alt="Swiper 인터랙션">
+            <span class="pj-feat__badge">Swiper</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 02</p>
+            <h3 class="pj-feat__title">Swiper 기반<br>부드러운 전환 인터랙션</h3>
+            <p class="pj-feat__desc">항목 선택 시 단순 페이지 이동이 아닌, Swiper를 활용해 슬라이드처럼 부드럽게 다음 단계로 전환되는 효과를 구현했습니다. 사용자에게 흐름의 연속성을 자연스럽게 전달합니다.</p>
+            <ul class="pj-feat__list">
+                <li>Swiper 슬라이드 전환으로 단계 이동 시 부드러운 스크롤 효과</li>
+                <li>선택 즉시 다음 단계로 전환되는 즉각적 피드백 UX</li>
+                <li>전환 방향·속도 커스터마이징으로 브랜드 분위기 반영</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 03 ── -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: JS 데이터 구조 또는 경우의 수 플로우차트 이미지 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/sr-f3/800/600" alt="데이터 구조 설계">
+            <span class="pj-feat__badge">Data</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 03</p>
+            <h3 class="pj-feat__title">경우의 수를 고려한<br>프론트 데이터 구조</h3>
+            <p class="pj-feat__desc">선택 항목과 결과 매핑을 HTML에 하드코딩하지 않고, 별도 JS 파일로 분리해 데이터를 관리했습니다. 새로운 선택지·결과 추가 시 코드 최소 수정으로 확장 가능한 구조를 설계했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>선택지·결과 데이터를 별도 JS 파일에서 중앙 관리</li>
+                <li>경우의 수 조합 전체를 커버하는 매핑 자료 구조 설계</li>
+                <li>운영팀이 JS 데이터만 수정해 콘텐츠 확장 가능한 구조</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     SCREENSHOT GALLERY
+═════════════════════════════ -->
+<div class="pj-gallery">
+    <div class="pj-gallery__inner">
+        <p class="pj-gallery__eyebrow js-fade">Screen Gallery</p>
+        <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
+        <div class="pj-gallery__grid">
+            <!-- 이미지: 주문 시작 — 1단계 선택 화면 (대표, 넓게) -->
+            <div class="pj-gallery__item pj-gallery__item--wide js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg1/1200/750" alt="1단계 선택 화면">
+                <span class="pj-gallery__caption">1단계 선택 화면</span>
+            </div>
+            <!-- 이미지: 2단계 분기 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg2/600/375" alt="2단계 분기">
+                <span class="pj-gallery__caption">2단계 분기 선택</span>
+            </div>
+            <!-- 이미지: 결과 페이지 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg3/600/375" alt="결과 페이지">
+                <span class="pj-gallery__caption">결과 페이지</span>
+            </div>
+            <!-- 이미지: Swiper 전환 모션 캡처 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg4/600/375" alt="Swiper 전환">
+                <span class="pj-gallery__caption">Swiper 슬라이드 전환</span>
+            </div>
+            <!-- 이미지: 모바일 선택 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg5/600/375" alt="모바일 선택 화면">
+                <span class="pj-gallery__caption">모바일 선택 화면</span>
+            </div>
+            <!-- 이미지: 모바일 결과 화면 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srg6/600/375" alt="모바일 결과 화면">
+                <span class="pj-gallery__caption">모바일 결과 화면</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     MOBILE SHOWCASE
+═════════════════════════════ -->
+<div class="pj-mobile">
+    <div class="pj-mobile__inner">
+        <div>
+            <p class="pj-mobile__eyebrow js-fade">Responsive Design</p>
+            <h2 class="pj-mobile__title js-fade">모바일에서도<br>직관적인 선택 흐름</h2>
+            <p class="pj-mobile__desc js-fade">
+                터치 환경에 최적화된 선택 UI로 PC·모바일 모두 동일한 흐름을 제공합니다. Swiper의 터치 스와이프 지원으로 모바일에서도 단계 전환이 자연스럽습니다.
+            </p>
+            <div class="pj-mobile__checklist js-fade">
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">👆</div>
+                    <div>
+                        <strong>터치 최적화 선택 UI</strong>
+                        <span>모바일 터치에 최적화된 버튼 크기·간격으로 오조작 최소화</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">↔️</div>
+                    <div>
+                        <strong>Swiper 터치 스와이프</strong>
+                        <span>선택 후 자연스러운 슬라이드 전환 — 모바일 네이티브 앱 수준 UX</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">📐</div>
+                    <div>
+                        <strong>반응형 레이아웃</strong>
+                        <span>선택 카드·결과 페이지 모두 화면 크기에 따라 최적 레이아웃 적용</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pj-phones js-fade">
+            <!-- 이미지: 모바일 스크린샷 3개 (9:19 세로형 권장) -->
+            <!-- phone 1: 1단계 선택 모바일 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srmob1/390/844" alt="모바일 1단계">
+            </div>
+            <!-- phone 2: 2단계 분기 모바일 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srmob2/390/844" alt="모바일 2단계">
+            </div>
+            <!-- phone 3: 결과 페이지 모바일 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/srmob3/390/844" alt="모바일 결과">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     CONTRIBUTION
+═════════════════════════════ -->
+<section class="pj-contrib">
+    <div class="pj-contrib__hd js-fade">
+        <p class="pj-contrib__eyebrow">My Contribution</p>
+        <h2 class="pj-contrib__title">담당 역할 요약</h2>
+    </div>
+    <div class="pj-contrib__grid">
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">01</div>
+            <h3 class="pj-card__title">선택 분기 로직 설계</h3>
+            <p class="pj-card__desc">단계별 선택값에 따라 다음 단계 또는 결과 페이지를 동적으로 결정하는 분기 로직 설계 및 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">02</div>
+            <h3 class="pj-card__title">Swiper 전환 인터랙션</h3>
+            <p class="pj-card__desc">항목 선택 시 Swiper를 활용한 슬라이드 전환 효과로 매끄럽고 연속적인 사용자 경험 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">03</div>
+            <h3 class="pj-card__title">JS 데이터 파일 분리</h3>
+            <p class="pj-card__desc">선택지·결과 매핑 데이터를 별도 JS 파일로 분리 관리 — 콘텐츠 변경 시 HTML 미수정 구조</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">04</div>
+            <h3 class="pj-card__title">결과 매핑 자료구조</h3>
+            <p class="pj-card__desc">다수의 선택 경우의 수를 커버하는 트리 구조 데이터 설계로 누락 없는 분기 처리 보장</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">05</div>
+            <h3 class="pj-card__title">선택 상태 관리</h3>
+            <p class="pj-card__desc">이전 단계로 되돌아가도 선택 상태가 유지되는 히스토리 관리 및 초기화 기능 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">06</div>
+            <h3 class="pj-card__title">반응형 UI 구현</h3>
+            <p class="pj-card__desc">PC / 모바일 환경 모두 최적화된 선택 UI·결과 레이아웃 구성으로 디바이스 무관 일관된 경험 제공</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     STATS BAND
+═════════════════════════════ -->
+<div class="pj-stats">
+    <div class="pj-stats__inner">
+        <div class="js-fade">
+            <div class="pj-stats__num">3</div>
+            <div class="pj-stats__lbl">핵심 구현 기능</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">1mo</div>
+            <div class="pj-stats__lbl">작업 기간</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">JS</div>
+            <div class="pj-stats__lbl">데이터 파일 분리 관리</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">2</div>
+            <div class="pj-stats__lbl">대응 디바이스</div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     BOTTOM NAV
+═════════════════════════════ -->
+<nav class="pj-nav">
+    <div class="pj-nav__inner">
+        <a href="/project/detail/spofl.html" class="pj-nav__item">
+            <span class="pj-nav__dir">← Prev Project</span>
+            <span class="pj-nav__name">SPOFL</span>
+        </a>
+        <a href="/project/detail/ryan.html" class="pj-nav__item" style="text-align:right;">
+            <span class="pj-nav__dir">Next Project →</span>
+            <span class="pj-nav__name">RYAN BABY</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+(function () {
+    'use strict';
+
+    var bar   = document.getElementById('pjProgress');
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    function updateBar(y) {
+        if (bar) bar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
+    }
+
+    var fadeEls = document.querySelectorAll('.js-fade');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+    } else {
+        fadeEls.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    var ticking = false;
+    var lastScrollY = 0;
+    function onScrollFrame() {
+        updateBar(lastScrollY);
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            requestAnimationFrame(onScrollFrame);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    lastScrollY = window.scrollY;
+    updateBar(lastScrollY);
+}());
+</script>
+
+			</div>
+		</div>
+</div><!-- //wrap -->
+
+	<div class="layer_shadow" id="layer_shadow"></div>
+	<div id="layoutDimmed" class="dimmed"></div>
+
+	<link rel="stylesheet" href="/layout/basic/css/sub_style.css">
+	<link rel="stylesheet" href="/layout/basic/css/sub_theme.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme01.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme02.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme03.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_layout.css">
+
+</body>
+</html>

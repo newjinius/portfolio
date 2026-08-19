@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+    <!-- PG크로스브라우징필수내용 -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- // PG크로스브라우징필수내용 -->
+
+    <title>Cafe24 Skin — 김유진 포트폴리오</title>
+    <link rel="stylesheet" href="/layout/basic/css/common.css"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <link rel="stylesheet" href="/layout/basic/css/layout.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-ui.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-button.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tab.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-table.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tooltip.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-help.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-fold.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-box.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-desc.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-product.css">
+  	<link rel="stylesheet" href="/layout/basic/css/ec-base-prdInfo.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-paginate.css">
+
+    <link rel="stylesheet" href="/custom/customStyle.css">
+
+	<style>html { scroll-behavior: smooth; }</style>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+    <link rel="stylesheet" href="/layout/basic/css/swiper.min.css">
+	<script src="/layout/basic/js/swiper-bundle.min.js"></script>
+
+    <script src="/custom/customJs.js"></script>
+</head>
+<body class="theme01" data-ez-theme="theme01">
+	<div id="wrap">
+        <style>
+/* ════════════════════════════
+   CUSTOM HEADER
+   ════════════════════════════ */
+#customHeader {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 기본: 투명 */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* 상태 전환 */
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        -webkit-backdrop-filter .35s ease,
+        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
+#customHeader.is-scrolled {
+    background: rgba(13, 13, 13, 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 스크롤 내릴 때: 헤더 숨김 ── */
+#customHeader.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── LOGO ── */
+.ch-logo {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+}
+.ch-logo span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #D42B2B; /* 포인트 컬러 */
+    margin-left: 2px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* ── NAV ── */
+.ch-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.ch-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+    position: relative;
+}
+.ch-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: width .25s ease;
+}
+.ch-nav a:hover { color: #fff; }
+.ch-nav a:hover::after { width: 100%; }
+
+/* ── 모바일 햄버거 ── */
+.ch-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.ch-menu-btn span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+}
+.ch-menu-btn span:nth-child(2) { width: 65%; }
+.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
+.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 모바일 드로어 ── */
+.ch-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 8999;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.ch-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.ch-drawer a {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color .2s;
+}
+.ch-drawer a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+    #customHeader { padding: 0 24px; }
+    .ch-nav       { display: none; }
+    .ch-menu-btn  { display: flex; }
+}
+</style>
+
+<header id="customHeader">
+    <a href="/" class="ch-logo">
+        김유진<span></span>
+    </a>
+
+    <nav>
+        <ul class="ch-nav">
+            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
+            <li><a href="/project/list.html">Works</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- 모바일 드로어 -->
+<nav class="ch-drawer" id="chDrawer">
+    <a href="/project/list.html" onclick="closeDrawer()">Works</a>
+    <a href="/#about"            onclick="closeDrawer()">About</a>
+    <a href="/#skills"           onclick="closeDrawer()">Skills</a>
+    <a href="/#contact"          onclick="closeDrawer()">Contact</a>
+</nav>
+
+<script>
+(function () {
+    var header   = document.getElementById('customHeader');
+    var menuBtn  = document.getElementById('chMenuBtn');
+    var drawer   = document.getElementById('chDrawer');
+    var lastY    = 0;
+    var ticking  = false;
+    var drawerOpen = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    function update() {
+        var y = window.scrollY;
+
+        /* 투명 ↔ 글래스 */
+        if (y > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
+        }
+
+        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
+        if (y > 80) {
+            if (y > lastY) {
+                header.classList.add('is-hidden');
+            } else {
+                header.classList.remove('is-hidden');
+            }
+        }
+
+        lastY   = y;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* 햄버거 / 드로어 */
+    function closeDrawer() {
+        drawerOpen = false;
+        menuBtn.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        drawerOpen = !drawerOpen;
+        menuBtn.classList.toggle('is-open', drawerOpen);
+        drawer.classList.toggle('is-open', drawerOpen);
+        document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    });
+
+    /* ESC로 드로어 닫기 */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawerOpen) closeDrawer();
+    });
+
+    window.closeDrawer = closeDrawer;
+
+    /* 초기 상태 */
+    update();
+}());
+</script>
+
+        <div id="container">
+			<div id="contents">
+				<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --black:   #0d0d0d;
+    --white:   #f5f5f3;
+    --accent:  #B5A898;
+    --g100: #1a1a1a;
+    --g200: #2a2a2a;
+    --g400: #555;
+    --g600: #888;
+    --g800: #ccc;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* ── PROGRESS ── */
+#pjProgress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: var(--accent);
+    z-index: 9999;
+    transition: width .1s linear;
+}
+
+/* ── HERO ── */
+.pj-hero {
+    position: relative;
+    height: 100vh; min-height: 600px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden;
+}
+.pj-hero__bg {
+    position: absolute; inset: 0;
+    /* 히어로 배경: Boska 스킨 메인 화면 스크린샷 (1920×1080) 으로 교체 */
+    background: url('https://picsum.photos/seed/bk-hero/1920/1080') center/cover no-repeat;
+    opacity: .3;
+    animation: kenBurns 8s var(--ease) forwards;
+}
+@keyframes kenBurns {
+    from { transform: scale(1.08); }
+    to   { transform: scale(1); }
+}
+.pj-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+        rgba(13,13,13,1) 0%,
+        rgba(13,13,13,.5) 55%,
+        rgba(13,13,13,.15) 100%);
+}
+.pj-hero__body {
+    position: relative; z-index: 2;
+    padding: 0 80px 80px;
+}
+.pj-hero__cat {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .8s var(--ease) .3s forwards;
+}
+.pj-hero__cat::before {
+    content: ''; display: block;
+    width: 22px; height: 2px; background: var(--accent);
+}
+.pj-hero__title {
+    font-size: clamp(52px, 8.5vw, 128px);
+    font-weight: 900; line-height: .95;
+    letter-spacing: -.035em;
+    margin-bottom: 36px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp .9s var(--ease) .45s forwards;
+}
+.pj-hero__title em {
+    display: block; font-style: normal;
+    font-size: .28em; font-weight: 400;
+    color: var(--g600); letter-spacing: .06em;
+    margin-bottom: 6px;
+}
+.pj-hero__meta {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .9s var(--ease) .6s forwards;
+}
+.pj-hero__meta-item strong {
+    display: block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--g600); margin-bottom: 3px;
+}
+.pj-hero__meta-item span { font-size: 15px; font-weight: 500; }
+
+.pj-hero__scroll {
+    position: absolute; bottom: 48px; right: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--g600);
+    opacity: 0; animation: fadeUp 1s var(--ease) 1s forwards;
+}
+.pj-hero__scroll-line {
+    width: 1px; height: 40px; background: var(--g400);
+    animation: scrollPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes fadeUp   { to { opacity: 1; transform: none; } }
+@keyframes scrollPulse {
+    0%,100% { transform: scaleY(1); opacity: 1; }
+    50%      { transform: scaleY(.4); opacity: .3; }
+}
+
+/* ── OVERVIEW ── */
+.pj-overview {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px;
+    align-items: start;
+}
+.pj-overview__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+}
+.pj-overview__bignum {
+    font-size: clamp(72px, 11vw, 144px);
+    font-weight: 900; line-height: .85;
+    color: var(--g200); letter-spacing: -.04em;
+    margin-bottom: 44px;
+}
+.pj-overview__infolist { display: flex; flex-direction: column; gap: 0; }
+.pj-overview__info {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--g200);
+}
+.pj-overview__info:first-child { padding-top: 0; }
+.pj-overview__info-k {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--g600);
+}
+.pj-overview__info-v { font-size: 15px; font-weight: 500; }
+
+.pj-overview__desc {
+    font-size: clamp(17px, 1.8vw, 24px);
+    font-weight: 400; line-height: 1.75;
+    color: var(--g800); margin-bottom: 44px;
+}
+.pj-overview__desc strong { color: var(--white); font-weight: 600; }
+
+.pj-overview__tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 44px;
+}
+.pj-overview__tag {
+    padding: 5px 14px;
+    border: 1px solid var(--g200); border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--g600);
+    transition: border-color .2s, color .2s;
+}
+.pj-overview__tag:hover { border-color: var(--accent); color: var(--accent); }
+
+.pj-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent); color: #0d0d0d;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    border-radius: 4px;
+    transition: background .2s, transform .2s;
+}
+.pj-btn:hover { background: #a09285; transform: translateY(-2px); }
+.pj-btn svg { transition: transform .2s; }
+.pj-btn:hover svg { transform: translate(3px,-3px); }
+
+/* ── FULL-WIDTH IMAGE ── */
+.pj-fullimg { width: 100%; overflow: hidden; line-height: 0; }
+.pj-fullimg img {
+    width: 100%;
+    height: clamp(280px, 40vw, 680px);
+    object-fit: cover;
+    transition: transform .7s var(--ease);
+}
+.pj-fullimg:hover img { transform: scale(1.02); }
+
+/* ── SECTION HEADER ── */
+.pj-sec {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+}
+.pj-sec__hd {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--g200);
+    margin-bottom: 80px;
+}
+.pj-sec__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+}
+.pj-sec__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; letter-spacing: -.025em; line-height: 1.2;
+}
+.pj-sec__title em {
+    display: block; font-style: normal;
+    font-size: .52em; font-weight: 400;
+    color: var(--g600); margin-bottom: 6px; letter-spacing: .02em;
+}
+
+/* ── FEATURE BLOCK ── */
+.pj-feat {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    margin-bottom: 110px;
+}
+.pj-feat:last-child { margin-bottom: 0; }
+.pj-feat--rev { direction: rtl; }
+.pj-feat--rev > * { direction: ltr; }
+
+.pj-feat__img {
+    position: relative; border-radius: 12px; overflow: hidden;
+    background: var(--g100); aspect-ratio: 4/3;
+}
+.pj-feat__img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+.pj-feat__img:hover img { transform: scale(1.05); }
+
+.pj-feat__badge {
+    position: absolute; top: 18px; left: 18px;
+    padding: 5px 11px;
+    background: var(--accent); color: #0d0d0d;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.pj-feat__num {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-feat__title {
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 700; line-height: 1.25;
+    letter-spacing: -.02em; margin-bottom: 18px;
+}
+.pj-feat__desc {
+    font-size: 15px; line-height: 1.85;
+    color: var(--g800); margin-bottom: 26px;
+}
+.pj-feat__list { display: flex; flex-direction: column; gap: 10px; }
+.pj-feat__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--g800); line-height: 1.65;
+}
+.pj-feat__list li::before {
+    content: ''; flex-shrink: 0;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-top: 9px;
+}
+
+/* ── GALLERY ── */
+.pj-gallery { background: var(--g100); padding: 80px; }
+.pj-gallery__inner { max-width: 1400px; margin: 0 auto; }
+.pj-gallery__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-gallery__title {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 700; letter-spacing: -.02em; margin-bottom: 44px;
+}
+.pj-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.pj-gallery__item {
+    border-radius: 8px; overflow: hidden;
+    background: var(--g200); aspect-ratio: 16/10;
+    position: relative;
+}
+.pj-gallery__item--wide { grid-column: span 2; }
+.pj-gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+.pj-gallery__item:hover img { transform: scale(1.04); }
+.pj-gallery__caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 18px;
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+    font-size: 12px; color: #fff;
+    opacity: 0; transition: opacity .3s;
+}
+.pj-gallery__item:hover .pj-gallery__caption { opacity: 1; }
+
+/* ── MOBILE SHOWCASE ── */
+.pj-mobile {
+    padding: 120px 80px;
+    background: linear-gradient(135deg, var(--g100), var(--black));
+    overflow: clip;
+}
+.pj-mobile__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+}
+.pj-mobile__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-mobile__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -.025em; margin-bottom: 22px;
+}
+.pj-mobile__desc {
+    font-size: 15px; color: var(--g800);
+    line-height: 1.85; margin-bottom: 36px;
+}
+.pj-mobile__checklist { display: flex; flex-direction: column; gap: 14px; }
+.pj-mobile__check {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    background: var(--g200); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+.pj-mobile__check-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.pj-mobile__check strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.pj-mobile__check span  { font-size: 13px; color: var(--g600); }
+
+.pj-phones {
+    display: flex; gap: 16px;
+    justify-content: center; align-items: flex-end;
+    perspective: 1000px;
+}
+.pj-phone {
+    width: 190px; border-radius: 32px; overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,.6);
+    transition: transform .4s var(--ease);
+}
+.pj-phone:nth-child(1) { transform: rotate(-4deg) translateY(16px); }
+.pj-phone:nth-child(2) { transform: rotate(1deg) translateY(-24px); }
+.pj-phone:nth-child(3) { transform: rotate(4deg) translateY(10px); }
+.pj-phone:hover { transform: rotate(0) scale(1.06) !important; }
+.pj-phone img { width: 100%; aspect-ratio: 9/19; object-fit: cover; }
+
+/* ── CONTRIBUTION ── */
+.pj-contrib {
+    padding: 120px 80px;
+    max-width: 1400px; margin: 0 auto;
+}
+.pj-contrib__hd { margin-bottom: 56px; }
+.pj-contrib__eyebrow {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-contrib__title {
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700; letter-spacing: -.025em;
+}
+.pj-contrib__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.pj-card {
+    padding: 32px;
+    background: var(--g100); border-radius: 12px;
+    border-top: 3px solid var(--g200);
+    transition: border-color .25s, transform .25s;
+}
+.pj-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.pj-card__num {
+    font-size: 36px; font-weight: 900;
+    color: var(--g200); margin-bottom: 16px; line-height: 1;
+}
+.pj-card__title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.pj-card__desc  { font-size: 13px; color: var(--g600); line-height: 1.75; }
+
+/* ── STATS BAND ── */
+.pj-stats {
+    padding: 72px 80px;
+    background: var(--accent);
+}
+.pj-stats__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 40px; text-align: center;
+}
+.pj-stats__num {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 900; line-height: 1;
+    letter-spacing: -.03em; margin-bottom: 8px;
+    color: #0d0d0d;
+}
+.pj-stats__lbl { font-size: 13px; opacity: .72; color: #0d0d0d; }
+
+/* ── BOTTOM NAV ── */
+.pj-nav { border-top: 1px solid var(--g200); }
+.pj-nav__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+}
+.pj-nav__item {
+    padding: 60px 80px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: background .25s;
+}
+.pj-nav__item:first-child { border-right: 1px solid var(--g200); }
+.pj-nav__item:hover { background: var(--g100); }
+.pj-nav__dir {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--g600);
+}
+.pj-nav__name {
+    font-size: clamp(18px, 2.4vw, 30px);
+    font-weight: 700; transition: color .2s;
+}
+.pj-nav__item:hover .pj-nav__name { color: var(--accent); }
+
+/* ── CONTENT-VISIBILITY ── */
+.pj-overview,
+.pj-fullimg,
+.pj-sec,
+.pj-gallery,
+.pj-mobile,
+.pj-contrib,
+.pj-stats,
+.pj-nav {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.js-fade {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.js-fade.is-left  { transform: translateX(-36px); }
+.js-fade.is-right { transform: translateX(36px); }
+.js-fade.in { opacity: 1; transform: none; }
+.js-fade:nth-child(2) { transition-delay: .08s; }
+.js-fade:nth-child(3) { transition-delay: .16s; }
+.js-fade:nth-child(4) { transition-delay: .24s; }
+.js-fade:nth-child(5) { transition-delay: .32s; }
+.js-fade:nth-child(6) { transition-delay: .40s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+    .pj-hero__body,
+    .pj-overview,
+    .pj-sec,
+    .pj-contrib { padding-left: 48px; padding-right: 48px; }
+    .pj-gallery  { padding: 60px 48px; }
+    .pj-mobile   { padding: 80px 48px; }
+    .pj-stats    { padding: 60px 48px; }
+    .pj-nav__item { padding: 52px 48px; }
+}
+@media (max-width: 900px) {
+    .pj-overview { grid-template-columns: 1fr; gap: 40px; }
+    .pj-feat, .pj-feat--rev { grid-template-columns: 1fr; direction: ltr; }
+    .pj-gallery__grid { grid-template-columns: 1fr 1fr; }
+    .pj-gallery__item--wide { grid-column: span 2; }
+    .pj-mobile__inner { grid-template-columns: 1fr; }
+    .pj-phones { margin-top: 48px; }
+    .pj-contrib__grid { grid-template-columns: 1fr 1fr; }
+    .pj-stats__inner  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .pj-hero__body { padding: 0 24px 48px; }
+    .pj-hero__scroll { right: 24px; }
+    .pj-overview,
+    .pj-sec,
+    .pj-contrib { padding: 72px 24px; }
+    .pj-gallery  { padding: 60px 24px; }
+    .pj-mobile   { padding: 72px 24px; }
+    .pj-stats    { padding: 56px 24px; }
+    .pj-nav__item { padding: 40px 24px; }
+    .pj-nav__inner { grid-template-columns: 1fr; }
+    .pj-nav__item:first-child { border-right: none; border-bottom: 1px solid var(--g200); }
+    .pj-gallery__grid { grid-template-columns: 1fr; }
+    .pj-gallery__item--wide { grid-column: span 1; }
+    .pj-contrib__grid { grid-template-columns: 1fr; }
+    .pj-stats__inner  { grid-template-columns: 1fr 1fr; }
+    .pj-mobile { overflow: visible; }
+    .pj-phones {
+        margin: 32px -24px 0;
+        padding: 16px 24px 32px;
+        justify-content: flex-start;
+        align-items: center;
+        perspective: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 14px;
+    }
+    .pj-phones::-webkit-scrollbar { display: none; }
+    .pj-phone {
+        min-width: 62vw;
+        width: 62vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        border-radius: 24px;
+        transform: none !important;
+        box-shadow: 0 16px 40px rgba(0,0,0,.5);
+    }
+    .pj-phone:last-child { margin-right: 24px; }
+    .pj-phone:hover { transform: none !important; }
+    .pj-sec__hd { flex-direction: column; align-items: flex-start; gap: 0; }
+}
+
+</style>
+
+<div id="pjProgress"></div>
+
+<!-- ════════════════════════════
+     HERO
+═════════════════════════════ -->
+<section class="pj-hero">
+    <!-- 배경 이미지: Boska 스킨 메인 화면 풀스크린 스크린샷 (권장 1920×1080) -->
+    <div class="pj-hero__bg" id="heroBg"></div>
+    <div class="pj-hero__overlay"></div>
+    <div class="pj-hero__body">
+        <p class="pj-hero__cat">Design · Cafe24 Skin</p>
+        <h1 class="pj-hero__title">
+            <em>Project.</em>
+            BOSKA
+        </h1>
+        <div class="pj-hero__meta">
+            <div class="pj-hero__meta-item">
+                <strong>Period</strong>
+                <span>2025.03</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Platform</strong>
+                <span>Cafe24</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Role</strong>
+                <span>Web Publisher</span>
+            </div>
+            <div class="pj-hero__meta-item">
+                <strong>Type</strong>
+                <span>Design Skin · Template</span>
+            </div>
+        </div>
+    </div>
+    <div class="pj-hero__scroll">
+        <div class="pj-hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     OVERVIEW
+═════════════════════════════ -->
+<section class="pj-overview">
+    <div class="js-fade">
+        <p class="pj-overview__eyebrow">Project Overview</p>
+        <div class="pj-overview__bignum">05</div>
+        <ul class="pj-overview__infolist">
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Period</span>
+                <span class="pj-overview__info-v">2025.03 (약 1개월)</span>
+            </li>
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Platform</span>
+                <span class="pj-overview__info-v">Cafe24 디자인 스킨</span>
+            </li>
+            <li class="pj-overview__info">
+                <span class="pj-overview__info-k">Role</span>
+                <span class="pj-overview__info-v">Web Publisher</span>
+            </li>
+            <li class="pj-overview__info" style="border-bottom:none;">
+                <span class="pj-overview__info-k">Demo</span>
+                <a href="https://ecudemo361243.cafe24.com/" target="_blank" class="pj-btn" style="margin-top:10px; width:fit-content;">
+                    데모 보기
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="js-fade">
+        <p class="pj-overview__desc">
+            Cafe24 플랫폼에서 <strong>실판매용으로 제작한 디자인 스킨 Boska</strong>입니다.<br>
+            감성적인 비주얼과 부드러운 UI/UX를 기반으로, 다양한 상품 유형과 운영 환경에 유연하게 대응하는 <strong>범용 쇼핑몰 템플릿</strong>을 구현했습니다.
+        </p>
+        <div class="pj-overview__tags">
+            <span class="pj-overview__tag">#Cafe24</span>
+            <span class="pj-overview__tag">#디자인스킨</span>
+            <span class="pj-overview__tag">#실판매용</span>
+            <span class="pj-overview__tag">#외부앱</span>
+            <span class="pj-overview__tag">#모듈커스터마이징</span>
+            <span class="pj-overview__tag">#배너매니저</span>
+            <span class="pj-overview__tag">#운영친화적</span>
+            <span class="pj-overview__tag">#JavaScript</span>
+            <span class="pj-overview__tag">#HTML</span>
+            <span class="pj-overview__tag">#CSS</span>
+        </div>
+    </div>
+</section>
+
+<!-- 풀 이미지: Boska 스킨 메인 or 서브 화면 스크린샷 (권장 1920×700) -->
+<div class="pj-fullimg">
+    <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-full1/1920/700" alt="Boska 스킨 메인 화면">
+</div>
+
+<!-- ════════════════════════════
+     KEY FEATURES
+═════════════════════════════ -->
+<section class="pj-sec">
+    <div class="pj-sec__hd js-fade">
+        <div>
+            <p class="pj-sec__eyebrow">— Key Features</p>
+            <h2 class="pj-sec__title">
+                <em>스킨 특징</em>
+                Boska 디자인 스킨의 핵심
+            </h2>
+        </div>
+    </div>
+
+    <!-- ── Feature 01 ── -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: Boska 스킨 메인 감성적 UI 전경 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-f1/800/600" alt="감성적 UI/UX 디자인">
+            <span class="pj-feat__badge">Design</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 01</p>
+            <h3 class="pj-feat__title">감성적 디자인<br>부드러운 UI/UX</h3>
+            <p class="pj-feat__desc">브랜드 감성을 살린 정제된 비주얼 언어로 방문자에게 고급스러운 첫인상을 전달합니다. 부드러운 트랜지션과 정돈된 타이포그래피로 자연스러운 쇼핑 경험을 의도했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>감성적 배색 및 여백 중심의 레이아웃 설계</li>
+                <li>부드러운 hover 트랜지션 및 스크롤 애니메이션</li>
+                <li>가독성과 심미성을 모두 고려한 타이포그래피</li>
+                <li>브랜드 아이덴티티에 빠르게 적용 가능한 CSS 변수 구조</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 02 ── -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: 다양한 상품 레이아웃 — 그리드·리스트·와이드 변형 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-f2/800/600" alt="유연한 상품 레이아웃">
+            <span class="pj-feat__badge">Layout</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 02</p>
+            <h3 class="pj-feat__title">유연한<br>상품 판매 레이아웃</h3>
+            <p class="pj-feat__desc">의류, 식품, 소품 등 다양한 카테고리의 상품을 판매하는 쇼핑몰에 범용적으로 적용할 수 있도록 여러 상품 진열 레이아웃을 유연하게 구성했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>그리드 / 리스트 / 와이드 등 다양한 상품 진열 옵션</li>
+                <li>카테고리별 레이아웃 독립 적용 가능한 구조</li>
+                <li>상품 수에 따라 자동 대응하는 반응형 그리드</li>
+                <li>다양한 상품 유형과 이미지 비율에 대응</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 03 ── -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: 운영자가 관리 페이지에서 쉽게 수정할 수 있는 화면 또는 스킨 설정 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-f3/800/600" alt="운영 친화적 구조">
+            <span class="pj-feat__badge">Ops</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 03</p>
+            <h3 class="pj-feat__title">운영 친화적<br>구조 설계</h3>
+            <p class="pj-feat__desc">고객(쇼핑몰 운영자)의 사용 목적을 최우선으로 고려하여 비개발자도 손쉽게 콘텐츠를 관리·수정할 수 있는 구조로 스킨을 설계했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Cafe24 관리자 설정만으로 주요 요소 제어 가능한 구조</li>
+                <li>외부 앱 연동으로 기능 확장성 확보</li>
+                <li>모듈 커스터마이징으로 기본 기능 한계 극복</li>
+                <li>최소 코드 수정으로 최대 커스터마이징 가능한 설계</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 04 ── -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: 배너매니저를 활용한 메인 배너·섹션 배너 등 다양한 콘텐츠 구성 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-f4/800/600" alt="배너매니저 콘텐츠 관리">
+            <span class="pj-feat__badge">CMS</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 04</p>
+            <h3 class="pj-feat__title">배너매니저 기반<br>콘텐츠 관리</h3>
+            <p class="pj-feat__desc">배너매니저 앱을 활용하여 메인 배너, 팝업, 섹션 이미지 등 다양한 콘텐츠 유형에 유연하게 대응할 수 있는 관리 시스템을 구축했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>배너매니저 앱 기반 이미지·텍스트·링크 관리</li>
+                <li>메인 배너 / 팝업 / 섹션 배너 등 다양한 영역 지원</li>
+                <li>운영팀 직접 콘텐츠 교체 가능 — 개발 의존도 제로</li>
+                <li>시즌·이벤트별 콘텐츠 전환 용이</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── Feature 05 ── -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: FAQ 페이지 — 게시판 모듈 기반 아코디언 UI 화면 스크린샷 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bk-f5/800/600" alt="FAQ 페이지">
+            <span class="pj-feat__badge">Module</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 05</p>
+            <h3 class="pj-feat__title">게시판 모듈 활용<br>FAQ 페이지 구성</h3>
+            <p class="pj-feat__desc">Cafe24 게시판 모듈을 커스터마이징하여 별도의 FAQ 페이지를 구성했습니다. 운영자가 관리자에서 Q&A를 직접 등록·관리할 수 있는 구조로 구현했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Cafe24 게시판 모듈 기반 FAQ 페이지 구현</li>
+                <li>아코디언 UI로 질문·답변 펼치기/접기 인터랙션</li>
+                <li>카테고리별 FAQ 분류 및 검색 구조</li>
+                <li>관리자 등록만으로 FAQ 자동 노출되는 운영 친화적 구조</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     SCREENSHOT GALLERY
+═════════════════════════════ -->
+<div class="pj-gallery">
+    <div class="pj-gallery__inner">
+        <p class="pj-gallery__eyebrow js-fade">Screen Gallery</p>
+        <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
+        <div class="pj-gallery__grid">
+            <!-- 이미지: Boska 스킨 메인 홈 전체 스크린샷 (대표, 넓게) -->
+            <div class="pj-gallery__item pj-gallery__item--wide js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg1/1200/750" alt="메인 홈">
+                <span class="pj-gallery__caption">메인 홈 화면</span>
+            </div>
+            <!-- 이미지: 상품 목록 페이지 스크린샷 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg2/600/375" alt="상품 목록">
+                <span class="pj-gallery__caption">상품 목록</span>
+            </div>
+            <!-- 이미지: 상품 상세 페이지 스크린샷 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg3/600/375" alt="상품 상세">
+                <span class="pj-gallery__caption">상품 상세 페이지</span>
+            </div>
+            <!-- 이미지: 메인 배너 섹션 스크린샷 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg4/600/375" alt="메인 배너">
+                <span class="pj-gallery__caption">메인 배너 영역</span>
+            </div>
+            <!-- 이미지: FAQ 페이지 아코디언 UI 스크린샷 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg5/600/375" alt="FAQ 페이지">
+                <span class="pj-gallery__caption">FAQ 페이지</span>
+            </div>
+            <!-- 이미지: 장바구니 또는 주문 화면 스크린샷 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkg6/600/375" alt="주문 화면">
+                <span class="pj-gallery__caption">주문 페이지</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     MOBILE SHOWCASE
+═════════════════════════════ -->
+<div class="pj-mobile">
+    <div class="pj-mobile__inner">
+        <div>
+            <p class="pj-mobile__eyebrow js-fade">Responsive Design</p>
+            <h2 class="pj-mobile__title js-fade">모바일에서도<br>감성은 그대로</h2>
+            <p class="pj-mobile__desc js-fade">
+                PC에서 경험하는 감성적인 Boska의 UI가 모바일에서도 동일하게 유지됩니다. 터치 친화적인 인터랙션과 최적화된 레이아웃으로 어디서나 완성도 높은 쇼핑 경험을 제공합니다.
+            </p>
+            <div class="pj-mobile__checklist js-fade">
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">✨</div>
+                    <div>
+                        <strong>감성 UI 유지</strong>
+                        <span>PC와 동일한 디자인 감성을 모바일 화면에 최적화</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">📦</div>
+                    <div>
+                        <strong>상품 진열 최적화</strong>
+                        <span>화면 폭에 따라 자동 조정되는 반응형 상품 그리드</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">👆</div>
+                    <div>
+                        <strong>터치 친화적 인터랙션</strong>
+                        <span>스와이프 배너, 터치 메뉴 등 모바일 UX 최적화</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pj-phones js-fade">
+            <!-- 이미지: 모바일 스크린샷 3개 (각각 9:19 세로형 권장) -->
+            <!-- phone 1: 모바일 메인 홈 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkmob1/390/844" alt="모바일 화면 1">
+            </div>
+            <!-- phone 2: 상품 목록 모바일 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkmob2/390/844" alt="모바일 화면 2">
+            </div>
+            <!-- phone 3: 상품 상세 모바일 화면 -->
+            <div class="pj-phone">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bkmob3/390/844" alt="모바일 화면 3">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     CONTRIBUTION
+═════════════════════════════ -->
+<section class="pj-contrib">
+    <div class="pj-contrib__hd js-fade">
+        <p class="pj-contrib__eyebrow">My Contribution</p>
+        <h2 class="pj-contrib__title">담당 역할 요약</h2>
+    </div>
+    <div class="pj-contrib__grid">
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">01</div>
+            <h3 class="pj-card__title">감성 UI/UX 설계</h3>
+            <p class="pj-card__desc">브랜드 감성에 맞는 정제된 비주얼, 부드러운 트랜지션, 여백 중심 레이아웃으로 감성적인 쇼핑 경험 설계</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">02</div>
+            <h3 class="pj-card__title">유연한 레이아웃 시스템</h3>
+            <p class="pj-card__desc">다양한 상품 유형과 진열 방식에 대응하는 유연한 그리드 및 레이아웃 시스템 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">03</div>
+            <h3 class="pj-card__title">운영 친화적 구조</h3>
+            <p class="pj-card__desc">비개발자 운영자가 Cafe24 관리자만으로 주요 콘텐츠를 제어할 수 있는 운영 친화적 스킨 구조 설계</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">04</div>
+            <h3 class="pj-card__title">배너 CMS 구축</h3>
+            <p class="pj-card__desc">배너매니저 앱 활용으로 메인 배너·팝업·섹션 이미지 등 콘텐츠 영역 자유롭게 관리 가능한 시스템 구축</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">05</div>
+            <h3 class="pj-card__title">FAQ 페이지 구현</h3>
+            <p class="pj-card__desc">게시판 모듈 커스터마이징으로 운영자 직접 관리 가능한 아코디언 FAQ 페이지 구성</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">06</div>
+            <h3 class="pj-card__title">반응형 구현</h3>
+            <p class="pj-card__desc">PC / 태블릿 / 모바일 전 구간 반응형 레이아웃 및 터치 최적화 인터랙션 적용</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════
+     STATS BAND
+═════════════════════════════ -->
+<div class="pj-stats">
+    <div class="pj-stats__inner">
+        <div class="js-fade">
+            <div class="pj-stats__num">5</div>
+            <div class="pj-stats__lbl">핵심 설계 특징</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">1</div>
+            <div class="pj-stats__lbl">개월간 작업 기간</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">3</div>
+            <div class="pj-stats__lbl">대응 디바이스</div>
+        </div>
+        <div class="js-fade">
+            <div class="pj-stats__num">∞</div>
+            <div class="pj-stats__lbl">업종 적용 가능</div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════
+     BOTTOM NAV
+═════════════════════════════ -->
+<nav class="pj-nav">
+    <div class="pj-nav__inner">
+        <a href="/project/detail/open_palette.html" class="pj-nav__item">
+            <span class="pj-nav__dir">← Prev Project</span>
+            <span class="pj-nav__name">OPEN PALETTE</span>
+        </a>
+        <a href="/project/detail/spofl.html" class="pj-nav__item" style="text-align:right;">
+            <span class="pj-nav__dir">Next Project →</span>
+            <span class="pj-nav__name">SPOFL</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+(function () {
+    'use strict';
+
+    /* 스크롤 프로그레스 바 */
+    var bar   = document.getElementById('pjProgress');
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    function updateBar(y) {
+        if (bar) bar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
+    }
+
+    /* IntersectionObserver 스크롤 애니메이션 */
+    var fadeEls = document.querySelectorAll('.js-fade');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+    } else {
+        fadeEls.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    /* 스크롤 이벤트: rAF로 묶어 layout thrashing 방지 */
+    var ticking = false;
+    var lastScrollY = 0;
+
+    function onScrollFrame() {
+        updateBar(lastScrollY);
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            requestAnimationFrame(onScrollFrame);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    lastScrollY = window.scrollY;
+    updateBar(lastScrollY);
+}());
+</script>
+
+			</div>
+		</div>
+</div><!-- //wrap -->
+
+	<div class="layer_shadow" id="layer_shadow"></div>
+	<div id="layoutDimmed" class="dimmed"></div>
+
+	<link rel="stylesheet" href="/layout/basic/css/sub_style.css">
+	<link rel="stylesheet" href="/layout/basic/css/sub_theme.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme01.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme02.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme03.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_layout.css">
+
+</body>
+</html>

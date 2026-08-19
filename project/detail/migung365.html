@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+    <!-- PG크로스브라우징필수내용 -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- // PG크로스브라우징필수내용 -->
+
+    <title>Migung365 — 김유진 포트폴리오</title>
+    <link rel="stylesheet" href="/layout/basic/css/common.css"><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <link rel="stylesheet" href="/layout/basic/css/layout.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-ui.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-button.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tab.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-table.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-tooltip.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-help.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-fold.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-box.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-desc.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-product.css">
+  	<link rel="stylesheet" href="/layout/basic/css/ec-base-prdInfo.css">
+    <link rel="stylesheet" href="/layout/basic/css/ec-base-paginate.css">
+
+    <link rel="stylesheet" href="/custom/customStyle.css">
+
+	<style>html { scroll-behavior: smooth; }</style>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+    <link rel="stylesheet" href="/layout/basic/css/swiper.min.css">
+	<script src="/layout/basic/js/swiper-bundle.min.js"></script>
+
+    <script src="/custom/customJs.js"></script>
+</head>
+<body class="theme01" data-ez-theme="theme01">
+	<div id="wrap">
+        <style>
+/* ════════════════════════════
+   CUSTOM HEADER
+   ════════════════════════════ */
+#customHeader {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 기본: 투명 */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* 상태 전환 */
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        -webkit-backdrop-filter .35s ease,
+        transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 스크롤 내려갔을 때: 글래스모피즘 ── */
+#customHeader.is-scrolled {
+    background: rgba(13, 13, 13, 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 스크롤 내릴 때: 헤더 숨김 ── */
+#customHeader.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* ── LOGO ── */
+.ch-logo {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+}
+.ch-logo span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #D42B2B; /* 포인트 컬러 */
+    margin-left: 2px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* ── NAV ── */
+.ch-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.ch-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+    position: relative;
+}
+.ch-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: width .25s ease;
+}
+.ch-nav a:hover { color: #fff; }
+.ch-nav a:hover::after { width: 100%; }
+
+/* ── 모바일 햄버거 ── */
+.ch-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.ch-menu-btn span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+}
+.ch-menu-btn span:nth-child(2) { width: 65%; }
+.ch-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ch-menu-btn.is-open span:nth-child(2) { opacity: 0; width: 100%; }
+.ch-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 모바일 드로어 ── */
+.ch-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 8999;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.ch-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.ch-drawer a {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color .2s;
+}
+.ch-drawer a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+    #customHeader { padding: 0 24px; }
+    .ch-nav       { display: none; }
+    .ch-menu-btn  { display: flex; }
+}
+</style>
+
+<header id="customHeader">
+    <a href="/" class="ch-logo">
+        김유진<span></span>
+    </a>
+
+    <nav>
+        <ul class="ch-nav">
+            <!-- Works → 프로젝트 전체 목록 페이지로 직접 연결 -->
+            <li><a href="/project/list.html">Works</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="ch-menu-btn" id="chMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- 모바일 드로어 -->
+<nav class="ch-drawer" id="chDrawer">
+    <a href="/project/list.html" onclick="closeDrawer()">Works</a>
+    <a href="/#about"            onclick="closeDrawer()">About</a>
+    <a href="/#skills"           onclick="closeDrawer()">Skills</a>
+    <a href="/#contact"          onclick="closeDrawer()">Contact</a>
+</nav>
+
+<script>
+(function () {
+    var header   = document.getElementById('customHeader');
+    var menuBtn  = document.getElementById('chMenuBtn');
+    var drawer   = document.getElementById('chDrawer');
+    var lastY    = 0;
+    var ticking  = false;
+    var drawerOpen = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    function update() {
+        var y = window.scrollY;
+
+        /* 투명 ↔ 글래스 */
+        if (y > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+            header.classList.remove('is-hidden'); /* 최상단 복귀 시 항상 표시 */
+        }
+
+        /* 스크롤 방향: 내릴 때 숨김, 올릴 때 표시 */
+        if (y > 80) {
+            if (y > lastY) {
+                header.classList.add('is-hidden');
+            } else {
+                header.classList.remove('is-hidden');
+            }
+        }
+
+        lastY   = y;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* 햄버거 / 드로어 */
+    function closeDrawer() {
+        drawerOpen = false;
+        menuBtn.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        drawerOpen = !drawerOpen;
+        menuBtn.classList.toggle('is-open', drawerOpen);
+        drawer.classList.toggle('is-open', drawerOpen);
+        document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    });
+
+    /* ESC로 드로어 닫기 */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawerOpen) closeDrawer();
+    });
+
+    window.closeDrawer = closeDrawer;
+
+    /* 초기 상태 */
+    update();
+}());
+</script>
+
+        <div id="container">
+			<div id="contents">
+				<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --black:   #0d0d0d;
+    --white:   #f5f5f3;
+    --accent:  #1B5090;
+    --g100: #1a1a1a;
+    --g200: #2a2a2a;
+    --g400: #555;
+    --g600: #888;
+    --g800: #ccc;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black); color: var(--white);
+    overflow-x: hidden; line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+#pjProgress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: var(--accent); z-index: 9999;
+    transition: width .1s linear;
+}
+
+/* ── HERO ── */
+.pj-hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden;
+}
+.pj-hero__bg {
+    position: absolute; inset: 0;
+    /* 히어로 배경: 대장사랑 사이트 메인 스크린샷 (권장 1920×1080) */
+    background: url('https://picsum.photos/seed/dj-hero/1920/1080') center/cover no-repeat;
+    opacity: .3;
+    animation: kenBurns 8s var(--ease) forwards;
+}
+@keyframes kenBurns { from { transform: scale(1.08); } to { transform: scale(1); } }
+.pj-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+        rgba(13,13,13,1) 0%, rgba(13,13,13,.5) 55%, rgba(13,13,13,.15) 100%);
+}
+.pj-hero__body { position: relative; z-index: 2; padding: 0 80px 80px; }
+.pj-hero__cat {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 24px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .8s var(--ease) .3s forwards;
+}
+.pj-hero__cat::before { content: ''; display: block; width: 22px; height: 2px; background: var(--accent); }
+.pj-hero__title {
+    font-size: clamp(52px, 8.5vw, 128px);
+    font-weight: 900; line-height: .95; letter-spacing: -.035em; margin-bottom: 36px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp .9s var(--ease) .45s forwards;
+}
+.pj-hero__title em {
+    display: block; font-style: normal;
+    font-size: .28em; font-weight: 400; color: var(--g600);
+    letter-spacing: .06em; margin-bottom: 6px;
+}
+.pj-hero__meta {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp .9s var(--ease) .6s forwards;
+}
+.pj-hero__meta-item strong {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--g600); margin-bottom: 3px;
+}
+.pj-hero__meta-item span { font-size: 15px; font-weight: 500; }
+.pj-hero__scroll {
+    position: absolute; bottom: 48px; right: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--g600);
+    opacity: 0; animation: fadeUp 1s var(--ease) 1s forwards;
+}
+.pj-hero__scroll-line {
+    width: 1px; height: 40px; background: var(--g400);
+    animation: scrollPulse 1.6s ease-in-out infinite;
+}
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+@keyframes scrollPulse { 0%,100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(.4); opacity: .3; } }
+
+/* ── MILESTONE BADGE ── */
+.pj-milestone {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; background: rgba(27,80,144,.18);
+    border: 1px solid rgba(27,80,144,.5); border-radius: 100px;
+    font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--accent);
+    margin-bottom: 28px;
+}
+.pj-milestone::before { content: '★'; font-size: 10px; }
+
+/* ── OVERVIEW ── */
+.pj-overview {
+    padding: 120px 80px; max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start;
+}
+.pj-overview__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+}
+.pj-overview__bignum {
+    font-size: clamp(72px, 11vw, 144px); font-weight: 900; line-height: .85;
+    color: var(--g200); letter-spacing: -.04em; margin-bottom: 44px;
+}
+.pj-overview__infolist { display: flex; flex-direction: column; }
+.pj-overview__info {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 18px 0; border-bottom: 1px solid var(--g200);
+}
+.pj-overview__info:first-child { padding-top: 0; }
+.pj-overview__info-k {
+    font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--g600);
+}
+.pj-overview__info-v { font-size: 15px; font-weight: 500; }
+.pj-overview__desc {
+    font-size: clamp(17px, 1.8vw, 24px); font-weight: 400; line-height: 1.75;
+    color: var(--g800); margin-bottom: 36px;
+}
+.pj-overview__desc strong { color: var(--white); font-weight: 600; }
+.pj-overview__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 44px; }
+.pj-overview__tag {
+    padding: 5px 14px; border: 1px solid var(--g200); border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--g600);
+    transition: border-color .2s, color .2s;
+}
+.pj-overview__tag:hover { border-color: var(--accent); color: var(--accent); }
+.pj-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px; background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    border-radius: 4px; transition: background .2s, transform .2s;
+}
+.pj-btn:hover { background: #133d72; transform: translateY(-2px); }
+.pj-btn svg { transition: transform .2s; }
+.pj-btn:hover svg { transform: translate(3px,-3px); }
+
+/* ── FULL IMG ── */
+.pj-fullimg { width: 100%; overflow: hidden; line-height: 0; }
+.pj-fullimg img {
+    width: 100%; height: clamp(280px, 40vw, 680px); object-fit: cover;
+    transition: transform .7s var(--ease);
+}
+.pj-fullimg:hover img { transform: scale(1.02); }
+
+/* ── SECTION ── */
+.pj-sec { padding: 120px 80px; max-width: 1400px; margin: 0 auto; }
+.pj-sec__hd {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    padding-bottom: 40px; border-bottom: 1px solid var(--g200); margin-bottom: 80px;
+}
+.pj-sec__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+}
+.pj-sec__title {
+    font-size: clamp(26px, 3.2vw, 44px); font-weight: 700;
+    letter-spacing: -.025em; line-height: 1.2;
+}
+.pj-sec__title em {
+    display: block; font-style: normal; font-size: .52em; font-weight: 400;
+    color: var(--g600); margin-bottom: 6px; letter-spacing: .02em;
+}
+
+/* ── FEATURE ── */
+.pj-feat {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    margin-bottom: 110px;
+}
+.pj-feat:last-child { margin-bottom: 0; }
+.pj-feat--rev { direction: rtl; }
+.pj-feat--rev > * { direction: ltr; }
+.pj-feat__img {
+    position: relative; border-radius: 12px; overflow: hidden;
+    background: var(--g100); aspect-ratio: 4/3;
+}
+.pj-feat__img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+.pj-feat__img:hover img { transform: scale(1.05); }
+.pj-feat__badge {
+    position: absolute; top: 18px; left: 18px;
+    padding: 5px 11px; background: var(--accent); color: #fff;
+    font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 4px;
+}
+.pj-feat__num {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--accent);
+    margin-bottom: 14px;
+}
+.pj-feat__title {
+    font-size: clamp(22px, 2.4vw, 32px); font-weight: 700; line-height: 1.25;
+    letter-spacing: -.02em; margin-bottom: 18px;
+}
+.pj-feat__desc { font-size: 15px; line-height: 1.85; color: var(--g800); margin-bottom: 26px; }
+.pj-feat__list { display: flex; flex-direction: column; gap: 10px; }
+.pj-feat__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--g800); line-height: 1.65;
+}
+.pj-feat__list li::before {
+    content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-top: 9px;
+}
+.pj-feat__note {
+    margin-top: 24px; padding: 16px 20px;
+    background: var(--g100); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    font-size: 13px; color: var(--g600); line-height: 1.7;
+}
+.pj-feat__note strong { color: var(--accent); font-weight: 600; }
+
+/* ── PPT 블록 ── */
+.pj-ppt-block {
+    margin-top: 28px; padding: 22px 24px;
+    background: var(--g100); border-radius: 10px;
+    border: 1px solid var(--g200);
+    display: flex; align-items: flex-start; gap: 18px;
+}
+.pj-ppt-block__icon { font-size: 32px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.pj-ppt-block__title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.pj-ppt-block__desc { font-size: 13px; color: var(--g600); line-height: 1.7; }
+.pj-ppt-block__tag {
+    display: inline-flex; margin-top: 10px;
+    padding: 3px 10px; background: rgba(27,80,144,.15);
+    border: 1px solid rgba(27,80,144,.3); border-radius: 100px;
+    font-size: 11px; font-weight: 600; color: var(--accent);
+}
+
+/* ── GALLERY ── */
+.pj-gallery { background: var(--g100); padding: 80px; }
+.pj-gallery__inner { max-width: 1400px; margin: 0 auto; }
+.pj-gallery__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-gallery__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -.02em; margin-bottom: 44px;
+}
+.pj-gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pj-gallery__item {
+    border-radius: 8px; overflow: hidden; background: var(--g200);
+    aspect-ratio: 16/10; position: relative;
+}
+.pj-gallery__item--wide { grid-column: span 2; }
+.pj-gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+.pj-gallery__item:hover img { transform: scale(1.04); }
+.pj-gallery__caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 18px;
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+    font-size: 12px; color: #fff; opacity: 0; transition: opacity .3s;
+}
+.pj-gallery__item:hover .pj-gallery__caption { opacity: 1; }
+
+/* ── MOBILE ── */
+.pj-mobile { padding: 120px 80px; background: linear-gradient(135deg, var(--g100), var(--black)); overflow: clip; }
+.pj-mobile__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.pj-mobile__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-mobile__title { font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; line-height: 1.2; letter-spacing: -.025em; margin-bottom: 22px; }
+.pj-mobile__desc { font-size: 15px; color: var(--g800); line-height: 1.85; margin-bottom: 36px; }
+.pj-mobile__checklist { display: flex; flex-direction: column; gap: 14px; }
+.pj-mobile__check {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px; background: var(--g200); border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+.pj-mobile__check-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.pj-mobile__check strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.pj-mobile__check span  { font-size: 13px; color: var(--g600); }
+.pj-phones {
+    display: flex; gap: 16px; justify-content: center; align-items: flex-end;
+    perspective: 1000px;
+}
+.pj-phone {
+    width: 190px; border-radius: 32px; overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,.6); transition: transform .4s var(--ease);
+}
+.pj-phone:nth-child(1) { transform: rotate(-4deg) translateY(16px); }
+.pj-phone:nth-child(2) { transform: rotate(1deg) translateY(-24px); }
+.pj-phone:nth-child(3) { transform: rotate(4deg) translateY(10px); }
+.pj-phone:hover { transform: rotate(0) scale(1.06) !important; }
+.pj-phone img { width: 100%; aspect-ratio: 9/19; object-fit: cover; }
+
+/* ── CONTRIBUTION ── */
+.pj-contrib { padding: 120px 80px; max-width: 1400px; margin: 0 auto; }
+.pj-contrib__hd { margin-bottom: 56px; }
+.pj-contrib__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+}
+.pj-contrib__title { font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; letter-spacing: -.025em; }
+.pj-contrib__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pj-card {
+    padding: 32px; background: var(--g100); border-radius: 12px;
+    border-top: 3px solid var(--g200); transition: border-color .25s, transform .25s;
+}
+.pj-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.pj-card__num { font-size: 36px; font-weight: 900; color: var(--g200); margin-bottom: 16px; line-height: 1; }
+.pj-card__title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.pj-card__desc  { font-size: 13px; color: var(--g600); line-height: 1.75; }
+
+/* ── STATS ── */
+.pj-stats { padding: 72px 80px; background: var(--accent); }
+.pj-stats__inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;
+}
+.pj-stats__num {
+    font-size: clamp(40px, 5vw, 72px); font-weight: 900; line-height: 1;
+    letter-spacing: -.03em; margin-bottom: 8px; color: #fff;
+}
+.pj-stats__lbl { font-size: 13px; opacity: .75; color: #fff; }
+
+/* ── NAV ── */
+.pj-nav { border-top: 1px solid var(--g200); }
+.pj-nav__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; }
+.pj-nav__item {
+    padding: 60px 80px; display: flex; flex-direction: column; gap: 8px;
+    transition: background .25s;
+}
+.pj-nav__item:first-child { border-right: 1px solid var(--g200); }
+.pj-nav__item:hover { background: var(--g100); }
+.pj-nav__dir { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--g600); }
+.pj-nav__name { font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; transition: color .2s; }
+.pj-nav__item:hover .pj-nav__name { color: var(--accent); }
+
+/* ── CONTENT-VISIBILITY ── */
+.pj-overview, .pj-fullimg, .pj-sec, .pj-gallery,
+.pj-mobile, .pj-contrib, .pj-stats, .pj-nav {
+    content-visibility: auto; contain-intrinsic-size: 0 600px;
+}
+
+/* ── JS-FADE ── */
+.js-fade {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.js-fade.is-left  { transform: translateX(-36px); }
+.js-fade.is-right { transform: translateX(36px); }
+.js-fade.in { opacity: 1; transform: none; }
+.js-fade:nth-child(2) { transition-delay: .08s; }
+.js-fade:nth-child(3) { transition-delay: .16s; }
+.js-fade:nth-child(4) { transition-delay: .24s; }
+.js-fade:nth-child(5) { transition-delay: .32s; }
+.js-fade:nth-child(6) { transition-delay: .40s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+    .pj-hero__body, .pj-overview, .pj-sec, .pj-contrib { padding-left: 48px; padding-right: 48px; }
+    .pj-gallery { padding: 60px 48px; }
+    .pj-mobile  { padding: 80px 48px; }
+    .pj-stats   { padding: 60px 48px; }
+    .pj-nav__item { padding: 52px 48px; }
+}
+@media (max-width: 900px) {
+    .pj-overview { grid-template-columns: 1fr; gap: 40px; }
+    .pj-feat, .pj-feat--rev { grid-template-columns: 1fr; direction: ltr; }
+    .pj-gallery__grid { grid-template-columns: 1fr 1fr; }
+    .pj-gallery__item--wide { grid-column: span 2; }
+    .pj-mobile__inner { grid-template-columns: 1fr; }
+    .pj-phones { margin-top: 48px; }
+    .pj-contrib__grid { grid-template-columns: 1fr 1fr; }
+    .pj-stats__inner  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .pj-hero__body { padding: 0 24px 48px; }
+    .pj-hero__scroll { right: 24px; }
+    .pj-overview, .pj-sec, .pj-contrib { padding: 72px 24px; }
+    .pj-gallery { padding: 60px 24px; }
+    .pj-mobile  { padding: 72px 24px; }
+    .pj-stats   { padding: 56px 24px; }
+    .pj-nav__item { padding: 40px 24px; }
+    .pj-nav__inner { grid-template-columns: 1fr; }
+    .pj-nav__item:first-child { border-right: none; border-bottom: 1px solid var(--g200); }
+    .pj-gallery__grid { grid-template-columns: 1fr; }
+    .pj-gallery__item--wide { grid-column: span 1; }
+    .pj-contrib__grid { grid-template-columns: 1fr; }
+    .pj-stats__inner  { grid-template-columns: 1fr 1fr; }
+    .pj-mobile { overflow: visible; }
+    .pj-phones {
+        margin: 32px -24px 0; padding: 16px 24px 32px;
+        justify-content: flex-start; align-items: center;
+        perspective: none; overflow-x: auto;
+        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; gap: 14px;
+    }
+    .pj-phones::-webkit-scrollbar { display: none; }
+    .pj-phone {
+        min-width: 62vw; width: 62vw; flex-shrink: 0;
+        scroll-snap-align: center; border-radius: 24px;
+        transform: none !important; box-shadow: 0 16px 40px rgba(0,0,0,.5);
+    }
+    .pj-phone:last-child { margin-right: 24px; }
+    .pj-phone:hover { transform: none !important; }
+    .pj-sec__hd { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<div id="pjProgress"></div>
+
+<!-- ══ HERO ══ -->
+<section class="pj-hero">
+    <!-- 배경: 대장사랑 사이트 메인 스크린샷 (권장 1920×1080) -->
+    <div class="pj-hero__bg"></div>
+    <div class="pj-hero__overlay"></div>
+    <div class="pj-hero__body">
+        <p class="pj-hero__cat">Commerce · Health</p>
+        <h1 class="pj-hero__title">
+            <em>Project.</em>
+            대장사랑
+        </h1>
+        <div class="pj-hero__meta">
+            <div class="pj-hero__meta-item"><strong>Period</strong><span>2024.04 – 2024.05</span></div>
+            <div class="pj-hero__meta-item"><strong>Platform</strong><span>Cafe24</span></div>
+            <div class="pj-hero__meta-item"><strong>Role</strong><span>Web Publisher</span></div>
+            <div class="pj-hero__meta-item"><strong>Type</strong><span>모듈 분석 · 퍼블리싱 · 사내 교육 자료 제작</span></div>
+        </div>
+    </div>
+    <div class="pj-hero__scroll">
+        <div class="pj-hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ══ OVERVIEW ══ -->
+<section class="pj-overview">
+    <div class="js-fade">
+        <p class="pj-overview__eyebrow">Project Overview</p>
+        <div class="pj-overview__bignum">13</div>
+        <ul class="pj-overview__infolist">
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Period</span><span class="pj-overview__info-v">2024.04 – 2024.05</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Platform</span><span class="pj-overview__info-v">Cafe24 커스텀 스킨</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Role</span><span class="pj-overview__info-v">Web Publisher</span></li>
+            <li class="pj-overview__info" style="border-bottom:none;">
+                <span class="pj-overview__info-k">Website</span>
+                <a href="https://migung2024.cafe24.com/skin-skin2" target="_blank" class="pj-btn" style="margin-top:10px;width:fit-content;">
+                    사이트 방문하기
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="js-fade">
+        <div class="pj-milestone">첫 번째 실무 프로젝트</div>
+        <p class="pj-overview__desc">
+            건강식품 브랜드 <strong>대장사랑</strong> Cafe24 쇼핑몰 퍼블리싱을 담당한 첫 번째 실무 프로젝트입니다.<br>
+            <strong>사전 교육 없이 바로 실무에 투입</strong>되어, Cafe24 모듈 구조를 직접 분석하고 스킨 퍼블리싱을 완수했습니다. 프로젝트를 통해 체계화한 학습 내용은 이후 <strong>사내 신규 입사자 교육 자료</strong>로 활용되었습니다.
+        </p>
+        <div class="pj-overview__tags">
+            <span class="pj-overview__tag">#Cafe24</span>
+            <span class="pj-overview__tag">#모듈분석</span>
+            <span class="pj-overview__tag">#커스텀스킨</span>
+            <span class="pj-overview__tag">#JavaScript</span>
+            <span class="pj-overview__tag">#HTML</span>
+            <span class="pj-overview__tag">#CSS</span>
+            <span class="pj-overview__tag">#사내교육자료</span>
+        </div>
+        <a href="https://migung2024.cafe24.com/skin-skin2" target="_blank" class="pj-btn">
+            사이트 방문하기
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- 풀이미지: 대장사랑 사이트 전체 화면 (권장 1920×700) -->
+<div class="pj-fullimg">
+    <img loading="lazy" decoding="async" src="https://picsum.photos/seed/dj-full/1920/700" alt="대장사랑 메인">
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="pj-sec">
+    <div class="pj-sec__hd js-fade">
+        <div>
+            <p class="pj-sec__eyebrow">— Key Features</p>
+            <h2 class="pj-sec__title">
+                <em>모듈 분석 · 퍼블리싱 · 사내 자산화</em>
+                Cafe24 구조 파악부터 결과물까지
+            </h2>
+        </div>
+    </div>
+
+    <!-- F01: 모듈 분석 + 퍼블리싱 -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <!-- 이미지: 작업 화면 — 대장사랑 사이트 퍼블리싱 결과물 or 편집기 화면 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/dj-f1/800/600" alt="Cafe24 모듈 분석 및 퍼블리싱">
+            <span class="pj-feat__badge">Publishing</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 01 — 분석 · 퍼블리싱</p>
+            <h3 class="pj-feat__title">Cafe24 모듈 구조<br>직접 분석 및 스킨 퍼블리싱</h3>
+            <p class="pj-feat__desc">별도 교육 없이 Cafe24 플랫폼에 투입되어, 공식 문서 및 실제 스킨 코드 분석을 통해 모듈 렌더링 구조·변수 시스템·레이아웃 상속 체계를 스스로 파악했습니다. 파악한 구조를 기반으로 대장사랑 쇼핑몰 스킨 퍼블리싱을 완수했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Cafe24 모듈 렌더링 구조 — 레이아웃 상속, 변수 선언, 조건부 출력 방식 파악</li>
+                <li>스킨 파일 구조(layout/module/page) 분석 및 커스텀 스킨 퍼블리싱 적용</li>
+                <li>JavaScript를 활용한 UI 인터랙션 구현 (메뉴, 배너, 상품 목록 등)</li>
+                <li>HTML/CSS 마크업 설계 — 시맨틱 구조 및 반응형 레이아웃 구현</li>
+            </ul>
+            <div class="pj-feat__note">
+                <strong>실무 투입 배경:</strong> 사전 Cafe24 교육 없이 첫날부터 실제 프로젝트에 배정. 공식 문서 + 기존 스킨 역분석 + 실험을 반복하며 플랫폼 구조를 스스로 체계화했고, 이후 해당 지식이 팀 내 표준 이해의 기반이 됨.
+            </div>
+        </div>
+    </div>
+
+    <!-- F02: PPT 제작 → 사내 자산 -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <!-- 이미지: 카페24 구조 정리 PPT 대표 슬라이드 캡처 (권장 800×600) -->
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/dj-f2/800/600" alt="Cafe24 구조 정리 PPT">
+            <span class="pj-feat__badge">PPT</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 02 — 문서화 · 사내 자산</p>
+            <h3 class="pj-feat__title">Cafe24 구조 정리 PPT<br>→ 신규 입사자 교육 자료로 활용</h3>
+            <p class="pj-feat__desc">프로젝트를 진행하며 스스로 파악한 Cafe24 구조와 개발 흐름을 체계적으로 정리하여 PPT를 제작했습니다. 해당 자료는 추후 신규 입사자가 Cafe24를 처음 접할 때 참고할 수 있는 팀 내 교육 자료로 채택되어 활용되었습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Cafe24 플랫폼 구조 전반 — 파일 구성, 모듈 체계, 변수·조건문 문법 정리</li>
+                <li>실무 워크플로우 — 스킨 신규 등록, 파일 업로드, 미리보기 환경 구성 과정 문서화</li>
+                <li>실수하기 쉬운 포인트 및 트러블슈팅 사례 포함 — 실전 경험 기반 정리</li>
+                <li>신규 입사자 온보딩 자료로 채택 → 팀 내 공유 자산으로 지속 활용</li>
+            </ul>
+            <div class="pj-ppt-block">
+                <div class="pj-ppt-block__icon">📊</div>
+                <div>
+                    <p class="pj-ppt-block__title">Cafe24 구조 정리 PPT</p>
+                    <p class="pj-ppt-block__desc">레이아웃 시스템 · 모듈 변수 · 스킨 등록 절차 · 실전 트러블슈팅 포함. 직접 분석한 내용을 시각화하여 팀 자산으로 전환.</p>
+                    <span class="pj-ppt-block__tag">사내 교육 자료로 채택</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<div class="pj-gallery">
+    <div class="pj-gallery__inner">
+        <p class="pj-gallery__eyebrow js-fade">Screen Gallery</p>
+        <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
+        <div class="pj-gallery__grid">
+            <!-- 이미지: 대장사랑 메인 전체 화면 (넓게) -->
+            <div class="pj-gallery__item pj-gallery__item--wide js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg1/1200/750" alt="대장사랑 메인">
+                <span class="pj-gallery__caption">메인 페이지 전체</span>
+            </div>
+            <!-- 이미지: 상품 목록 페이지 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg2/600/375" alt="상품 목록">
+                <span class="pj-gallery__caption">상품 목록 페이지</span>
+            </div>
+            <!-- 이미지: 상품 상세 페이지 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg3/600/375" alt="상품 상세">
+                <span class="pj-gallery__caption">상품 상세 페이지</span>
+            </div>
+            <!-- 이미지: 헤더 + 네비게이션 영역 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg4/600/375" alt="헤더 네비게이션">
+                <span class="pj-gallery__caption">헤더 · 내비게이션</span>
+            </div>
+            <!-- 이미지: 배너 섹션 or 프로모션 영역 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg5/600/375" alt="배너 섹션">
+                <span class="pj-gallery__caption">배너 · 프로모션 영역</span>
+            </div>
+            <!-- 이미지: 푸터 영역 -->
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/djg6/600/375" alt="푸터">
+                <span class="pj-gallery__caption">푸터</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ MOBILE ══ -->
+<div class="pj-mobile">
+    <div class="pj-mobile__inner">
+        <div>
+            <p class="pj-mobile__eyebrow js-fade">Responsive Design</p>
+            <h2 class="pj-mobile__title js-fade">모바일 쇼핑 환경<br>동일하게 구현</h2>
+            <p class="pj-mobile__desc js-fade">
+                PC와 모바일 모두 동일한 사용 경험을 제공할 수 있도록 반응형 레이아웃을 구현했습니다. Cafe24 플랫폼의 모듈 구조를 이해한 상태에서 기기별 레이아웃을 직접 설계하고 적용했습니다.
+            </p>
+            <div class="pj-mobile__checklist js-fade">
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">📱</div>
+                    <div>
+                        <strong>반응형 레이아웃 구현</strong>
+                        <span>PC · 태블릿 · 모바일 3단계 뷰포트 대응, 기기별 최적 레이아웃 설계</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">🧩</div>
+                    <div>
+                        <strong>Cafe24 모듈 기반 구성</strong>
+                        <span>플랫폼 모듈 렌더링 구조를 파악하여 커스텀 스킨 내에 적합하게 배치</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">⚡</div>
+                    <div>
+                        <strong>UI 인터랙션 구현</strong>
+                        <span>모바일 햄버거 메뉴, 슬라이더 등 JavaScript 기반 인터랙션 적용</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pj-phones js-fade">
+            <!-- phone 1: 모바일 메인 화면 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/djmob1/390/844" alt="모바일 메인"></div>
+            <!-- phone 2: 모바일 상품 목록 화면 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/djmob2/390/844" alt="모바일 상품 목록"></div>
+            <!-- phone 3: 모바일 상품 상세 화면 -->
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="https://picsum.photos/seed/djmob3/390/844" alt="모바일 상품 상세"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ CONTRIBUTION ══ -->
+<section class="pj-contrib">
+    <div class="pj-contrib__hd js-fade">
+        <p class="pj-contrib__eyebrow">My Contribution</p>
+        <h2 class="pj-contrib__title">담당 역할 요약</h2>
+    </div>
+    <div class="pj-contrib__grid">
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">01</div>
+            <h3 class="pj-card__title">Cafe24 구조 독학 분석</h3>
+            <p class="pj-card__desc">사전 교육 없이 공식 문서·기존 스킨 역분석·실험 반복으로 모듈 렌더링 구조, 변수 시스템, 레이아웃 상속 체계 파악</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">02</div>
+            <h3 class="pj-card__title">스킨 퍼블리싱 완수</h3>
+            <p class="pj-card__desc">분석 기반으로 대장사랑 쇼핑몰 커스텀 스킨 HTML/CSS/JS 퍼블리싱 담당, 전 페이지 마크업 및 스타일 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">03</div>
+            <h3 class="pj-card__title">반응형 레이아웃</h3>
+            <p class="pj-card__desc">PC · 태블릿 · 모바일 3단계 반응형 레이아웃 설계 및 구현, 기기별 사용 경험 일관성 확보</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">04</div>
+            <h3 class="pj-card__title">UI 인터랙션 구현</h3>
+            <p class="pj-card__desc">JavaScript로 모바일 메뉴, 이미지 슬라이더, 탭 전환 등 인터랙티브 UI 요소 직접 구현</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">05</div>
+            <h3 class="pj-card__title">구조 정리 PPT 제작</h3>
+            <p class="pj-card__desc">실무에서 파악한 Cafe24 구조 전반을 시각화하여 PPT로 정리 — 레이아웃 시스템, 모듈 변수, 스킨 등록 절차 포함</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">06</div>
+            <h3 class="pj-card__title">사내 교육 자료 기여</h3>
+            <p class="pj-card__desc">제작한 PPT가 신규 입사자 Cafe24 온보딩 교육 자료로 채택 → 개인 학습 결과물을 팀 공유 자산으로 전환</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="pj-stats">
+    <div class="pj-stats__inner">
+        <div class="js-fade"><div class="pj-stats__num">#1</div><div class="pj-stats__lbl">첫 번째 실무 프로젝트</div></div>
+        <div class="js-fade"><div class="pj-stats__num">2mo</div><div class="pj-stats__lbl">작업 기간</div></div>
+        <div class="js-fade"><div class="pj-stats__num">독학</div><div class="pj-stats__lbl">사전 교육 없이 자체 분석</div></div>
+        <div class="js-fade"><div class="pj-stats__num">PPT</div><div class="pj-stats__lbl">사내 교육 자료로 채택</div></div>
+    </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="pj-nav">
+    <div class="pj-nav__inner">
+        <a href="/project/detail/teva.html" class="pj-nav__item">
+            <span class="pj-nav__dir">← Prev Project</span>
+            <span class="pj-nav__name">TEVA</span>
+        </a>
+        <a href="#" class="pj-nav__item" style="text-align:right;">
+            <span class="pj-nav__dir">Next Project →</span>
+            <span class="pj-nav__name">다음 프로젝트</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+(function () {
+    'use strict';
+
+    var bar = document.getElementById('pjProgress');
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    function updateBar(y) { if (bar) bar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%'; }
+    var fadeEls = document.querySelectorAll('.js-fade');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+    } else { fadeEls.forEach(function (el) { el.classList.add('in'); }); }
+    var ticking = false, lastScrollY = 0;
+    window.addEventListener('scroll', function () {
+        lastScrollY = window.scrollY;
+        if (!ticking) { requestAnimationFrame(function () { updateBar(lastScrollY); ticking = false; }); ticking = true; }
+    }, { passive: true });
+    lastScrollY = window.scrollY; updateBar(lastScrollY);
+}());
+</script>
+
+			</div>
+		</div>
+</div><!-- //wrap -->
+
+	<div class="layer_shadow" id="layer_shadow"></div>
+	<div id="layoutDimmed" class="dimmed"></div>
+
+	<link rel="stylesheet" href="/layout/basic/css/sub_style.css">
+	<link rel="stylesheet" href="/layout/basic/css/sub_theme.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme01.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme02.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_theme03.css">
+	<link rel="stylesheet" href="/layout/basic/css/add_layout.css">
+
+</body>
+</html>
