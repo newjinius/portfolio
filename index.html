@@ -224,6 +224,50 @@ title: "김유진 포트폴리오"
 }
 .mhContact__phone { font-size: 14px; margin-top: 10px; }
 
+/* ── YES/NO 게임 ── */
+.mhGame__q { font-size: 16px; margin: 0 0 20px; }
+
+.mhGame {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+    height: 180px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 2px dashed var(--pink-hot);
+}
+
+.mhGame__yes,
+.mhGame__no {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.mhGame__yes { left: 35%; z-index: 1; }
+
+.mhGame__no {
+    left: 65%;
+    font-family: var(--font-bold);
+    font-size: 15px;
+    padding: 12px 22px;
+    background: var(--white);
+    color: var(--pink-hot);
+    border: var(--border-w) solid var(--pink-hot);
+    box-shadow: var(--shadow-hard);
+    touch-action: none;
+}
+
+.mhGame__taunt {
+    min-height: 20px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--pink-mid);
+}
+
+.mhReveal { margin-top: 24px; }
+.mhReveal__msg { font-size: 16px; margin: 0 0 16px; }
+
 /* ═══════════════════════════════
    FOOTER
 ═══════════════════════════════ */
@@ -639,9 +683,21 @@ title: "김유진 포트폴리오"
     <div class="js-fade">
         <p class="mhSection__eyebrow">Contact</p>
         <h2 class="mhContact__title">Let's Work<br>Together</h2>
-        <a href="mailto:new.jinius@gmail.com" class="retroBtn">✉ new.jinius@gmail.com</a>
-        <!-- 전화번호: 외부 공개 포트폴리오라면 아래 줄 제거 권장 -->
-        <p class="mhContact__phone">010-2064-8478</p>
+
+        <p class="mhGame__q">저랑 같이 작업하고 싶으신가요?</p>
+
+        <div class="mhGame" id="mhGame">
+            <button type="button" class="retroBtn mhGame__yes" id="mhYes">YES</button>
+            <button type="button" class="mhGame__no" id="mhNo" aria-label="No — 도망다니는 버튼이라 못 누릅니다">NO</button>
+        </div>
+        <p class="mhGame__taunt" id="mhTaunt" aria-live="polite">&nbsp;</p>
+
+        <div class="mhReveal" id="mhReveal" hidden aria-live="polite">
+            <p class="mhReveal__msg">🎉 좋아요! 아래로 연락 주세요</p>
+            <a href="mailto:new.jinius@gmail.com" class="retroBtn">✉ new.jinius@gmail.com</a>
+            <!-- 전화번호: 외부 공개 포트폴리오라면 아래 줄 제거 권장 -->
+            <p class="mhContact__phone">010-2064-8478</p>
+        </div>
     </div>
 </section>
 
@@ -714,6 +770,67 @@ title: "김유진 포트폴리오"
     /* ── 4. 푸터 연도 자동 갱신 ── */
     var fy = document.getElementById('footYear');
     if (fy) fy.textContent = new Date().getFullYear();
+
+    /* ── 5. YES/NO 도망 게임 (마우스·터치·키보드 공통 대응) ── */
+    var game    = document.getElementById('mhGame');
+    var yesBtn  = document.getElementById('mhYes');
+    var noBtn   = document.getElementById('mhNo');
+    var taunt   = document.getElementById('mhTaunt');
+    var reveal  = document.getElementById('mhReveal');
+
+    if (game && yesBtn && noBtn && taunt && reveal) {
+        var taunts = [
+            '어딜 도망가~ 안 잡혀요 ㅋㅋ',
+            'NO는 못 눌러요!',
+            '포기하고 YES 누르실래요?',
+            '헛수고예요 😉',
+            '그냥 YES 누르세요~'
+        ];
+
+        function placeNoRandomly() {
+            var rect = game.getBoundingClientRect();
+            var w = noBtn.offsetWidth  || 90;
+            var h = noBtn.offsetHeight || 44;
+            var maxX = Math.max(rect.width  - w, 0);
+            var maxY = Math.max(rect.height - h, 0);
+            noBtn.style.left = (Math.random() * maxX + w / 2) + 'px';
+            noBtn.style.top  = (Math.random() * maxY + h / 2) + 'px';
+        }
+
+        function dodge() {
+            placeNoRandomly();
+            taunt.textContent = taunts[Math.floor(Math.random() * taunts.length)];
+        }
+
+        placeNoRandomly(); // 시작 위치도 랜덤
+
+        /* 마우스: 커서가 가까이 오면 미리 도망 */
+        game.addEventListener('mousemove', function (e) {
+            var r = noBtn.getBoundingClientRect();
+            var dist = Math.hypot(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2));
+            if (dist < 70) dodge();
+        });
+
+        /* 마우스+터치 공통: 누르는 순간 이미 다른 곳으로 — 터치는 hover가 없어서 이게 핵심 방어선 */
+        noBtn.addEventListener('pointerdown', function (e) {
+            e.preventDefault();
+            dodge();
+        });
+
+        /* 키보드로 Tab 이동 후 Enter/Space 눌러도 동일하게 도망 */
+        noBtn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                dodge();
+            }
+        });
+
+        yesBtn.addEventListener('click', function () {
+            game.hidden = true;
+            taunt.hidden = true;
+            reveal.hidden = false;
+        });
+    }
 
 }());
 </script>
