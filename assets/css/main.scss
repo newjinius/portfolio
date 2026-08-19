@@ -1,0 +1,131 @@
+---
+---
+// ═══════════════════════════════════════
+// Y2K 핑크 레트로 — 전역 디자인 토큰
+// 팔레트 출처: /reference/color_palette.jpg
+// ═══════════════════════════════════════
+
+@font-face {
+    font-family: 'DosStory';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+:root {
+    --pink-hot:    #EF3167; // 보더 전용 — 항상 이 색
+    --pink-mid:    #FF779E;
+    --pink-soft:   #FEACC4;
+    --pink-cherry: #FDC6D6;
+    --pink-pale:   #FFE3EE;
+    --pink-paper:  #FFF3F7;
+    --ink:         #3a0f22;
+    --white:       #fffafc;
+
+    --font-pixel: 'DosStory', 'Dotum', 'Gulim', monospace;
+    --font-body:  'Dotum', 'Gulim', 'Malgun Gothic', sans-serif;
+
+    --border-w: 3px;
+    --shadow-hard: 4px 4px 0 var(--pink-hot);
+    --shadow-hard-sm: 2px 2px 0 var(--pink-hot);
+}
+
+@mixin retroBox($bg: var(--white)) {
+    background: $bg;
+    border: var(--border-w) solid var(--pink-hot);
+    box-shadow: var(--shadow-hard);
+}
+
+@mixin pixelHeading {
+    font-family: var(--font-pixel);
+    letter-spacing: .02em;
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+
+html {
+    // 부드러운 스크롤 대신 즉시 이동 — 컨셉상 의도된 선택
+    scroll-behavior: auto;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--pink-pale);
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent, transparent 27px,
+            rgba(239,49,103,.15) 27px, rgba(239,49,103,.15) 28px
+        );
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; margin: 0; padding: 0; }
+
+::selection { background: var(--pink-hot); color: var(--white); }
+
+*:focus-visible {
+    outline: 3px solid var(--pink-hot);
+    outline-offset: 2px;
+}
+
+// ── 스크롤바 (기존 customStyle.css 대체용 참고 톤) ──
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--pink-pale); }
+::-webkit-scrollbar-thumb {
+    background: var(--pink-hot);
+    border: 2px solid var(--pink-pale);
+}
+
+// ── 공용 레트로 버튼 ──
+.retroBtn {
+    @include pixelHeading;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: var(--pink-mid);
+    color: var(--white);
+    border: var(--border-w) solid var(--pink-hot);
+    box-shadow: var(--shadow-hard);
+    font-size: 13px;
+    cursor: pointer;
+    transition: none;
+}
+.retroBtn:hover { background: var(--pink-hot); }
+.retroBtn:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+// ── 공용 레트로 박스(카드/패널) ──
+.retroPanel {
+    @include retroBox(var(--white));
+}
+
+// ── 마퀴(뚝딱 스크롤 티커) ──
+.retroMarquee {
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: var(--border-w) solid var(--pink-hot);
+    border-bottom: var(--border-w) solid var(--pink-hot);
+    background: var(--pink-soft);
+    padding: 10px 0;
+}
+.retroMarquee__track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: retroMarquee 22s steps(60) infinite;
+}
+@keyframes retroMarquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .retroMarquee__track { animation: none; }
+}

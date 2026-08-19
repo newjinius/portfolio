@@ -4,566 +4,286 @@ title: "김유진 포트폴리오"
 ---
 <style>
 /* ═══════════════════════════════
-   RESET / TOKENS
-═══════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-    --black:  #0d0d0d;
-    --white:  #f5f5f3;
-    --accent: #D42B2B;
-    --g100: #1a1a1a;
-    --g200: #2a2a2a;
-    --g400: #555;
-    --g600: #888;
-    --g800: #ccc;
-    --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--black); color: var(--white);
-    overflow-x: hidden; line-height: 1.6;
-    cursor: none;
-}
-img { max-width: 100%; height: auto; display: block; }
-a   { color: inherit; text-decoration: none; }
-ul  { list-style: none; }
-@media (hover: none) { body { cursor: auto; } }
-
-/* ═══════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════ */
-#ixDot {
-    position: fixed; z-index: 99999; pointer-events: none;
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--accent);
-    transform: translate(-50%,-50%);
-    transition: width .3s var(--ease), height .3s var(--ease), background .3s;
-    will-change: transform;
-}
-#ixRing {
-    position: fixed; z-index: 99998; pointer-events: none;
-    width: 30px; height: 30px; border-radius: 50%;
-    border: 1.5px solid rgba(212,43,43,.5);
-    transform: translate(-50%,-50%);
-    will-change: transform;
-    transition: width .3s var(--ease), height .3s var(--ease), border-color .3s;
-}
-#ixDot.is-link { width: 40px; height: 40px; background: rgba(212,43,43,.2); }
-#ixRing.is-link { width: 56px; height: 56px; border-color: rgba(212,43,43,.25); }
-@media (hover: none) { #ixDot, #ixRing { display: none; } }
-
-/* ═══════════════════════════════
-   SCROLL ENTRANCE
-═══════════════════════════════ */
-.js-fade {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity .85s var(--ease), transform .85s var(--ease);
-}
-.js-fade.in { opacity: 1; transform: none; }
-
-/* staggered delay helpers */
-.js-fade[data-d="1"] { transition-delay: .08s; }
-.js-fade[data-d="2"] { transition-delay: .16s; }
-.js-fade[data-d="3"] { transition-delay: .24s; }
-.js-fade[data-d="4"] { transition-delay: .32s; }
-
-/* ═══════════════════════════════
-   COMMON SECTION PARTS
-═══════════════════════════════ */
-.ix-eyebrow {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: var(--accent);
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 14px;
-}
-.ix-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--accent); flex-shrink: 0; }
-.ix-title { font-size: clamp(28px, 4.5vw, 54px); font-weight: 800; letter-spacing: -.04em; line-height: 1.05; }
-.ix-sec-hd {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--g200);
-}
-.ix-link-more {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--g600); border-bottom: 1px solid var(--g400); padding-bottom: 3px;
-    transition: color .2s, border-color .2s;
-}
-.ix-link-more:hover { color: var(--white); border-color: var(--white); }
-.ix-link-more svg { transition: transform .2s; }
-.ix-link-more:hover svg { transform: translate(3px, -3px); }
-
-/* ═══════════════════════════════
    HERO
 ═══════════════════════════════ */
-.ix-hero {
-    position: relative;
-    min-height: 100vh; min-height: 100svh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 80px 0;
+.mhHero {
+    padding: 64px 32px 40px;
+    text-align: center;
 }
-.ix-hero__bg {
-    position: absolute; inset: 0; z-index: 0; overflow: hidden;
-}
-.ix-hero__blob {
-    position: absolute; border-radius: 50%; filter: blur(140px);
-    animation: blobDrift 18s ease-in-out infinite alternate;
-}
-.ix-hero__blob--1 {
-    width: 56vw; height: 56vw; background: var(--accent); opacity: .1;
-    top: -18%; right: -16%; animation-delay: 0s;
-}
-.ix-hero__blob--2 {
-    width: 38vw; height: 38vw; background: #a04020; opacity: .06;
-    bottom: 0%; left: 4%; animation-delay: -8s;
-}
-@keyframes blobDrift {
-    from { transform: translate(0,0) scale(1) rotate(0deg); }
-    to   { transform: translate(2.5%, 4%) scale(1.12) rotate(10deg); }
-}
-
-.ix-hero__inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-
-.ix-hero__pre {
-    font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--accent); display: flex; align-items: center; gap: 10px;
-    margin-bottom: 22px; overflow: hidden;
-}
-.ix-hero__pre::before { content: ''; width: 20px; height: 2px; background: var(--accent); flex-shrink: 0; }
-.ix-hero__pre .t { display: inline-block; opacity: 0; transform: translateY(22px); animation: slideUp .7s var(--ease) .15s forwards; }
-
-/* 이름: 글자별 slideUp */
-.ix-hero__name {
-    font-size: clamp(78px, 14vw, 192px);
-    font-weight: 900; line-height: .8; letter-spacing: -.05em;
-    margin-bottom: 20px;
-    overflow: visible;
-}
-/* .char 는 JS가 주입 */
-.ix-hero__name .char {
+.mhHero__eyebrow {
     display: inline-block;
-    opacity: 0; transform: translateY(105%);
-    animation: slideUp .8s var(--ease) both;
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--pink-hot);
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    padding: 4px 12px;
+    margin-bottom: 20px;
 }
+.mhHero__name {
+    font-family: var(--font-pixel);
+    font-size: clamp(40px, 10vw, 88px);
+    color: var(--pink-hot);
+    text-shadow: 3px 3px 0 var(--white), 6px 6px 0 var(--pink-mid);
+    margin: 0 0 14px;
+}
+.mhHero__name .cursor {
+    display: inline-block;
+    animation: chBlink 1s steps(1) infinite;
+}
+.mhHero__role {
+    font-family: var(--font-pixel);
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--pink-cherry);
+    display: inline-block;
+    padding: 6px 16px;
+    border: 2px solid var(--pink-hot);
+    margin-bottom: 22px;
+}
+.mhHero__sub {
+    max-width: 460px;
+    margin: 0 auto 28px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+.mhHero__cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
 
-.ix-hero__role-wrap {
-    display: flex; align-items: center; gap: 20px;
-    margin-bottom: 32px; overflow: hidden;
+.mhStats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 720px;
+    margin: 0 auto;
+    border: var(--border-w) solid var(--pink-hot);
+    background: var(--white);
 }
-.ix-hero__role {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(10px, 1.25vw, 15px); font-weight: 600;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--g600);
-    white-space: nowrap;
+.mhStats__item {
+    padding: 16px 8px;
+    border-right: 2px dashed var(--pink-hot);
 }
-.ix-hero__role .t { display: inline-block; opacity: 0; transform: translateY(18px); animation: slideUp .6s var(--ease) .92s forwards; }
-.ix-hero__role-line { flex: 1; height: 1px; background: var(--g200); opacity: 0; animation: fadeIn .8s .95s forwards; }
-
-.ix-hero__sub {
-    max-width: 400px; font-size: clamp(13px, 1.1vw, 15px);
-    color: var(--g800); line-height: 1.9; margin-bottom: 44px;
-    opacity: 0; animation: fadeIn .9s var(--ease) 1.12s forwards;
+.mhStats__item:last-child { border-right: none; }
+.mhStats__num {
+    font-family: var(--font-pixel);
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--pink-hot);
 }
-
-.ix-hero__cta { display: flex; gap: 10px; flex-wrap: wrap; opacity: 0; animation: fadeIn .9s var(--ease) 1.28s forwards; }
-
-.ix-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 15px 32px; border-radius: 100px;
-    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-    transition: transform .35s var(--ease), box-shadow .35s, border-color .2s, color .2s;
-    position: relative; overflow: hidden; cursor: none;
-}
-.ix-btn::after {
-    content: ''; position: absolute; inset: 0; border-radius: 100px;
-    background: rgba(255,255,255,.12); transform: scaleX(0); transform-origin: left;
-    transition: transform .45s var(--ease);
-}
-.ix-btn:hover::after { transform: scaleX(1); }
-.ix-btn--primary { background: var(--accent); color: #fff; }
-.ix-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(212,43,43,.4); }
-.ix-btn--ghost { background: transparent; border: 1px solid var(--g400); color: var(--g800); }
-.ix-btn--ghost:hover { border-color: var(--white); color: var(--white); transform: translateY(-2px); }
-
-/* 스크롤 인디케이터 */
-.ix-hero__scroll {
-    position: absolute; bottom: 0; right: 80px; z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 9px;
-    padding-bottom: 32px;
-    font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: var(--g600);
-    opacity: 0; animation: fadeIn 1s var(--ease) 1.5s forwards;
-}
-.ix-hero__scroll-track {
-    width: 1px; height: 50px; background: rgba(255,255,255,.08); overflow: hidden; position: relative;
-}
-.ix-hero__scroll-track::after {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 40%;
-    background: var(--accent); animation: scrollTick 2s ease-in-out infinite;
-}
-@keyframes scrollTick { 0% { top: -40%; } 100% { top: 140%; } }
-
-/* 하단 통계 바 (full-bleed) */
-.ix-hero__stats {
-    position: relative; z-index: 1;
-    display: grid; grid-template-columns: repeat(4,1fr);
-    border-top: 1px solid var(--g200);
-    margin: 56px -80px 0;
-    opacity: 0; animation: fadeIn .8s var(--ease) 1.4s forwards;
-}
-.ix-hero__stat {
-    padding: 24px 0 24px 52px;
-    border-right: 1px solid var(--g200);
-}
-.ix-hero__stat:first-child { padding-left: 80px; }
-.ix-hero__stat:last-child { border-right: none; }
-.ix-stat-num {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(26px, 3.5vw, 42px); font-weight: 800;
-    letter-spacing: -.05em; color: var(--white); line-height: 1; margin-bottom: 6px;
-}
-.ix-stat-num sup { font-size: .5em; vertical-align: super; color: var(--accent); margin-left: 1px; }
-.ix-stat-label { font-size: 10px; color: var(--g600); letter-spacing: .04em; }
-
-@keyframes slideUp { to { opacity: 1; transform: none; } }
-@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+.mhStats__label { font-size: 10px; margin-top: 4px; }
 
 /* ═══════════════════════════════
-   TICKER
+   SECTION COMMON
 ═══════════════════════════════ */
-.ix-ticker {
-    border-top: 1px solid var(--g200);
-    border-bottom: 1px solid var(--g200);
-    padding: 13px 0; overflow: hidden;
+.mhSection { padding: 56px 32px; max-width: 1080px; margin: 0 auto; }
+.mhSection__hd { text-align: center; margin-bottom: 40px; }
+.mhSection__eyebrow {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--pink-hot);
 }
-.ix-ticker__track {
-    display: flex; width: max-content;
-    animation: tickerRun 34s linear infinite;
+.mhSection__title {
+    font-family: var(--font-pixel);
+    font-size: clamp(22px, 4vw, 32px);
+    margin: 6px 0 0;
 }
-.ix-ticker__track:hover { animation-play-state: paused; }
-.ix-ticker__item {
-    white-space: nowrap; padding: 0 22px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--g400);
-}
-.ix-ticker__sep { color: var(--accent); }
-@keyframes tickerRun {
-    from { transform: translate3d(0,0,0); }
-    to   { transform: translate3d(-50%,0,0); }
-}
+
+.js-fade { opacity: 0; }
+.js-fade.in { opacity: 1; }
 
 /* ═══════════════════════════════
    WORKS PREVIEW
 ═══════════════════════════════ */
-.ix-works {
-    padding: 120px 80px;
-    max-width: 1440px; margin: 0 auto;
+.mhWorks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
 }
-.ix-works-grid {
-    display: grid; grid-template-columns: repeat(2,1fr);
-    gap: 2px; background: var(--g200);
-    border: 2px solid var(--g200); border-radius: 14px; overflow: hidden;
+.mhPj {
+    display: block;
+    background: var(--white);
+    border: var(--border-w) solid var(--pink-hot);
+    box-shadow: var(--shadow-hard);
+    padding: 10px;
 }
-.ix-pj {
-    display: block; position: relative; overflow: hidden;
-    background: var(--black); cursor: none;
-}
-.ix-pj__thumb { aspect-ratio: 16/10; overflow: hidden; background: var(--g200); }
-.ix-pj__thumb img {
+.mhPj:nth-child(odd)  { transform: rotate(-1.2deg); }
+.mhPj:nth-child(even) { transform: rotate(1.2deg); }
+.mhPj__thumb { aspect-ratio: 16/10; overflow: hidden; border: 2px solid var(--pink-hot); position: relative; }
+.mhPj__thumb img {
     width: 100%; height: 100%; object-fit: cover;
-    filter: brightness(.68) saturate(.75);
-    transition: transform .75s var(--ease), filter .55s;
+    filter: sepia(.25) hue-rotate(285deg) saturate(1.6);
 }
-.ix-pj:hover .ix-pj__thumb img { transform: scale(1.06); filter: brightness(.88) saturate(1); }
-
-.ix-pj__body { padding: 18px 24px 20px; background: var(--g100); transition: background .3s; }
-.ix-pj:hover .ix-pj__body { background: #1e1e1e; }
-.ix-pj__num { font-size: 9px; font-weight: 700; letter-spacing: .14em; color: var(--accent); margin-bottom: 4px; }
-.ix-pj__name {
-    font-size: clamp(15px, 1.7vw, 20px); font-weight: 700;
-    letter-spacing: -.02em; margin-bottom: 10px;
-    transition: color .2s;
+.mhPj__body { padding: 12px 6px 4px; }
+.mhPj__num { font-family: var(--font-pixel); font-size: 11px; color: var(--pink-hot); }
+.mhPj__name { font-size: 17px; font-weight: 700; margin: 4px 0 10px; }
+.mhPj__tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.mhPj__tag {
+    font-size: 10px; padding: 2px 8px;
+    background: var(--pink-pale); border: 1px solid var(--pink-hot);
+    color: var(--ink);
 }
-.ix-pj:hover .ix-pj__name { color: var(--accent); }
-.ix-pj__foot { display: flex; justify-content: space-between; align-items: center; }
-.ix-pj__tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.ix-pj__tag {
-    padding: 2px 9px; border-radius: 100px;
-    border: 1px solid var(--g200);
-    font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--g600);
-}
-.ix-pj__arrow {
-    width: 28px; height: 28px; border-radius: 50%;
-    border: 1px solid var(--g200);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    transition: background .25s, border-color .25s, transform .45s var(--ease);
-}
-.ix-pj:hover .ix-pj__arrow { background: var(--accent); border-color: var(--accent); transform: rotate(45deg); }
-.ix-pj:hover .ix-pj__arrow path { stroke: #fff; }
 
 /* ═══════════════════════════════
    ABOUT
 ═══════════════════════════════ */
-.ix-about { background: var(--g100); padding: 120px 80px; }
-.ix-about__inner {
-    max-width: 1440px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1.25fr; gap: 96px;
+.mhAbout-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+.mhDiary {
+    background: var(--white);
+    border: var(--border-w) solid var(--pink-hot);
+    box-shadow: var(--shadow-hard);
+    padding: 24px 26px;
 }
+.mhDiary p { font-size: 14px; line-height: 1.95; margin: 0 0 16px; }
+.mhDiary p:last-child { margin-bottom: 0; }
+.mhDiary strong { color: var(--pink-hot); }
 
-.ix-about__bio { margin-top: 28px; }
-.ix-about__bio p { font-size: 15px; color: var(--g800); line-height: 1.95; margin-bottom: 20px; }
-.ix-about__bio strong { color: var(--white); font-weight: 700; }
+.mhTlHd, .mhEduHd {
+    font-family: var(--font-pixel);
+    font-size: 12px; color: var(--pink-hot);
+    margin: 0 0 14px;
+}
+.mhTlHd.spaced { margin-top: 28px; }
+.mhTl { display: flex; flex-direction: column; gap: 18px; }
+.mhTlItem {
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    padding: 14px 16px;
+    position: relative;
+    padding-left: 30px;
+}
+.mhTlItem::before {
+    content: '♥';
+    position: absolute; left: 10px; top: 14px;
+    color: var(--pink-hot); font-size: 12px;
+}
+.mhTlPeriod { display: block; font-size: 10px; color: var(--pink-mid); font-weight: 700; margin-bottom: 4px; }
+.mhTlCompany { font-size: 15px; font-weight: 700; margin: 0 0 2px; }
+.mhTlRole { font-size: 11px; color: var(--pink-hot); font-weight: 700; margin: 0 0 8px; }
+.mhTlList { display: flex; flex-direction: column; gap: 4px; }
+.mhTlList li { font-size: 12px; padding-left: 12px; position: relative; }
+.mhTlList li::before { content: '-'; position: absolute; left: 0; color: var(--pink-mid); }
 
-/* Career timeline */
-.ix-tl-hd {
-    font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
+.mhEduItem {
+    border-bottom: 1px dashed var(--pink-hot);
+    padding: 10px 0;
 }
-.ix-tl-hd + .ix-tl-hd, .ix-tl + .ix-tl-hd { margin-top: 36px; }
-.ix-tl { position: relative; padding-left: 20px; }
-.ix-tl::before {
-    content: ''; position: absolute;
-    left: 0; top: 10px; bottom: 10px;
-    width: 2px; background: var(--g200);
-}
-
-.ix-tl-item {
-    position: relative; padding-bottom: 28px;
-    opacity: 0; transform: translateX(-14px);
-    transition: opacity .65s var(--ease), transform .65s var(--ease);
-}
-.ix-tl-item.in { opacity: 1; transform: none; }
-.ix-tl-item:last-child { padding-bottom: 0; }
-.ix-tl-item::before {
-    content: ''; position: absolute;
-    left: -24px; top: 8px;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--g400); border: 2px solid var(--g100);
-}
-.ix-tl-item:first-child::before { background: var(--accent); border-color: var(--g100); }
-
-.ix-tl-period { display: block; font-size: 10px; font-weight: 700; letter-spacing: .06em; color: var(--g400); margin-bottom: 5px; }
-.ix-tl-company { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-.ix-tl-role { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 10px; }
-.ix-tl-list li {
-    font-size: 13px; color: var(--g600); line-height: 1.8;
-    padding-left: 14px; position: relative;
-}
-.ix-tl-list li::before { content: '–'; position: absolute; left: 0; color: var(--g400); font-size: 10px; top: 2px; }
-
-/* Education */
-.ix-edu-hd {
-    font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--accent); margin: 36px 0 14px;
-}
-.ix-edu-item { padding-bottom: 13px; margin-bottom: 13px; border-bottom: 1px solid var(--g200); }
-.ix-edu-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.ix-edu-school { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
-.ix-edu-major { font-size: 12px; color: var(--g600); line-height: 1.65; margin-bottom: 3px; }
-.ix-edu-sub { font-size: 11px; color: var(--g400); letter-spacing: .03em; margin-top: 3px; }
-.ix-edu-period { font-size: 10px; color: var(--g400); letter-spacing: .04em; margin-top: 2px; }
+.mhEduItem:last-child { border-bottom: none; }
+.mhEduSchool { font-size: 13px; font-weight: 700; margin: 0 0 2px; }
+.mhEduMajor  { font-size: 11px; margin: 0 0 2px; }
+.mhEduSub, .mhEduPeriod { font-size: 10px; color: var(--pink-mid); margin: 0; }
 
 /* ═══════════════════════════════
    SKILLS
 ═══════════════════════════════ */
-.ix-skills { padding: 120px 80px; max-width: 1440px; margin: 0 auto; }
-.ix-skills-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 1px; background: var(--g200);
-    border: 1px solid var(--g200); border-radius: 14px; overflow: hidden;
+.mhSkills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
-.ix-sk-grp { background: var(--black); padding: 34px 36px; }
-.ix-sk-cat { font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-.ix-sk-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 16px; }
-.ix-sk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-.ix-sk-tag {
-    padding: 5px 11px; border-radius: 100px;
-    border: 1px solid var(--g200);
-    font-size: 11px; font-weight: 600; color: var(--g800);
-    opacity: 0; transform: translateY(8px) scale(.95);
-    transition: opacity .4s, transform .4s, border-color .2s, color .2s, background .2s;
-    cursor: default;
+.mhSk {
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    padding: 18px 20px;
 }
-.ix-sk-tag.in { opacity: 1; transform: none; }
-.ix-sk-tag:hover { border-color: var(--accent); color: var(--white); }
-/* 주력 스킬: 더 돋보이게 */
-.ix-sk-tag--p {
-    border-color: rgba(212,43,43,.4); color: var(--white);
-    background: rgba(212,43,43,.07);
+.mhSk__cat { font-family: var(--font-pixel); font-size: 10px; color: var(--pink-hot); }
+.mhSk__name { font-size: 13px; font-weight: 700; margin: 4px 0 12px; }
+.mhSk__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.mhSk__tag {
+    font-size: 11px; padding: 4px 9px;
+    border: 1px solid var(--pink-hot);
+    background: var(--pink-pale);
 }
-.ix-sk-tag--p:hover { border-color: var(--accent); background: rgba(212,43,43,.14); }
+.mhSk__tag--p { background: var(--pink-hot); color: var(--white); border-color: var(--pink-hot); font-weight: 700; }
 
 /* ═══════════════════════════════
-   AWARDS & CERTS
+   AWARDS
 ═══════════════════════════════ */
-.ix-awards { background: var(--g100); padding: 120px 80px; }
-.ix-awards__inner { max-width: 1440px; margin: 0 auto; }
-.ix-awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-
-.ix-award {
-    border: 1px solid var(--g200); border-radius: 12px; padding: 26px 28px;
-    background: var(--black);
-    transition: border-color .3s, transform .4s var(--ease), background .3s;
-    cursor: default;
+.mhAwards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
 }
-.ix-award:hover { border-color: var(--g400); transform: translateY(-5px); }
-
-/* 수상: 강조 카드 */
-.ix-award--feat {
-    border-color: rgba(212,43,43,.35); background: rgba(212,43,43,.04);
+.mhAward {
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    padding: 18px 20px;
 }
-.ix-award--feat:hover { border-color: var(--accent); background: rgba(212,43,43,.08); }
-
-.ix-award__type {
-    font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--g600); margin-bottom: 12px;
-}
-.ix-award--feat .ix-award__type { color: var(--accent); }
-.ix-award__name { font-size: 15px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
-.ix-award__org { font-size: 12px; color: var(--g600); margin-bottom: 4px; }
-.ix-award__year {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px; font-weight: 700; color: var(--g400); letter-spacing: .06em;
-}
-.ix-award__badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    margin-top: 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: .04em;
-    color: var(--accent);
-}
+.mhAward--feat { background: var(--pink-cherry); }
+.mhAward__type { font-family: var(--font-pixel); font-size: 9px; color: var(--pink-hot); }
+.mhAward__name { font-size: 14px; font-weight: 700; margin: 8px 0 4px; }
+.mhAward__org  { font-size: 11px; margin: 0 0 4px; }
+.mhAward__year { font-size: 10px; color: var(--pink-mid); font-weight: 700; }
+.mhAward__badge { font-size: 10px; font-weight: 700; color: var(--pink-hot); margin-top: 8px; }
 
 /* ═══════════════════════════════
    CONTACT
 ═══════════════════════════════ */
-.ix-contact { padding: 160px 80px; text-align: center; overflow: hidden; }
-.ix-contact__inner { max-width: 800px; margin: 0 auto; }
-.ix-contact__big {
-    font-size: clamp(48px, 9vw, 112px);
-    font-weight: 900; letter-spacing: -.05em; line-height: .82;
-    margin: 22px 0 60px;
+.mhContact { text-align: center; padding: 72px 32px; }
+.mhContact__title {
+    font-family: var(--font-pixel);
+    font-size: clamp(26px, 6vw, 44px);
+    color: var(--pink-hot);
+    margin: 12px 0 32px;
 }
-.ix-contact__big span { display: block; }
-.ix-contact__email {
-    display: inline-block;
-    font-size: clamp(14px, 2vw, 22px); font-weight: 500;
-    color: var(--g800); border-bottom: 1px solid var(--g400); padding-bottom: 4px;
-    margin-bottom: 14px;
-    transition: color .2s, border-color .2s;
-}
-.ix-contact__email:hover { color: var(--white); border-color: var(--white); }
-/* 전화번호: 외부 공개 포트폴리오면 아래 p 제거 권장 */
-.ix-contact__phone { font-size: 13px; color: var(--g600); }
+.mhContact__phone { font-size: 12px; margin-top: 10px; }
 
 /* ═══════════════════════════════
    FOOTER
 ═══════════════════════════════ */
-.ix-foot {
-    padding: 28px 80px;
-    border-top: 1px solid var(--g200);
+.mhFoot {
+    padding: 20px 32px;
+    border-top: var(--border-w) solid var(--pink-hot);
+    background: var(--pink-soft);
     display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
+    flex-wrap: wrap; gap: 10px;
+    font-family: var(--font-pixel);
+    font-size: 11px;
 }
-.ix-foot__copy { font-size: 11px; color: var(--g600); }
-.ix-foot__links { display: flex; gap: 18px; }
-.ix-foot__links a { font-size: 11px; color: var(--g600); transition: color .2s; }
-.ix-foot__links a:hover { color: var(--white); }
+.mhFoot a { color: var(--pink-hot); }
 
 /* ═══════════════════════════════
    RESPONSIVE
 ═══════════════════════════════ */
-@media (max-width: 1100px) {
-    .ix-hero       { padding-left: 48px; padding-right: 48px; }
-    .ix-hero__stats { margin-left: -48px; margin-right: -48px; }
-    .ix-hero__stat:first-child { padding-left: 48px; }
-    .ix-hero__scroll { right: 48px; }
-    .ix-works, .ix-about, .ix-skills, .ix-awards, .ix-contact { padding-left: 48px; padding-right: 48px; }
-    .ix-foot { padding-left: 48px; padding-right: 48px; }
-}
 @media (max-width: 900px) {
-    .ix-works-grid         { grid-template-columns: 1fr; }
-    .ix-about__inner       { grid-template-columns: 1fr; gap: 52px; }
-    .ix-skills-grid        { grid-template-columns: repeat(2,1fr); }
-    .ix-awards-grid        { grid-template-columns: repeat(2,1fr); }
-    .ix-hero__stats        { grid-template-columns: repeat(2,1fr); }
-    .ix-hero__stat:nth-child(2) { border-right: none; }
-    .ix-hero__stat { padding-left: 36px; }
-    .ix-hero__stat:first-child  { padding-left: 48px; }
-    .ix-sec-hd { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .mhWorks-grid, .mhSkills-grid, .mhAwards-grid { grid-template-columns: repeat(2, 1fr); }
+    .mhAbout-inner { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) {
-    .ix-hero       { padding-left: 24px; padding-right: 24px; }
-    .ix-hero__stats { margin-left: -24px; margin-right: -24px; }
-    .ix-hero__stat:first-child { padding-left: 24px; }
-    .ix-hero__stat { padding-left: 20px; }
-    .ix-hero__scroll { right: 24px; }
-    .ix-works, .ix-about, .ix-skills, .ix-awards, .ix-contact { padding-left: 24px; padding-right: 24px; }
-    .ix-foot { padding-left: 24px; padding-right: 24px; }
-    .ix-skills-grid { grid-template-columns: 1fr; }
-    .ix-awards-grid { grid-template-columns: 1fr; }
-    .ix-hero__cta { flex-direction: column; align-items: flex-start; }
+@media (max-width: 560px) {
+    .mhWorks-grid, .mhSkills-grid, .mhAwards-grid { grid-template-columns: 1fr; }
+    .mhStats { grid-template-columns: repeat(2, 1fr); }
+    .mhStats__item:nth-child(2n) { border-right: none; }
 }
 </style>
 
 <!-- ══════════════════════════════
-     커스텀 커서
-══════════════════════════════ -->
-<div id="ixDot" aria-hidden="true"></div>
-<div id="ixRing" aria-hidden="true"></div>
-
-<!-- ══════════════════════════════
      HERO
 ══════════════════════════════ -->
-<section class="ix-hero">
-    <div class="ix-hero__bg" aria-hidden="true">
-        <div class="ix-hero__blob ix-hero__blob--1"></div>
-        <div class="ix-hero__blob ix-hero__blob--2"></div>
+<section class="mhHero">
+    <span class="mhHero__eyebrow">Web Publisher · Portfolio</span>
+    <h1 class="mhHero__name" id="heroName">김유진<span class="cursor">▌</span></h1>
+    <p class="mhHero__role">Front-End Publisher / Cafe24 Specialist</p>
+    <p class="mhHero__sub">
+        이커머스 환경에서 구조와 사용자 경험을 함께 고민하며<br>
+        유지보수 가능한 퍼블리싱을 설계하는 퍼블리셔입니다.
+    </p>
+    <div class="mhHero__cta">
+        <a href="{{ '/project/list.html' | relative_url }}" class="retroBtn">★ Works 보기</a>
+        <a href="#contact" class="retroBtn">♥ Contact</a>
     </div>
 
-    <div class="ix-hero__inner">
-        <p class="ix-hero__pre">
-            <span class="t">Web Publisher · Portfolio</span>
-        </p>
-        <!-- 이름: 영문 표기로 변경 시 "YUJIN KIM" 등으로 교체 -->
-        <h1 class="ix-hero__name" id="heroName">김유진</h1>
-        <div class="ix-hero__role-wrap">
-            <p class="ix-hero__role">
-                <span class="t">Front-End Publisher &nbsp;/&nbsp; Cafe24 Specialist</span>
-            </p>
-            <span class="ix-hero__role-line" aria-hidden="true"></span>
+    <div class="mhStats" aria-label="경력 요약">
+        <div class="mhStats__item">
+            <div class="mhStats__num"><span data-count="8">0</span>+</div>
+            <p class="mhStats__label">총 경력 (년)</p>
         </div>
-        <p class="ix-hero__sub">
-            이커머스 환경에서 구조와 사용자 경험을 함께 고민하며<br>
-            유지보수 가능한 퍼블리싱을 설계하는 퍼블리셔입니다.
-        </p>
-        <div class="ix-hero__cta">
-            <a href="{{ '/project/list.html' | relative_url }}" class="ix-btn ix-btn--primary">Works 보기</a>
-            <a href="#contact" class="ix-btn ix-btn--ghost">Contact</a>
+        <div class="mhStats__item">
+            <div class="mhStats__num"><span data-count="2">0</span>+</div>
+            <p class="mhStats__label">웹 퍼블리싱 경력 (년)</p>
         </div>
-    </div>
-
-    <div class="ix-hero__scroll" aria-hidden="true">
-        <div class="ix-hero__scroll-track"></div>
-        <span>Scroll</span>
-    </div>
-
-    <!-- 통계 바: data-count = JS 카운트업 목표값 -->
-    <div class="ix-hero__stats" aria-label="경력 요약">
-        <div class="ix-hero__stat">
-            <div class="ix-stat-num"><span data-count="8">8</span><sup>+</sup></div>
-            <p class="ix-stat-label">총 경력 (년)</p>
+        <div class="mhStats__item">
+            <div class="mhStats__num"><span data-count="12">0</span>+</div>
+            <p class="mhStats__label">프로젝트</p>
         </div>
-        <div class="ix-hero__stat">
-            <div class="ix-stat-num"><span data-count="2">2</span><sup>+</sup></div>
-            <p class="ix-stat-label">웹 퍼블리싱 경력 (년)</p>
-        </div>
-        <div class="ix-hero__stat">
-            <div class="ix-stat-num"><span data-count="12">12</span><sup>+</sup></div>
-            <p class="ix-stat-label">프로젝트</p>
-        </div>
-        <div class="ix-hero__stat">
-            <div class="ix-stat-num"><span data-count="4">4</span></div>
-            <p class="ix-stat-label">자격증</p>
+        <div class="mhStats__item">
+            <div class="mhStats__num"><span data-count="4">0</span></div>
+            <p class="mhStats__label">자격증</p>
         </div>
     </div>
 </section>
@@ -571,193 +291,132 @@ ul  { list-style: none; }
 <!-- ══════════════════════════════
      TICKER
 ══════════════════════════════ -->
-<div class="ix-ticker" aria-hidden="true">
-    <div class="ix-ticker__track">
-        <span class="ix-ticker__item">HTML5</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">CSS3</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">SCSS</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">JavaScript ES6+</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">jQuery</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Vue.js</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Cafe24</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Responsive Web</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Web Accessibility</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Figma</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Cross Browsing</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Web Publisher</span><span class="ix-ticker__sep">·</span>
-        <!-- 루프용 복사본 -->
-        <span class="ix-ticker__item">HTML5</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">CSS3</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">SCSS</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">JavaScript ES6+</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">jQuery</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Vue.js</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Cafe24</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Responsive Web</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Web Accessibility</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Figma</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Cross Browsing</span><span class="ix-ticker__sep">·</span>
-        <span class="ix-ticker__item">Web Publisher</span><span class="ix-ticker__sep">·</span>
-    </div>
+<div class="retroMarquee" aria-hidden="true">
+    <span class="retroMarquee__track">
+        HTML5 ・ CSS3 ・ SCSS ・ JavaScript ES6+ ・ jQuery ・ Vue.js ・ Cafe24 ・ Responsive Web ・ Web Accessibility ・ Figma ・ Cross Browsing ・ Web Publisher ・
+    </span>
 </div>
 
 <!-- ══════════════════════════════
      WORKS PREVIEW
      대표 프로젝트 4개 — 전체 목록: /project/list.html
 ══════════════════════════════ -->
-<section id="works">
-    <div class="ix-works">
-        <div class="ix-sec-hd js-fade">
-            <div>
-                <p class="ix-eyebrow">Works</p>
-                <h2 class="ix-title">Featured Projects</h2>
+<section id="works" class="mhSection">
+    <div class="mhSection__hd js-fade">
+        <p class="mhSection__eyebrow">Works</p>
+        <h2 class="mhSection__title">Featured Projects</h2>
+    </div>
+
+    <div class="mhWorks-grid">
+
+        <!-- 01 타이어프로 -->
+        <a href="{{ '/project/detail/tirepro.html' | relative_url }}" class="mhPj js-fade" data-d="1">
+            <!-- 썸네일: /resource/img/pj-tirepro.jpg 교체 권장 -->
+            <div class="mhPj__thumb">
+                <img loading="lazy" src="https://picsum.photos/seed/pj01/780/488" alt="타이어프로">
             </div>
-            <a href="{{ '/project/list.html' | relative_url }}" class="ix-link-more">
-                All Projects
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                    <path d="M2 12L12 2M12 2H6M12 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </div>
+            <div class="mhPj__body">
+                <p class="mhPj__num">01</p>
+                <h3 class="mhPj__name">타이어프로</h3>
+                <div class="mhPj__tags">
+                    <span class="mhPj__tag">Commerce</span>
+                    <span class="mhPj__tag">Cafe24</span>
+                    <span class="mhPj__tag">Google Maps API</span>
+                </div>
+            </div>
+        </a>
 
-        <div class="ix-works-grid">
+        <!-- 02 조선 Taste & Style -->
+        <a href="{{ '/project/detail/josun_tns.html' | relative_url }}" class="mhPj js-fade" data-d="2">
+            <!-- 썸네일: /resource/img/pj-joseon.jpg 교체 -->
+            <div class="mhPj__thumb">
+                <img loading="lazy" src="https://picsum.photos/seed/pj02/780/488" alt="조선 Taste &amp; Style">
+            </div>
+            <div class="mhPj__body">
+                <p class="mhPj__num">02</p>
+                <h3 class="mhPj__name">조선 Taste &amp; Style</h3>
+                <div class="mhPj__tags">
+                    <span class="mhPj__tag">Commerce</span>
+                    <span class="mhPj__tag">Cafe24</span>
+                </div>
+            </div>
+        </a>
 
-            <!-- 01 타이어프로 -->
-            <a href="{{ '/project/detail/tirepro.html' | relative_url }}" class="ix-pj js-fade" data-d="1">
-                <!-- 썸네일: /resource/img/pj-tirepro.jpg 교체 권장 -->
-                <div class="ix-pj__thumb">
-                    <img loading="lazy" src="https://picsum.photos/seed/pj01/780/488" alt="타이어프로">
+        <!-- 03 판도라 주얼리 -->
+        <a href="{{ '/project/detail/pandora.html' | relative_url }}" class="mhPj js-fade" data-d="3">
+            <!-- 썸네일: /resource/img/pj-pandora.jpg 교체 -->
+            <div class="mhPj__thumb">
+                <img loading="lazy" src="https://picsum.photos/seed/pj03/780/488" alt="판도라 주얼리">
+            </div>
+            <div class="mhPj__body">
+                <p class="mhPj__num">03</p>
+                <h3 class="mhPj__name">판도라 주얼리</h3>
+                <div class="mhPj__tags">
+                    <span class="mhPj__tag">Commerce</span>
+                    <span class="mhPj__tag">Cafe24</span>
                 </div>
-                <div class="ix-pj__body">
-                    <p class="ix-pj__num">01</p>
-                    <h3 class="ix-pj__name">타이어프로</h3>
-                    <div class="ix-pj__foot">
-                        <div class="ix-pj__tags">
-                            <span class="ix-pj__tag">Commerce</span>
-                            <span class="ix-pj__tag">Cafe24</span>
-                            <span class="ix-pj__tag">Google Maps API</span>
-                        </div>
-                        <div class="ix-pj__arrow">
-                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            </div>
+        </a>
 
-            <!-- 02 조선 Taste & Style -->
-            <a href="{{ '/project/detail/josun_tns.html' | relative_url }}" class="ix-pj js-fade" data-d="2">
-                <!-- 썸네일: /resource/img/pj-joseon.jpg 교체 -->
-                <div class="ix-pj__thumb">
-                    <img loading="lazy" src="https://picsum.photos/seed/pj02/780/488" alt="조선 Taste &amp; Style">
+        <!-- 04 카페24 디자인 스킨제작 -->
+        <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}" class="mhPj js-fade" data-d="4">
+            <!-- 썸네일: /resource/img/pj-skin.jpg 교체 -->
+            <div class="mhPj__thumb">
+                <img loading="lazy" src="https://picsum.photos/seed/pj04/780/488" alt="카페24 스킨제작">
+            </div>
+            <div class="mhPj__body">
+                <p class="mhPj__num">04</p>
+                <h3 class="mhPj__name">카페24 디자인 스킨제작</h3>
+                <div class="mhPj__tags">
+                    <span class="mhPj__tag">Skin Dev</span>
+                    <span class="mhPj__tag">Cafe24</span>
                 </div>
-                <div class="ix-pj__body">
-                    <p class="ix-pj__num">02</p>
-                    <h3 class="ix-pj__name">조선 Taste &amp; Style</h3>
-                    <div class="ix-pj__foot">
-                        <div class="ix-pj__tags">
-                            <span class="ix-pj__tag">Commerce</span>
-                            <span class="ix-pj__tag">Cafe24</span>
-                        </div>
-                        <div class="ix-pj__arrow">
-                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            </div>
+        </a>
 
-            <!-- 03 판도라 주얼리 -->
-            <a href="{{ '/project/detail/pandora.html' | relative_url }}" class="ix-pj js-fade" data-d="3">
-                <!-- 썸네일: /resource/img/pj-pandora.jpg 교체 -->
-                <div class="ix-pj__thumb">
-                    <img loading="lazy" src="https://picsum.photos/seed/pj03/780/488" alt="판도라 주얼리">
-                </div>
-                <div class="ix-pj__body">
-                    <p class="ix-pj__num">03</p>
-                    <h3 class="ix-pj__name">판도라 주얼리</h3>
-                    <div class="ix-pj__foot">
-                        <div class="ix-pj__tags">
-                            <span class="ix-pj__tag">Commerce</span>
-                            <span class="ix-pj__tag">Cafe24</span>
-                        </div>
-                        <div class="ix-pj__arrow">
-                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 04 카페24 디자인 스킨제작 -->
-            <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}" class="ix-pj js-fade" data-d="4">
-                <!-- 썸네일: /resource/img/pj-skin.jpg 교체 -->
-                <div class="ix-pj__thumb">
-                    <img loading="lazy" src="https://picsum.photos/seed/pj04/780/488" alt="카페24 스킨제작">
-                </div>
-                <div class="ix-pj__body">
-                    <p class="ix-pj__num">04</p>
-                    <h3 class="ix-pj__name">카페24 디자인 스킨제작</h3>
-                    <div class="ix-pj__foot">
-                        <div class="ix-pj__tags">
-                            <span class="ix-pj__tag">Skin Dev</span>
-                            <span class="ix-pj__tag">Cafe24</span>
-                        </div>
-                        <div class="ix-pj__arrow">
-                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-        </div>
     </div>
 </section>
 
 <!-- ══════════════════════════════
      ABOUT
 ══════════════════════════════ -->
-<section id="about" class="ix-about">
-    <div class="ix-about__inner">
+<section id="about" class="mhSection">
+    <div class="mhSection__hd js-fade">
+        <p class="mhSection__eyebrow">About</p>
+        <h2 class="mhSection__title">소개</h2>
+    </div>
+
+    <div class="mhAbout-inner">
 
         <!-- 왼쪽: 소개 -->
-        <div class="js-fade">
-            <p class="ix-eyebrow">About</p>
-            <h2 class="ix-title">소개</h2>
-            <div class="ix-about__bio">
-                <p>
-                    <strong>이커머스 · 콘텐츠 기반 서비스</strong>에서 웹 퍼블리셔로 일하며
-                    화면 구현을 넘어 <strong>정보 구조와 사용자 흐름을 함께 설계</strong>하는 역할을 맡아왔습니다.
-                </p>
-                <p>
-                    공간 디자인과 퍼포먼스 마케팅 업계 경험을 바탕으로
-                    기획·디자인·개발·운영 간 소통을 조율해왔으며,
-                    <strong>Cafe24 이커머스 스킨 전문가</strong>로서
-                    스킨 구조 분석부터 API 모듈 커스터마이징까지 전담합니다.
-                </p>
-                <p>
-                    <strong>사람과 맥락을 이해하는 관점</strong>에서,
-                    팀과 서비스에 안정적인 중심을 만드는 퍼블리셔를 지향합니다.
-                </p>
-            </div>
+        <div class="mhDiary js-fade">
+            <p>
+                <strong>이커머스 · 콘텐츠 기반 서비스</strong>에서 웹 퍼블리셔로 일하며
+                화면 구현을 넘어 <strong>정보 구조와 사용자 흐름을 함께 설계</strong>하는 역할을 맡아왔습니다.
+            </p>
+            <p>
+                공간 디자인과 퍼포먼스 마케팅 업계 경험을 바탕으로
+                기획·디자인·개발·운영 간 소통을 조율해왔으며,
+                <strong>Cafe24 이커머스 스킨 전문가</strong>로서
+                스킨 구조 분석부터 API 모듈 커스터마이징까지 전담합니다.
+            </p>
+            <p>
+                <strong>사람과 맥락을 이해하는 관점</strong>에서,
+                팀과 서비스에 안정적인 중심을 만드는 퍼블리셔를 지향합니다.
+            </p>
         </div>
 
         <!-- 오른쪽: 경력 + 학력 -->
         <div class="js-fade" data-d="2">
 
-            <p class="ix-tl-hd">Career</p>
-            <div class="ix-tl" id="careerTl">
+            <p class="mhTlHd">Career</p>
+            <div class="mhTl" id="careerTl">
 
-                <div class="ix-tl-item">
-                    <span class="ix-tl-period">2024.02 — 현재 (재직 중)</span>
-                    <p class="ix-tl-company">(주) 엔트위즈소프트</p>
-                    <p class="ix-tl-role">대리/팀장 · 웹 퍼블리셔</p>
-                    <ul class="ix-tl-list">
+                <div class="mhTlItem">
+                    <span class="mhTlPeriod">2024.02 — 현재 (재직 중)</span>
+                    <p class="mhTlCompany">(주) 엔트위즈소프트</p>
+                    <p class="mhTlRole">대리/팀장 · 웹 퍼블리셔</p>
+                    <ul class="mhTlList">
                         <li>고객사 쇼핑몰 전반 리뉴얼 및 유지보수 퍼블리싱 전담</li>
                         <li>JavaScript 기반 동적 UI 및 인터랙션 구현</li>
                         <li>카페24 스킨 구조 분석 · 프론트 API · 앱 연동 모듈 커스터마이징</li>
@@ -766,11 +425,11 @@ ul  { list-style: none; }
                     </ul>
                 </div>
 
-                <div class="ix-tl-item">
-                    <span class="ix-tl-period">2018.06 — 2023.03</span>
-                    <p class="ix-tl-company">㈜ 애드이피션시</p>
-                    <p class="ix-tl-role">대리/팀원 · 퍼포먼스 마케팅</p>
-                    <ul class="ix-tl-list">
+                <div class="mhTlItem">
+                    <span class="mhTlPeriod">2018.06 — 2023.03</span>
+                    <p class="mhTlCompany">㈜ 애드이피션시</p>
+                    <p class="mhTlRole">대리/팀원 · 퍼포먼스 마케팅</p>
+                    <ul class="mhTlList">
                         <li>디지털 퍼포먼스 마케팅 운영 (SA · DA · VA · APP)</li>
                         <li>Data-Driven UX 설계 및 소재 기획을 통한 광고 성과 개선</li>
                         <li>광고 보고서 작성 및 클라이언트 컨설팅</li>
@@ -778,11 +437,11 @@ ul  { list-style: none; }
                     </ul>
                 </div>
 
-                <div class="ix-tl-item">
-                    <span class="ix-tl-period">2016.07 — 2018.06</span>
-                    <p class="ix-tl-company">㈜ 국보디자인</p>
-                    <p class="ix-tl-role">사원/팀원 · 인테리어 디자인</p>
-                    <ul class="ix-tl-list">
+                <div class="mhTlItem">
+                    <span class="mhTlPeriod">2016.07 — 2018.06</span>
+                    <p class="mhTlCompany">㈜ 국보디자인</p>
+                    <p class="mhTlRole">사원/팀원 · 인테리어 디자인</p>
+                    <ul class="mhTlList">
                         <li>공간 디자인 및 브랜드 경험(BX) 설계</li>
                         <li>오피스 · 컨벤션홀 · 객실 · 로비 · 파사드 등 다수 프로젝트 참여</li>
                     </ul>
@@ -790,18 +449,18 @@ ul  { list-style: none; }
 
             </div>
 
-            <p class="ix-edu-hd">Education</p>
+            <p class="mhEduHd spaced">Education</p>
 
-            <div class="ix-edu-item">
-                <p class="ix-edu-school">경희대학교 (서울)</p>
-                <p class="ix-edu-major">주거환경학과 · 실내 디자인 설계 교육과정</p>
-                <p class="ix-edu-period">2012.03 — 2017.02 졸업</p>
+            <div class="mhEduItem">
+                <p class="mhEduSchool">경희대학교 (서울)</p>
+                <p class="mhEduMajor">주거환경학과 · 실내 디자인 설계 교육과정</p>
+                <p class="mhEduPeriod">2012.03 — 2017.02 졸업</p>
             </div>
-            <div class="ix-edu-item">
-                <p class="ix-edu-school">이젠아카데미컴퓨터학원</p>
-                <p class="ix-edu-major">모바일 웹 &amp; 앱디자인 NCS 과정 수료</p>
-                <p class="ix-edu-sub">HTML5 · CSS3 · JavaScript · jQuery · Vue.js</p>
-                <p class="ix-edu-period">2023.07 — 2023.11</p>
+            <div class="mhEduItem">
+                <p class="mhEduSchool">이젠아카데미컴퓨터학원</p>
+                <p class="mhEduMajor">모바일 웹 &amp; 앱디자인 NCS 과정 수료</p>
+                <p class="mhEduSub">HTML5 · CSS3 · JavaScript · jQuery · Vue.js</p>
+                <p class="mhEduPeriod">2023.07 — 2023.11</p>
             </div>
 
         </div>
@@ -811,211 +470,187 @@ ul  { list-style: none; }
 <!-- ══════════════════════════════
      SKILLS
 ══════════════════════════════ -->
-<section id="skills">
-    <div class="ix-skills">
-        <div class="ix-sec-hd js-fade">
-            <div>
-                <p class="ix-eyebrow">Skills</p>
-                <h2 class="ix-title">Tech Stack</h2>
+<section id="skills" class="mhSection">
+    <div class="mhSection__hd js-fade">
+        <p class="mhSection__eyebrow">Skills</p>
+        <h2 class="mhSection__title">Tech Stack</h2>
+    </div>
+
+    <div class="mhSkills-grid">
+
+        <!-- 1: Markup -->
+        <div class="mhSk js-fade">
+            <p class="mhSk__cat">Markup</p>
+            <p class="mhSk__name">HTML / 구조 설계</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag mhSk__tag--p">HTML5</span>
+                <span class="mhSk__tag mhSk__tag--p">시맨틱 마크업</span>
+                <span class="mhSk__tag">WAI-ARIA</span>
+                <span class="mhSk__tag">웹 접근성 (WCAG 2.1)</span>
+                <span class="mhSk__tag">SEO 최적화</span>
+                <span class="mhSk__tag">웹 표준</span>
             </div>
         </div>
 
-        <div class="ix-skills-grid">
-
-            <!-- 1: Markup -->
-            <div class="ix-sk-grp js-fade">
-                <p class="ix-sk-cat">Markup</p>
-                <p class="ix-sk-name">HTML / 구조 설계</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag ix-sk-tag--p">HTML5</span>
-                    <span class="ix-sk-tag ix-sk-tag--p">시맨틱 마크업</span>
-                    <span class="ix-sk-tag">WAI-ARIA</span>
-                    <span class="ix-sk-tag">웹 접근성 (WCAG 2.1)</span>
-                    <span class="ix-sk-tag">SEO 최적화</span>
-                    <span class="ix-sk-tag">웹 표준</span>
-                </div>
+        <!-- 2: Styling -->
+        <div class="mhSk js-fade" data-d="1">
+            <p class="mhSk__cat">Styling</p>
+            <p class="mhSk__name">CSS / 레이아웃 &amp; 애니메이션</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag mhSk__tag--p">CSS3</span>
+                <span class="mhSk__tag mhSk__tag--p">SCSS</span>
+                <span class="mhSk__tag mhSk__tag--p">CSS Variables</span>
+                <span class="mhSk__tag">Flexbox</span>
+                <span class="mhSk__tag">Grid</span>
+                <span class="mhSk__tag">Animation</span>
+                <span class="mhSk__tag">Transition</span>
+                <span class="mhSk__tag">반응형 웹</span>
+                <span class="mhSk__tag">크로스 브라우징</span>
             </div>
-
-            <!-- 2: Styling -->
-            <div class="ix-sk-grp js-fade" data-d="1">
-                <p class="ix-sk-cat">Styling</p>
-                <p class="ix-sk-name">CSS / 레이아웃 &amp; 애니메이션</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag ix-sk-tag--p">CSS3</span>
-                    <span class="ix-sk-tag ix-sk-tag--p">SCSS</span>
-                    <span class="ix-sk-tag ix-sk-tag--p">CSS Variables</span>
-                    <span class="ix-sk-tag">Flexbox</span>
-                    <span class="ix-sk-tag">Grid</span>
-                    <span class="ix-sk-tag">Animation</span>
-                    <span class="ix-sk-tag">Transition</span>
-                    <span class="ix-sk-tag">반응형 웹</span>
-                    <span class="ix-sk-tag">크로스 브라우징</span>
-                </div>
-            </div>
-
-            <!-- 3: JavaScript -->
-            <div class="ix-sk-grp js-fade" data-d="2">
-                <p class="ix-sk-cat">Script</p>
-                <p class="ix-sk-name">JavaScript / 동적 UI</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag ix-sk-tag--p">JavaScript ES6+</span>
-                    <span class="ix-sk-tag">jQuery</span>
-                    <span class="ix-sk-tag">Vue.js</span>
-                    <span class="ix-sk-tag">Fetch API</span>
-                    <span class="ix-sk-tag">IntersectionObserver</span>
-                    <span class="ix-sk-tag">requestAnimationFrame</span>
-                    <span class="ix-sk-tag">Swiper.js</span>
-                </div>
-            </div>
-
-            <!-- 4: Platform -->
-            <div class="ix-sk-grp js-fade" data-d="3">
-                <p class="ix-sk-cat">Platform</p>
-                <p class="ix-sk-name">Cafe24 / 이커머스 전문</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag ix-sk-tag--p">Cafe24</span>
-                    <span class="ix-sk-tag ix-sk-tag--p">스킨 개발</span>
-                    <span class="ix-sk-tag">모듈 커스터마이징</span>
-                    <span class="ix-sk-tag">프론트 API</span>
-                    <span class="ix-sk-tag">앱 연동</span>
-                    <span class="ix-sk-tag">솔루션 최적화</span>
-                    <span class="ix-sk-tag">Google Maps API</span>
-                </div>
-            </div>
-
-            <!-- 5: Collaboration -->
-            <div class="ix-sk-grp js-fade" data-d="4">
-                <p class="ix-sk-cat">Collaboration</p>
-                <p class="ix-sk-name">협업 도구</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag">GitLab</span>
-                    <span class="ix-sk-tag">브랜치 전략</span>
-                    <span class="ix-sk-tag">MR 리뷰</span>
-                    <span class="ix-sk-tag">Jira</span>
-                    <span class="ix-sk-tag">스프린트 관리</span>
-                    <span class="ix-sk-tag">Notion</span>
-                    <span class="ix-sk-tag">Confluence</span>
-                </div>
-            </div>
-
-            <!-- 6: Design -->
-            <div class="ix-sk-grp js-fade" data-d="4">
-                <p class="ix-sk-cat">Design</p>
-                <p class="ix-sk-name">디자인 도구</p>
-                <div class="ix-sk-tags">
-                    <span class="ix-sk-tag">Figma</span>
-                    <span class="ix-sk-tag">디자인 핸드오프</span>
-                    <span class="ix-sk-tag">컴포넌트 추출</span>
-                    <span class="ix-sk-tag">Photoshop</span>
-                    <span class="ix-sk-tag">Illustrator</span>
-                    <span class="ix-sk-tag">웹 최적화 이미지 작업</span>
-                </div>
-            </div>
-
         </div>
+
+        <!-- 3: JavaScript -->
+        <div class="mhSk js-fade" data-d="2">
+            <p class="mhSk__cat">Script</p>
+            <p class="mhSk__name">JavaScript / 동적 UI</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag mhSk__tag--p">JavaScript ES6+</span>
+                <span class="mhSk__tag">jQuery</span>
+                <span class="mhSk__tag">Vue.js</span>
+                <span class="mhSk__tag">Fetch API</span>
+                <span class="mhSk__tag">IntersectionObserver</span>
+                <span class="mhSk__tag">requestAnimationFrame</span>
+                <span class="mhSk__tag">Swiper.js</span>
+            </div>
+        </div>
+
+        <!-- 4: Platform -->
+        <div class="mhSk js-fade" data-d="3">
+            <p class="mhSk__cat">Platform</p>
+            <p class="mhSk__name">Cafe24 / 이커머스 전문</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag mhSk__tag--p">Cafe24</span>
+                <span class="mhSk__tag mhSk__tag--p">스킨 개발</span>
+                <span class="mhSk__tag">모듈 커스터마이징</span>
+                <span class="mhSk__tag">프론트 API</span>
+                <span class="mhSk__tag">앱 연동</span>
+                <span class="mhSk__tag">솔루션 최적화</span>
+                <span class="mhSk__tag">Google Maps API</span>
+            </div>
+        </div>
+
+        <!-- 5: Collaboration -->
+        <div class="mhSk js-fade" data-d="4">
+            <p class="mhSk__cat">Collaboration</p>
+            <p class="mhSk__name">협업 도구</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag">GitLab</span>
+                <span class="mhSk__tag">브랜치 전략</span>
+                <span class="mhSk__tag">MR 리뷰</span>
+                <span class="mhSk__tag">Jira</span>
+                <span class="mhSk__tag">스프린트 관리</span>
+                <span class="mhSk__tag">Notion</span>
+                <span class="mhSk__tag">Confluence</span>
+            </div>
+        </div>
+
+        <!-- 6: Design -->
+        <div class="mhSk js-fade" data-d="4">
+            <p class="mhSk__cat">Design</p>
+            <p class="mhSk__name">디자인 도구</p>
+            <div class="mhSk__tags">
+                <span class="mhSk__tag">Figma</span>
+                <span class="mhSk__tag">디자인 핸드오프</span>
+                <span class="mhSk__tag">컴포넌트 추출</span>
+                <span class="mhSk__tag">Photoshop</span>
+                <span class="mhSk__tag">Illustrator</span>
+                <span class="mhSk__tag">웹 최적화 이미지 작업</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <!-- ══════════════════════════════
      AWARDS & CERTS
 ══════════════════════════════ -->
-<section id="awards" class="ix-awards">
-    <div class="ix-awards__inner">
-        <div class="ix-sec-hd js-fade">
-            <div>
-                <p class="ix-eyebrow">Awards &amp; Certifications</p>
-                <h2 class="ix-title">수상 및 자격</h2>
-            </div>
+<section id="awards" class="mhSection">
+    <div class="mhSection__hd js-fade">
+        <p class="mhSection__eyebrow">Awards &amp; Certifications</p>
+        <h2 class="mhSection__title">수상 및 자격</h2>
+    </div>
+
+    <div class="mhAwards-grid">
+
+        <!-- ★ 수상 (강조) -->
+        <div class="mhAward mhAward--feat js-fade" data-d="1">
+            <p class="mhAward__type">Award</p>
+            <p class="mhAward__name">온라인 광고대상 우수상</p>
+            <p class="mhAward__org">한국온라인광고협회 (KOAA)</p>
+            <p class="mhAward__year">2020</p>
+            <p class="mhAward__badge">🏆 우수상 수상</p>
         </div>
 
-        <div class="ix-awards-grid">
-
-            <!-- ★ 수상 (강조) -->
-            <div class="ix-award ix-award--feat js-fade" data-d="1">
-                <p class="ix-award__type">Award</p>
-                <p class="ix-award__name">온라인 광고대상 우수상</p>
-                <p class="ix-award__org">한국온라인광고협회 (KOAA)</p>
-                <p class="ix-award__year">2020</p>
-                <p class="ix-award__badge">
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                        <path d="M5.5 1L6.9 4.1H10.2L7.65 6.1L8.65 9.3L5.5 7.4L2.35 9.3L3.35 6.1L0.8 4.1H4.1L5.5 1Z" fill="#D42B2B"/>
-                    </svg>
-                    우수상 수상
-                </p>
-            </div>
-
-            <!-- ★ 수상 -->
-            <div class="ix-award ix-award--feat js-fade" data-d="2">
-                <p class="ix-award__type">Award</p>
-                <p class="ix-award__name">실내디자인학회 공모전 입선</p>
-                <p class="ix-award__org">한국실내디자인학회 (KIID)</p>
-                <p class="ix-award__year">2014</p>
-                <p class="ix-award__badge">
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                        <path d="M5.5 1L6.9 4.1H10.2L7.65 6.1L8.65 9.3L5.5 7.4L2.35 9.3L3.35 6.1L0.8 4.1H4.1L5.5 1Z" fill="#D42B2B"/>
-                    </svg>
-                    공모전 입선
-                </p>
-            </div>
-
-            <!-- 자격증 -->
-            <div class="ix-award js-fade" data-d="3">
-                <p class="ix-award__type">Certificate</p>
-                <p class="ix-award__name">웹디자인기능사</p>
-                <p class="ix-award__org">한국산업인력공단 (HRD Korea)</p>
-                <p class="ix-award__year">2023.12</p>
-            </div>
-
-            <div class="ix-award js-fade" data-d="4">
-                <p class="ix-award__type">Certificate</p>
-                <p class="ix-award__name">GTQ 일러스트레이터 1급</p>
-                <p class="ix-award__org">한국생산성본부 (KPC)</p>
-                <p class="ix-award__year">2023.10</p>
-            </div>
-
-            <div class="ix-award js-fade" data-d="4">
-                <p class="ix-award__type">Certificate</p>
-                <p class="ix-award__name">GTQ 포토샵 1급</p>
-                <p class="ix-award__org">한국생산성본부 (KPC)</p>
-                <p class="ix-award__year">2023.09</p>
-            </div>
-
-            <div class="ix-award js-fade" data-d="4">
-                <p class="ix-award__type">Certificate</p>
-                <p class="ix-award__name">컬러리스트기사</p>
-                <p class="ix-award__org">한국산업인력공단 (HRD Korea)</p>
-                <p class="ix-award__year">2016.05</p>
-            </div>
-
+        <!-- ★ 수상 -->
+        <div class="mhAward mhAward--feat js-fade" data-d="2">
+            <p class="mhAward__type">Award</p>
+            <p class="mhAward__name">실내디자인학회 공모전 입선</p>
+            <p class="mhAward__org">한국실내디자인학회 (KIID)</p>
+            <p class="mhAward__year">2014</p>
+            <p class="mhAward__badge">🏆 공모전 입선</p>
         </div>
+
+        <!-- 자격증 -->
+        <div class="mhAward js-fade" data-d="3">
+            <p class="mhAward__type">Certificate</p>
+            <p class="mhAward__name">웹디자인기능사</p>
+            <p class="mhAward__org">한국산업인력공단 (HRD Korea)</p>
+            <p class="mhAward__year">2023.12</p>
+        </div>
+
+        <div class="mhAward js-fade" data-d="4">
+            <p class="mhAward__type">Certificate</p>
+            <p class="mhAward__name">GTQ 일러스트레이터 1급</p>
+            <p class="mhAward__org">한국생산성본부 (KPC)</p>
+            <p class="mhAward__year">2023.10</p>
+        </div>
+
+        <div class="mhAward js-fade" data-d="4">
+            <p class="mhAward__type">Certificate</p>
+            <p class="mhAward__name">GTQ 포토샵 1급</p>
+            <p class="mhAward__org">한국생산성본부 (KPC)</p>
+            <p class="mhAward__year">2023.09</p>
+        </div>
+
+        <div class="mhAward js-fade" data-d="4">
+            <p class="mhAward__type">Certificate</p>
+            <p class="mhAward__name">컬러리스트기사</p>
+            <p class="mhAward__org">한국산업인력공단 (HRD Korea)</p>
+            <p class="mhAward__year">2016.05</p>
+        </div>
+
     </div>
 </section>
 
 <!-- ══════════════════════════════
      CONTACT
 ══════════════════════════════ -->
-<section id="contact" class="ix-contact">
-    <div class="ix-contact__inner js-fade">
-        <p class="ix-eyebrow" style="justify-content:center;">Contact</p>
-        <h2 class="ix-contact__big">
-            <span>Let's Work</span>
-            <span>Together</span>
-        </h2>
-        <a href="mailto:new.jinius@gmail.com" class="ix-contact__email">new.jinius@gmail.com</a>
+<section id="contact" class="mhContact">
+    <div class="js-fade">
+        <p class="mhSection__eyebrow">Contact</p>
+        <h2 class="mhContact__title">Let's Work<br>Together</h2>
+        <a href="mailto:new.jinius@gmail.com" class="retroBtn">✉ new.jinius@gmail.com</a>
         <!-- 전화번호: 외부 공개 포트폴리오라면 아래 줄 제거 권장 -->
-        <p class="ix-contact__phone">010-2064-8478</p>
+        <p class="mhContact__phone">010-2064-8478</p>
     </div>
 </section>
 
 <!-- ══════════════════════════════
      FOOTER
 ══════════════════════════════ -->
-<footer class="ix-foot">
-    <p class="ix-foot__copy">© <span id="footYear">2025</span> 김유진 · Web Publisher Portfolio</p>
-    <div class="ix-foot__links">
-        <a href="mailto:new.jinius@gmail.com">Email</a>
-        <!-- GitHub, Notion 등 링크 추가: <a href="..." target="_blank">GitHub</a> -->
-    </div>
+<footer class="mhFoot">
+    <p>© <span id="footYear">2025</span> 김유진 · Web Publisher Portfolio</p>
+    <a href="mailto:new.jinius@gmail.com">Email</a>
 </footer>
 
 <!-- ══════════════════════════════
@@ -1025,114 +660,47 @@ ul  { list-style: none; }
 (function () {
     'use strict';
 
-    /* ── 1. 이름 글자 분리 (charUp 애니메이션) ── */
+    /* ── 1. 이름 타이핑 효과 ── */
     var nameEl = document.getElementById('heroName');
     if (nameEl) {
-        var chars = Array.from(nameEl.textContent);
+        var full = '김유진';
+        var cursor = nameEl.querySelector('.cursor');
+        var i = 0;
         nameEl.textContent = '';
-        chars.forEach(function (ch, i) {
-            var s = document.createElement('span');
-            s.className = 'char';
-            s.textContent = ch === ' ' ? ' ' : ch;
-            s.style.animationDelay = (0.28 + i * 0.07) + 's';
-            nameEl.appendChild(s);
-        });
+        nameEl.appendChild(cursor);
+        var typer = setInterval(function () {
+            i++;
+            nameEl.textContent = full.slice(0, i);
+            nameEl.appendChild(cursor);
+            if (i >= full.length) clearInterval(typer);
+        }, 180);
     }
 
-    /* ── 2. 커서 팔로워 (lerp) ── */
-    var dot  = document.getElementById('ixDot');
-    var ring = document.getElementById('ixRing');
-    var hasHover = window.matchMedia('(hover: hover)').matches;
-
-    if (dot && hasHover) {
-        var mx = -100, my = -100, rx = -100, ry = -100;
-
-        document.addEventListener('mousemove', function (e) {
-            mx = e.clientX; my = e.clientY;
-            dot.style.left = mx + 'px';
-            dot.style.top  = my + 'px';
-        });
-
-        (function rafLoop() {
-            rx += (mx - rx) * 0.11;
-            ry += (my - ry) * 0.11;
-            ring.style.left = rx + 'px';
-            ring.style.top  = ry + 'px';
-            requestAnimationFrame(rafLoop);
-        }());
-
-        /* 링크/카드 위에서 커서 확대 */
-        document.querySelectorAll('a, button, .ix-pj, .ix-award, .ix-sk-tag').forEach(function (el) {
-            el.addEventListener('mouseenter', function () {
-                dot.classList.add('is-link');
-                ring.classList.add('is-link');
-            });
-            el.addEventListener('mouseleave', function () {
-                dot.classList.remove('is-link');
-                ring.classList.remove('is-link');
-            });
-        });
-    }
-
-    /* ── 3. 스크롤 등장 (IntersectionObserver) ── */
+    /* ── 2. 스크롤 등장 (즉시 pop-in, easing 없음) ── */
     var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
             if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
         });
     }, { threshold: 0.05, rootMargin: '0px 0px -36px 0px' });
-
     document.querySelectorAll('.js-fade').forEach(function (el) { io.observe(el); });
 
-    /* ── 4. Career 타임라인 staggered slide-in ── */
-    var tlEl = document.getElementById('careerTl');
-    if (tlEl) {
-        var tlIo = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) {
-                    e.target.querySelectorAll('.ix-tl-item').forEach(function (item, i) {
-                        setTimeout(function () { item.classList.add('in'); }, i * 130);
-                    });
-                    tlIo.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.05 });
-        tlIo.observe(tlEl);
+    /* ── 3. 통계 카운트업 (디지털 카운터 느낌: 저프레임 step) ── */
+    function countUp(el, target) {
+        var cur = 0;
+        var step = Math.max(1, Math.round(target / 16));
+        var t = setInterval(function () {
+            cur = Math.min(cur + step, target);
+            el.textContent = cur;
+            if (cur >= target) clearInterval(t);
+        }, 60);
     }
-
-    /* ── 5. Skill 태그 staggered pop-in ── */
-    document.querySelectorAll('.ix-sk-grp').forEach(function (grp) {
-        var skIo = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) {
-                    e.target.querySelectorAll('.ix-sk-tag').forEach(function (tag, i) {
-                        setTimeout(function () { tag.classList.add('in'); }, i * 55);
-                    });
-                    skIo.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        skIo.observe(grp);
-    });
-
-    /* ── 6. 통계 카운트업 ── */
-    function countUp(el, target, duration) {
-        var start = null;
-        function step(ts) {
-            if (!start) start = ts;
-            var prog = Math.min((ts - start) / duration, 1);
-            el.textContent = Math.round(prog * target);
-            if (prog < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-    }
-
-    var statsEl = document.querySelector('.ix-hero__stats');
+    var statsEl = document.querySelector('.mhStats');
     if (statsEl) {
         var cntIo = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) {
                 if (e.isIntersecting) {
                     e.target.querySelectorAll('[data-count]').forEach(function (el) {
-                        countUp(el, parseInt(el.dataset.count, 10), 1800);
+                        countUp(el, parseInt(el.dataset.count, 10));
                     });
                     cntIo.unobserve(e.target);
                 }
@@ -1141,20 +709,7 @@ ul  { list-style: none; }
         cntIo.observe(statsEl);
     }
 
-    /* ── 7. 앵커 스무스 스크롤 (헤더 높이 보정) ── */
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-            var id = this.getAttribute('href');
-            if (id === '#') return;
-            var target = document.querySelector(id);
-            if (target) {
-                e.preventDefault();
-                window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
-            }
-        });
-    });
-
-    /* ── 8. 푸터 연도 자동 갱신 ── */
+    /* ── 4. 푸터 연도 자동 갱신 ── */
     var fy = document.getElementById('footYear');
     if (fy) fy.textContent = new Date().getFullYear();
 

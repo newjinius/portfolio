@@ -3,928 +3,462 @@ layout: default
 title: "Works — 김유진 포트폴리오"
 ---
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-    --black:  #0d0d0d;
-    --white:  #f5f5f3;
-    --accent: #D42B2B;
-    --g100: #1a1a1a;
-    --g200: #2a2a2a;
-    --g400: #555;
-    --g600: #888;
-    --g800: #ccc;
-    --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--black);
-    color: var(--white);
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-img { max-width: 100%; height: auto; display: block; }
-a   { color: inherit; text-decoration: none; }
-ul  { list-style: none; }
-
-/* ── PROGRESS BAR ── */
-#plProgress {
-    position: fixed; top: 0; left: 0;
-    width: 0%; height: 3px;
-    background: var(--accent);
-    z-index: 9999;
-    transition: width .1s linear;
-}
-
 /* ── HERO ── */
-.pl-hero {
-    padding: 160px 80px 100px;
-    border-bottom: 1px solid var(--g200);
-    position: relative;
-    overflow: hidden;
+.plHero {
+    text-align: center;
+    padding: 56px 24px 32px;
+    border-bottom: var(--border-w) solid var(--pink-hot);
 }
-
-.pl-hero::before {
-    content: 'WORKS';
-    position: absolute;
-    right: -10px; top: 50%;
-    transform: translateY(-50%);
-    font-size: clamp(120px, 22vw, 280px);
-    font-weight: 900;
-    letter-spacing: -.04em;
-    color: var(--g100);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
+.plHero__eyebrow {
+    font-family: var(--font-pixel);
+    font-size: 11px; color: var(--pink-hot);
 }
-
-.pl-hero__eyebrow {
-    font-size: 11px; font-weight: 700;
-    letter-spacing: .15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
-    display: inline-flex; align-items: center; gap: 10px;
-    opacity: 0; transform: translateY(20px);
-    animation: fadeUp .8s var(--ease) .2s forwards;
+.plHero__title {
+    font-family: var(--font-pixel);
+    font-size: clamp(40px, 9vw, 84px);
+    color: var(--pink-hot);
+    text-shadow: 3px 3px 0 var(--white), 6px 6px 0 var(--pink-mid);
+    margin: 10px 0 20px;
 }
-
-.pl-hero__eyebrow::before {
-    content: ''; display: block;
-    width: 22px; height: 2px; background: var(--accent);
+.plHero__sub { max-width: 440px; margin: 0 auto 24px; font-size: 13px; line-height: 1.8; }
+.plHero__stat {
+    display: inline-flex; align-items: baseline; gap: 6px;
+    font-family: var(--font-pixel);
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    padding: 8px 18px;
 }
-
-.pl-hero__title {
-    font-size: clamp(72px, 13vw, 200px);
-    font-weight: 900; line-height: .85;
-    letter-spacing: -.05em;
-    opacity: 0; transform: translateY(30px);
-    animation: fadeUp .9s var(--ease) .35s forwards;
-    margin-bottom: 36px;
-}
-
-.pl-hero__sub {
-    font-size: clamp(14px, 1.5vw, 18px);
-    color: var(--g600);
-    opacity: 0; transform: translateY(20px);
-    animation: fadeUp .8s var(--ease) .5s forwards;
-    max-width: 440px;
-    line-height: 1.75;
-}
-
-.pl-hero__stat {
-    display: flex; align-items: flex-end; gap: 4px;
-    margin-top: 56px;
-    opacity: 0; transform: translateY(20px);
-    animation: fadeUp .8s var(--ease) .65s forwards;
-}
-
-.pl-hero__stat-num {
-    font-size: clamp(56px, 8vw, 96px);
-    font-weight: 900; line-height: .85;
-    letter-spacing: -.04em;
-    color: var(--accent);
-}
-
-.pl-hero__stat-lbl {
-    font-size: 13px; font-weight: 600;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--g600);
-    padding-bottom: 14px;
-    margin-left: 6px;
-}
-
-@keyframes fadeUp { to { opacity: 1; transform: none; } }
+.plHero__statNum { font-size: 22px; color: var(--pink-hot); }
+.plHero__statLbl { font-size: 10px; }
 
 /* ── FILTER ── */
-.pl-filter {
-    padding: 0 80px;
-    border-bottom: 1px solid var(--g200);
-    display: flex;
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(13,13,13,.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    overflow-x: auto;
-    scrollbar-width: none;
+.plFilter {
+    display: flex; justify-content: center; gap: 8px;
+    padding: 18px 16px;
+    flex-wrap: wrap;
+    border-bottom: var(--border-w) solid var(--pink-hot);
+    background: var(--pink-soft);
 }
-
-.pl-filter::-webkit-scrollbar { display: none; }
-
-.pl-filter__btn {
-    padding: 18px 24px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--g600);
+.plFilter__btn {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    padding: 8px 14px;
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    color: var(--pink-hot);
     cursor: pointer;
-    transition: color .2s, border-color .2s;
-    font-family: inherit;
-    white-space: nowrap;
 }
-
-.pl-filter__btn::after {
-    content: attr(data-count);
-    font-size: 10px; font-weight: 700;
-    color: var(--g400);
-    margin-left: 6px;
-    vertical-align: super;
-}
-
-.pl-filter__btn:hover { color: var(--white); }
-.pl-filter__btn.is-active {
-    color: var(--white);
-    border-bottom-color: var(--accent);
-}
+.plFilter__btn.is-active { background: var(--pink-hot); color: var(--white); }
 
 /* ── LIST ── */
-.pl-list {
-    padding: 0 80px;
-    border-bottom: 1px solid var(--g200);
-}
+.plList { max-width: 900px; margin: 0 auto; padding: 32px 20px; display: flex; flex-direction: column; gap: 14px; }
+.plItem.is-hidden { display: none; }
 
-/* ── ITEM ── */
-.pl-item {
-    position: relative;
-    border-top: 1px solid var(--g200);
-}
-
-.pl-item.is-hidden { display: none; }
-
-.pl-item a {
+.plItem a {
     display: grid;
-    grid-template-columns: 72px 1fr 140px 48px;
-    gap: 0 32px;
+    grid-template-columns: 44px 1fr auto 32px;
     align-items: center;
-    padding: 36px 0;
-    position: relative;
-    z-index: 1;
-    transition: padding .35s var(--ease);
+    gap: 14px;
+    background: var(--white);
+    border: 2px solid var(--pink-hot);
+    box-shadow: 3px 3px 0 var(--pink-hot);
+    padding: 16px 18px;
+    transition: none;
+}
+.plItem a:hover { background: var(--pink-pale); }
+.plItem a:active { transform: translate(3px, 3px); box-shadow: none; }
+
+.plItem__num { font-family: var(--font-pixel); font-size: 13px; color: var(--pink-hot); }
+
+.plItem__client {
+    font-size: 10px; font-weight: 700; letter-spacing: .06em;
+    color: var(--pink-mid); margin: 0 0 3px;
+}
+.plItem__name { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+.plItem__tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.plItem__tag {
+    font-size: 10px; padding: 2px 8px;
+    border: 1px solid var(--pink-hot);
+    background: var(--pink-pale);
 }
 
-.pl-item:hover a { padding-top: 48px; padding-bottom: 48px; }
-
-/* 호버 배경 (clip-path reveal) */
-.pl-item__bg {
-    position: absolute; inset: 0;
-    background: var(--g100);
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path .55s var(--ease);
-    z-index: 0;
-}
-
-.pl-item:hover .pl-item__bg { clip-path: inset(0 0% 0 0); }
-
-/* 왼쪽 accent 라인 */
-.pl-item__line {
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform .4s var(--ease);
-    z-index: 2;
-}
-
-.pl-item:hover .pl-item__line { transform: scaleY(1); }
-
-/* 번호 */
-.pl-item__num {
-    font-size: 11px; font-weight: 700;
-    letter-spacing: .12em; color: var(--g400);
-    transition: color .3s;
-    align-self: flex-start;
-    padding-top: 6px;
-}
-
-.pl-item:hover .pl-item__num { color: var(--accent); }
-
-/* 본문 */
-.pl-item__body { min-width: 0; }
-
-.pl-item__client {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: .14em; text-transform: uppercase;
-    color: var(--g400); margin-bottom: 6px;
-    transition: color .3s;
-}
-
-.pl-item:hover .pl-item__client { color: var(--g600); }
-
-.pl-item__name {
-    font-size: clamp(24px, 3.5vw, 50px);
-    font-weight: 700; line-height: 1.1;
-    letter-spacing: -.03em;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    transition: letter-spacing .4s var(--ease);
-}
-
-.pl-item:hover .pl-item__name { letter-spacing: -.01em; }
-
-.pl-item__tags {
-    display: flex; flex-wrap: wrap; gap: 5px;
-    margin-top: 12px;
-}
-
-.pl-item__tag {
-    padding: 3px 10px;
-    border: 1px solid var(--g200);
-    border-radius: 100px;
-    font-size: 11px; color: var(--g600);
-    transition: border-color .2s, color .2s;
-}
-
-.pl-item:hover .pl-item__tag {
-    border-color: var(--g400);
-    color: var(--g800);
-}
-
-/* 카테고리·연도 */
-.pl-item__meta {
-    text-align: right;
-    flex-shrink: 0;
-}
-
-.pl-item__cat {
+.plItem__meta { text-align: right; white-space: nowrap; }
+.plItem__cat {
     display: inline-block;
-    padding: 4px 12px;
-    border: 1px solid var(--g200);
-    border-radius: 100px;
     font-size: 10px; font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--g600);
-    margin-bottom: 8px;
-    transition: border-color .25s, color .25s;
+    padding: 3px 9px;
+    border: 1px solid var(--pink-hot);
+    color: var(--pink-hot);
+    margin-bottom: 4px;
 }
+.plItem__year { display: block; font-size: 11px; color: var(--pink-mid); }
 
-.pl-item:hover .pl-item__cat {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.pl-item__year {
-    display: block;
-    font-size: 12px; font-weight: 500;
-    color: var(--g400);
-    transition: color .3s;
-}
-
-.pl-item:hover .pl-item__year { color: var(--g600); }
-
-/* 화살표 */
-.pl-item__arrow {
-    width: 42px; height: 42px;
-    border: 1px solid var(--g200);
-    border-radius: 50%;
+.plItem__arrow {
+    width: 26px; height: 26px;
+    border: 2px solid var(--pink-hot);
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: border-color .25s, background .25s, transform .4s var(--ease);
-}
-
-.pl-item:hover .pl-item__arrow {
-    border-color: var(--accent);
-    background: var(--accent);
-    transform: rotate(45deg);
-}
-
-.pl-item__arrow svg { transition: stroke .25s; }
-.pl-item:hover .pl-item__arrow svg { stroke: #fff; }
-
-/* ── CURSOR FOLLOWER ── */
-.pl-cursor {
-    position: fixed;
-    top: 0; left: 0;
-    width: 260px; height: 174px;
-    pointer-events: none;
-    z-index: 8000;
-    opacity: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 28px 72px rgba(0,0,0,.75);
-    transition: opacity .35s;
-    will-change: transform;
-    margin-left: -130px; margin-top: -87px;
-}
-
-.pl-cursor.is-visible { opacity: 1; }
-
-.pl-cursor__img {
-    width: 100%; height: 100%;
-    background: var(--g200) center/cover no-repeat;
+    color: var(--pink-hot);
 }
 
 /* ── FOOTER ── */
-.pl-foot {
-    padding: 64px 80px;
+.plFoot {
+    border-top: var(--border-w) solid var(--pink-hot);
+    background: var(--pink-soft);
+    padding: 24px 24px;
     display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 20px;
+    flex-wrap: wrap; gap: 14px;
+    font-size: 12px;
+}
+.plFoot strong { color: var(--pink-hot); }
+.plFoot__back {
+    font-family: var(--font-pixel);
+    font-size: 11px; color: var(--pink-hot);
+    border: 2px solid var(--pink-hot);
+    padding: 6px 12px;
+    background: var(--white);
 }
 
-.pl-foot__text {
-    font-size: 14px; color: var(--g600); line-height: 1.7;
-}
-
-.pl-foot__text strong { color: var(--white); font-weight: 700; }
-
-.pl-foot__back {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--g600); transition: color .2s;
-}
-
-.pl-foot__back:hover { color: var(--white); }
-.pl-foot__back svg   { transition: transform .25s; }
-.pl-foot__back:hover svg { transform: translateX(-4px); }
-
-/* ── SCROLL ANIMATION ── */
-.js-fade {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity .7s var(--ease), transform .7s var(--ease);
-}
-.js-fade.in { opacity: 1; transform: none; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1200px) {
-    .pl-item a { grid-template-columns: 60px 1fr 120px 42px; gap: 0 24px; }
-}
-
-@media (max-width: 1024px) {
-    .pl-hero, .pl-list, .pl-foot { padding-left: 48px; padding-right: 48px; }
-    .pl-filter { padding-left: 48px; }
-}
-
-@media (max-width: 768px) {
-    .pl-hero   { padding: 110px 24px 64px; }
-    .pl-hero::before { font-size: 28vw; right: -4px; }
-    .pl-filter { padding-left: 24px; }
-    .pl-list   { padding: 0 24px; }
-    .pl-foot   { padding: 48px 24px; }
-
-    .pl-item a { grid-template-columns: 44px 1fr 42px; gap: 0 14px; padding: 28px 0; }
-    .pl-item:hover a { padding-top: 36px; padding-bottom: 36px; }
-    .pl-item__meta { display: none; }
-    .pl-item__name { font-size: clamp(20px, 5.5vw, 30px); white-space: normal; }
-    .pl-cursor { display: none; }
-}
-
-@media (max-width: 480px) {
-    .pl-hero::before { display: none; }
-    .pl-filter__btn  { padding: 16px; font-size: 11px; }
-    .pl-item a       { gap: 0 12px; }
+@media (max-width: 640px) {
+    .plItem a { grid-template-columns: 32px 1fr 28px; }
+    .plItem__meta { display: none; }
 }
 </style>
-
-<div id="plProgress"></div>
 
 <!-- ════════════════════════════
      HERO
 ═════════════════════════════ -->
-<section class="pl-hero">
-    <p class="pl-hero__eyebrow">Web Publisher · Portfolio</p>
-    <h1 class="pl-hero__title">Projects</h1>
-    <p class="pl-hero__sub">웹 퍼블리셔로 참여한 프로젝트 모음입니다.<br>커머스, 기업 사이트, 랜딩 페이지 등 다양한 유형의 작업물을 담았습니다.</p>
-    <div class="pl-hero__stat">
-        <span class="pl-hero__stat-num" id="visibleCount">14</span>
-        <span class="pl-hero__stat-lbl">Projects</span>
+<section class="plHero">
+    <p class="plHero__eyebrow">Web Publisher · Portfolio</p>
+    <h1 class="plHero__title">Projects</h1>
+    <p class="plHero__sub">웹 퍼블리셔로 참여한 프로젝트 모음입니다. 커머스, 기업 사이트, 랜딩 페이지 등 다양한 유형의 작업물을 담았습니다.</p>
+    <div class="plHero__stat">
+        <span class="plHero__statNum" id="visibleCount">14</span>
+        <span class="plHero__statLbl">Projects</span>
     </div>
 </section>
 
 <!-- ════════════════════════════
      FILTER
 ═════════════════════════════ -->
-<nav class="pl-filter" aria-label="프로젝트 필터">
-    <button class="pl-filter__btn is-active" data-filter="all"      data-count="14">All</button>
-    <button class="pl-filter__btn"           data-filter="commerce"  data-count="7">Commerce</button>
-    <button class="pl-filter__btn"           data-filter="corporate" data-count="4">Corporate</button>
-    <button class="pl-filter__btn"           data-filter="landing"   data-count="3">Landing</button>
+<nav class="plFilter" aria-label="프로젝트 필터">
+    <button class="plFilter__btn is-active" data-filter="all"      data-count="14">All</button>
+    <button class="plFilter__btn"           data-filter="commerce"  data-count="7">Commerce</button>
+    <button class="plFilter__btn"           data-filter="corporate" data-count="4">Corporate</button>
+    <button class="plFilter__btn"           data-filter="landing"   data-count="3">Landing</button>
 </nav>
 
 <!-- ════════════════════════════
      PROJECT LIST
-     새 프로젝트 추가: 아이템 복사 후 번호·내용·data-cat·data-img 교체
+     새 프로젝트 추가: 아이템 복사 후 번호·내용·data-cat 교체
      data-cat: commerce / corporate / landing
 ═════════════════════════════ -->
-<section class="pl-list">
-    <ul id="prjList">
+<section class="plList" id="prjList">
 
-        <!-- ─ 01 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/pj01/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/tirepro.html' | relative_url }}">
-                <span class="pl-item__num">01</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">TIREPRO</p>
-                    <p class="pl-item__name">타이어프로 쇼핑몰 고도화 리뉴얼</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">예약 시스템</li>
-                        <li class="pl-item__tag">Google Maps API</li>
-                        <li class="pl-item__tag">WebGL</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025–2026</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 01 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/tirepro.html' | relative_url }}">
+            <span class="plItem__num">01</span>
+            <div>
+                <p class="plItem__client">TIREPRO</p>
+                <p class="plItem__name">타이어프로 쇼핑몰 고도화 리뉴얼</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">예약 시스템</li>
+                    <li class="plItem__tag">Google Maps API</li>
+                    <li class="plItem__tag">WebGL</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025–2026</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 02 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/jt-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/josun_tns.html' | relative_url }}">
-                <span class="pl-item__num">02</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">JOSUN T&amp;S</p>
-                    <p class="pl-item__name">조선호텔 공식 온라인몰 리뉴얼</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">모듈커스터마이징</li>
-                        <li class="pl-item__tag">VIP전용관</li>
-                        <li class="pl-item__tag">브랜드리뉴얼</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 02 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/josun_tns.html' | relative_url }}">
+            <span class="plItem__num">02</span>
+            <div>
+                <p class="plItem__client">JOSUN T&amp;S</p>
+                <p class="plItem__name">조선호텔 공식 온라인몰 리뉴얼</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">모듈커스터마이징</li>
+                    <li class="plItem__tag">VIP전용관</li>
+                    <li class="plItem__tag">브랜드리뉴얼</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 03 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/pd-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/pandora.html' | relative_url }}">
-                <span class="pl-item__num">03</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">PANDORA</p>
-                    <p class="pl-item__name">판도라 주얼리 온라인몰 커스터마이징</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">GoogleMap</li>
-                        <li class="pl-item__tag">컬러칩API</li>
-                        <li class="pl-item__tag">쇼핑큐레이션</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2024</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 03 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/pandora.html' | relative_url }}">
+            <span class="plItem__num">03</span>
+            <div>
+                <p class="plItem__client">PANDORA</p>
+                <p class="plItem__name">판도라 주얼리 온라인몰 커스터마이징</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">GoogleMap</li>
+                    <li class="plItem__tag">컬러칩API</li>
+                    <li class="plItem__tag">쇼핑큐레이션</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2024</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 04 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/op-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/open_palette.html' | relative_url }}">
-                <span class="pl-item__num">04</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">오픈팔레트</p>
-                    <p class="pl-item__name">오픈팔레트 아트 커머스 플랫폼 구축</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">쇼핑큐레이션</li>
-                        <li class="pl-item__tag">WebGL</li>
-                        <li class="pl-item__tag">🏆지디웹수상</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2024</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 04 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/open_palette.html' | relative_url }}">
+            <span class="plItem__num">04</span>
+            <div>
+                <p class="plItem__client">오픈팔레트</p>
+                <p class="plItem__name">오픈팔레트 아트 커머스 플랫폼 구축</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">쇼핑큐레이션</li>
+                    <li class="plItem__tag">WebGL</li>
+                    <li class="plItem__tag">🏆지디웹수상</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2024</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 05 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/bk-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}">
-                <span class="pl-item__num">05</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">Cafe24 디자인 스킨</p>
-                    <p class="pl-item__name">Boska 실판매용 디자인 스킨 제작</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">디자인스킨</li>
-                        <li class="pl-item__tag">배너매니저</li>
-                        <li class="pl-item__tag">모듈커스터마이징</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 05 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}">
+            <span class="plItem__num">05</span>
+            <div>
+                <p class="plItem__client">Cafe24 디자인 스킨</p>
+                <p class="plItem__name">Boska 실판매용 디자인 스킨 제작</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">디자인스킨</li>
+                    <li class="plItem__tag">배너매니저</li>
+                    <li class="plItem__tag">모듈커스터마이징</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 06 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/sf-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/spofl.html' | relative_url }}">
-                <span class="pl-item__num">06</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">SPOFL</p>
-                    <p class="pl-item__name">SPOFL 스포츠 플랫폼 고도화</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">KakaoMap</li>
-                        <li class="pl-item__tag">브랜드관개편</li>
-                        <li class="pl-item__tag">숏폼UX</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 06 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/spofl.html' | relative_url }}">
+            <span class="plItem__num">06</span>
+            <div>
+                <p class="plItem__client">SPOFL</p>
+                <p class="plItem__name">SPOFL 스포츠 플랫폼 고도화</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">KakaoMap</li>
+                    <li class="plItem__tag">브랜드관개편</li>
+                    <li class="plItem__tag">숏폼UX</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 07 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/sr-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/speed_order.html' | relative_url }}">
-                <span class="pl-item__num">07</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">스피드랙</p>
-                    <p class="pl-item__name">스피드랙 선택형 주문서 UI 개발</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">선택형UI</li>
-                        <li class="pl-item__tag">Swiper</li>
-                        <li class="pl-item__tag">분기처리</li>
-                        <li class="pl-item__tag">JavaScript</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 07 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/speed_order.html' | relative_url }}">
+            <span class="plItem__num">07</span>
+            <div>
+                <p class="plItem__client">스피드랙</p>
+                <p class="plItem__name">스피드랙 선택형 주문서 UI 개발</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">선택형UI</li>
+                    <li class="plItem__tag">Swiper</li>
+                    <li class="plItem__tag">분기처리</li>
+                    <li class="plItem__tag">JavaScript</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 08 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/rb-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/ryan.html' | relative_url }}">
-                <span class="pl-item__num">08</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">리안베이비</p>
-                    <p class="pl-item__name">리안베이비 공식몰 UI 개발</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">Swiper</li>
-                        <li class="pl-item__tag">YouTube연동</li>
-                        <li class="pl-item__tag">배너매니저</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2024</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 08 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/ryan.html' | relative_url }}">
+            <span class="plItem__num">08</span>
+            <div>
+                <p class="plItem__client">리안베이비</p>
+                <p class="plItem__name">리안베이비 공식몰 UI 개발</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">Swiper</li>
+                    <li class="plItem__tag">YouTube연동</li>
+                    <li class="plItem__tag">배너매니저</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2024</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 09 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/jb-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/joie.html' | relative_url }}">
-                <span class="pl-item__num">09</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">Joie Baby Korea</p>
-                    <p class="pl-item__name">Joie Baby Korea 공식몰 UI 개발</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">Swiper</li>
-                        <li class="pl-item__tag">YouTube연동</li>
-                        <li class="pl-item__tag">게시판커스텀</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2024</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 09 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/joie.html' | relative_url }}">
+            <span class="plItem__num">09</span>
+            <div>
+                <p class="plItem__client">Joie Baby Korea</p>
+                <p class="plItem__name">Joie Baby Korea 공식몰 UI 개발</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">Swiper</li>
+                    <li class="plItem__tag">YouTube연동</li>
+                    <li class="plItem__tag">게시판커스텀</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2024</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 10 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/kr-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/kared.html' | relative_url }}">
-                <span class="pl-item__num">10</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">케어드</p>
-                    <p class="pl-item__name">케어드 스킨 리뉴얼 · UX 개선</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">스킨리뉴얼</li>
-                        <li class="pl-item__tag">업셀링앱연동</li>
-                        <li class="pl-item__tag">UX개선</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 10 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/kared.html' | relative_url }}">
+            <span class="plItem__num">10</span>
+            <div>
+                <p class="plItem__client">케어드</p>
+                <p class="plItem__name">케어드 스킨 리뉴얼 · UX 개선</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">스킨리뉴얼</li>
+                    <li class="plItem__tag">업셀링앱연동</li>
+                    <li class="plItem__tag">UX개선</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 11 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/kv-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/kovea.html' | relative_url }}">
-                <span class="pl-item__num">11</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">코베아</p>
-                    <p class="pl-item__name">코베아 쇼핑몰 모듈 커스터마이징</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">프론트API</li>
-                        <li class="pl-item__tag">모듈커스터마이징</li>
-                        <li class="pl-item__tag">기획전구현</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 11 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/kovea.html' | relative_url }}">
+            <span class="plItem__num">11</span>
+            <div>
+                <p class="plItem__client">코베아</p>
+                <p class="plItem__name">코베아 쇼핑몰 모듈 커스터마이징</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">프론트API</li>
+                    <li class="plItem__tag">모듈커스터마이징</li>
+                    <li class="plItem__tag">기획전구현</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 12 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/tv-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/teva.html' | relative_url }}">
-                <span class="pl-item__num">12</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">테바 / Teva</p>
-                    <p class="pl-item__name">테바 상품 컬러칩 UX 개발</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">쇼핑큐레이션</li>
-                        <li class="pl-item__tag">컬러칩API</li>
-                        <li class="pl-item__tag">관련상품연동</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2025</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 12 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/teva.html' | relative_url }}">
+            <span class="plItem__num">12</span>
+            <div>
+                <p class="plItem__client">테바 / Teva</p>
+                <p class="plItem__name">테바 상품 컬러칩 UX 개발</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">쇼핑큐레이션</li>
+                    <li class="plItem__tag">컬러칩API</li>
+                    <li class="plItem__tag">관련상품연동</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2025</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-        <!-- ─ 13 ─ -->
-        <li class="pl-item js-fade" data-cat="commerce"
-            data-img="https://picsum.photos/seed/dj-hero/780/520">
-            <div class="pl-item__line"></div>
-            <div class="pl-item__bg"></div>
-            <a href="{{ '/project/detail/migung365.html' | relative_url }}">
-                <span class="pl-item__num">13</span>
-                <div class="pl-item__body">
-                    <p class="pl-item__client">대장사랑</p>
-                    <p class="pl-item__name">대장사랑 Cafe24 스킨 퍼블리싱</p>
-                    <ul class="pl-item__tags">
-                        <li class="pl-item__tag">Cafe24</li>
-                        <li class="pl-item__tag">모듈분석</li>
-                        <li class="pl-item__tag">커스텀스킨</li>
-                        <li class="pl-item__tag">사내교육자료</li>
-                    </ul>
-                </div>
-                <div class="pl-item__meta">
-                    <span class="pl-item__cat">Commerce</span>
-                    <span class="pl-item__year">2024</span>
-                </div>
-                <div class="pl-item__arrow">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 12L12 2M12 2H6M12 2V8" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </li>
+    <!-- ─ 13 ─ -->
+    <div class="plItem" data-cat="commerce">
+        <a href="{{ '/project/detail/migung365.html' | relative_url }}">
+            <span class="plItem__num">13</span>
+            <div>
+                <p class="plItem__client">대장사랑</p>
+                <p class="plItem__name">대장사랑 Cafe24 스킨 퍼블리싱</p>
+                <ul class="plItem__tags">
+                    <li class="plItem__tag">Cafe24</li>
+                    <li class="plItem__tag">모듈분석</li>
+                    <li class="plItem__tag">커스텀스킨</li>
+                    <li class="plItem__tag">사내교육자료</li>
+                </ul>
+            </div>
+            <div class="plItem__meta">
+                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__year">2024</span>
+            </div>
+            <div class="plItem__arrow">→</div>
+        </a>
+    </div>
 
-    </ul>
 </section>
 
 <!-- ════════════════════════════
      FOOTER
 ═════════════════════════════ -->
-<div class="pl-foot js-fade">
-    <p class="pl-foot__text">
-        <strong>Web Publisher Portfolio</strong><br>
-        HTML · CSS · JavaScript · Cafe24
-    </p>
-    <a href="#" class="pl-foot__back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Back to Top
-    </a>
-</div>
-
-<!-- ════════════════════════════
-     CURSOR FOLLOWER
-═════════════════════════════ -->
-<div class="pl-cursor" id="plCursor">
-    <div class="pl-cursor__img" id="plCursorImg"></div>
+<div class="plFoot">
+    <p><strong>Web Publisher Portfolio</strong> — HTML · CSS · JavaScript · Cafe24</p>
+    <a href="#" class="plFoot__back" id="plBack">↑ Back to Top</a>
 </div>
 
 <script>
 (function () {
     'use strict';
 
-    /* ── 스크롤 프로그레스 ── */
-    var bar   = document.getElementById('plProgress');
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-
-    function updateBar(y) {
-        if (bar) bar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
-    }
-
-    /* ── IntersectionObserver 등장 애니메이션 ── */
-    var fadeEls = document.querySelectorAll('.js-fade');
-    if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) {
-                    e.target.classList.add('in');
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-        fadeEls.forEach(function (el) { io.observe(el); });
-    } else {
-        fadeEls.forEach(function (el) { el.classList.add('in'); });
-    }
-
-    /* ── 스크롤 이벤트 ── */
-    var ticking    = false;
-    var lastScrollY = 0;
-
-    function onScrollFrame() {
-        total = document.documentElement.scrollHeight - window.innerHeight;
-        updateBar(lastScrollY);
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-        lastScrollY = window.scrollY;
-        if (!ticking) {
-            requestAnimationFrame(onScrollFrame);
-            ticking = true;
-        }
-    }, { passive: true });
-
-    lastScrollY = window.scrollY;
-    updateBar(lastScrollY);
-
-    /* ── 커서 팔로워 ── */
-    var cursor    = document.getElementById('plCursor');
-    var cursorImg = document.getElementById('plCursorImg');
-
-    if (cursor && !('ontouchstart' in window)) {
-        var mouseX = 0, mouseY = 0;
-        var curX   = 0, curY   = 0;
-        var raf    = null;
-
-        function lerp(a, b, n) { return (1 - n) * a + n * b; }
-
-        function animateCursor() {
-            curX = lerp(curX, mouseX, 0.10);
-            curY = lerp(curY, mouseY, 0.10);
-            cursor.style.transform = 'translate(' + curX + 'px,' + curY + 'px)';
-            raf = requestAnimationFrame(animateCursor);
-        }
-
-        document.addEventListener('mousemove', function (e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        document.querySelectorAll('.pl-item').forEach(function (item) {
-            var imgSrc = item.getAttribute('data-img');
-            item.addEventListener('mouseenter', function () {
-                if (imgSrc) cursorImg.style.backgroundImage = 'url(' + imgSrc + ')';
-                cursor.classList.add('is-visible');
-                if (!raf) raf = requestAnimationFrame(animateCursor);
-            });
-            item.addEventListener('mouseleave', function () {
-                cursor.classList.remove('is-visible');
-            });
-        });
-    }
-
     /* ── 필터 ── */
-    var filterBtns = document.querySelectorAll('.pl-filter__btn');
-    var listItems  = document.querySelectorAll('.pl-item');
+    var filterBtns = document.querySelectorAll('.plFilter__btn');
+    var listItems  = document.querySelectorAll('.plItem');
     var countEl    = document.getElementById('visibleCount');
 
-    /* 카테고리별 실제 개수 재집계 */
     var catCount = { all: listItems.length };
     listItems.forEach(function (li) {
         var c = li.getAttribute('data-cat');
@@ -950,19 +484,17 @@ ul  { list-style: none; }
                     item.classList.add('is-hidden');
                 }
             });
-
             if (countEl) countEl.textContent = visible;
         });
     });
 
-    /* ── Back to Top ── */
-    var backBtn = document.querySelector('.pl-foot__back');
+    /* ── Back to Top (즉시 이동) ── */
+    var backBtn = document.getElementById('plBack');
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         });
     }
-
 }());
 </script>
