@@ -5,6 +5,11 @@
 // 팔레트 출처: /reference/color_palette.jpg
 // ═══════════════════════════════════════
 
+// Mona 픽셀 폰트 — 이모지도 픽셀 글립으로 렌더링됨 (OS 컬러 이모지보다 무드에 맞음).
+// 반드시 @import(url)로 유지할 것 — 내부 woff2 경로가 이 스타일시트 기준
+// 상대경로라, 내용을 복사해오면 폰트 파일 경로가 깨짐.
+@import url('https://cdn.jsdelivr.net/gh/MonadABXY/mona-font/web/mona.css');
+
 @font-face {
     font-family: 'DosStory';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
@@ -36,6 +41,8 @@
     --font-pixel: 'DosStory', 'Dotum', 'Gulim', monospace;
     --font-body:  'DosStory', 'Dotum', 'Gulim', monospace;
     --font-bold:  'StoryBold', 'Dotum', 'Gulim', monospace;
+    // 장식용 픽셀 이모지 전용 — 모노톤이라 color로 팔레트에 맞춰 물들일 수 있음
+    --font-emoji: 'Mona12 Emoji', sans-serif;
 
     --border-w: 3px;
     --shadow-hard: 4px 4px 0 var(--pink-hot);
@@ -153,4 +160,39 @@ ul  { list-style: none; margin: 0; padding: 0; }
 
 @media (prefers-reduced-motion: reduce) {
     .retroMarquee__track { animation: none; }
+}
+
+// ── 픽셀 이모지 (진짜 이모지 대신 사용 — OS 컬러 이모지는 너무 "매끈"해서 무드 깨짐) ──
+.pxEmoji {
+    font-family: var(--font-emoji);
+    color: var(--pink-hot);
+}
+
+// ── 반짝임 + 흔들림 장식 ──
+@keyframes pxTwinkle {
+    0%, 100% { opacity: 1;  transform: scale(1); }
+    50%      { opacity: .25; transform: scale(.7); }
+}
+@keyframes pxWobble {
+    0%, 100% { transform: rotate(-6deg); }
+    50%      { transform: rotate(6deg); }
+}
+.pxDeco {
+    display: inline-block;
+    font-family: var(--font-emoji);
+    color: var(--pink-hot);
+    animation: pxTwinkle 1.3s steps(4) infinite, pxWobble 2.1s steps(6) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pxDeco { animation: none; }
+}
+
+// ── 픽셀 체커보드 — 섹션 구분용 얇은 띠 등에 사용 ──
+.pxChecker {
+    background-image: conic-gradient(
+        var(--pink-hot) 90deg, transparent 90deg 180deg,
+        var(--pink-hot) 180deg 270deg, transparent 270deg
+    );
+    background-size: 14px 14px;
 }
