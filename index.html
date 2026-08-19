@@ -222,8 +222,6 @@ title: "김유진 포트폴리오"
     color: var(--pink-hot);
     margin: 12px 0 32px;
 }
-.mhContact__phone { font-size: 14px; margin-top: 10px; }
-
 /* ── YES/NO 게임 ── */
 .mhGame__q { font-size: 16px; margin: 0 0 20px; }
 
@@ -265,6 +263,7 @@ title: "김유진 포트폴리오"
 
 .mhReveal { margin-top: 24px; }
 .mhReveal__msg { font-size: 16px; margin: 0 0 16px; }
+.mhReveal__links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 
 /* ═══════════════════════════════
    FOOTER
@@ -692,9 +691,11 @@ title: "김유진 포트폴리오"
 
         <div class="mhReveal" id="mhReveal" hidden aria-live="polite">
             <p class="mhReveal__msg">🎉 좋아요! 아래로 연락 주세요</p>
-            <a href="mailto:new.jinius@gmail.com" class="retroBtn">✉ new.jinius@gmail.com</a>
-            <!-- 전화번호: 외부 공개 포트폴리오라면 아래 줄 제거 권장 -->
-            <p class="mhContact__phone">010-2064-8478</p>
+            <div class="mhReveal__links">
+                <a href="mailto:new.jinius@gmail.com" class="retroBtn">✉ new.jinius@gmail.com</a>
+                <!-- 전화번호: 외부 공개 포트폴리오라면 아래 줄 제거 권장 -->
+                <a href="tel:01020648478" class="retroBtn">☎ 010-2064-8478</a>
+            </div>
         </div>
     </div>
 </section>
