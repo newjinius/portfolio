@@ -103,14 +103,22 @@ title: "김유진 포트폴리오"
     box-shadow: var(--shadow-hard);
     padding: 10px;
 }
-/* 부드러운 sway 대신, 가만히 있다가 순간 튕기는 뚝딱임 */
+/* 부드러운 sway 대신, 가만히 있다가 순간 튕기는 뚝딱임.
+   4장이 다 같은 각도로 기울어있으면 밋밋해서, 카드마다 --tilt로
+   제각각 다른 기본 각도를 주고 wobble은 그 반대각으로 튕기게 함 */
 @keyframes pxCardWobble {
-    0%, 88%  { transform: rotate(-1.5deg); }
-    92%      { transform: rotate(1.5deg); }
-    100%     { transform: rotate(-1.5deg); }
+    0%, 88%  { transform: rotate(var(--tilt)); }
+    92%      { transform: rotate(calc(var(--tilt) * -1)); }
+    100%     { transform: rotate(var(--tilt)); }
 }
-.mhPj { animation: pxCardWobble 3.6s steps(1) infinite; }
-.mhPj:nth-child(even) { animation-delay: 1.8s; }
+.mhPj {
+    --tilt: -2deg;
+    animation: pxCardWobble 3.6s steps(1) infinite;
+}
+.mhPj:nth-child(1) { --tilt: -3deg;  animation-delay: 0s; }
+.mhPj:nth-child(2) { --tilt: 2.5deg; animation-delay: .9s; }
+.mhPj:nth-child(3) { --tilt: -4deg;  animation-delay: 1.8s; }
+.mhPj:nth-child(4) { --tilt: 3deg;   animation-delay: 2.7s; }
 @media (prefers-reduced-motion: reduce) {
     .mhPj { animation: none; }
 }
