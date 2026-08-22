@@ -130,9 +130,9 @@ title: "Works — 김유진 포트폴리오"
 <section class="plHero">
     <p class="plHero__eyebrow">Web Publisher · Portfolio</p>
     <h1 class="plHero__title">Projects <span class="pxDeco" style="font-size:.4em;" aria-hidden="true">✦</span></h1>
-    <p class="plHero__sub">웹 퍼블리셔로 참여한 프로젝트 모음입니다. 커머스, 기업 사이트, 랜딩 페이지 등 다양한 유형의 작업물을 담았습니다.</p>
+    <p class="plHero__sub">웹 퍼블리셔로 참여한 프로젝트 모음입니다. 신규 스킨 제작부터 리뉴얼·고도화, 기능·모듈 개발까지 다양한 형태의 작업물을 담았습니다.</p>
     <div class="plHero__stat">
-        <span class="plHero__statNum" id="visibleCount">14</span>
+        <span class="plHero__statNum" id="visibleCount">13</span>
         <span class="plHero__statLbl">Projects</span>
     </div>
 </section>
@@ -141,23 +141,25 @@ title: "Works — 김유진 포트폴리오"
 
 <!-- ════════════════════════════
      FILTER
+     data-cat 기준 — 업종이 아니라 "무슨 작업을 했는지":
+     skin(신규 스킨 제작) / renewal(리뉴얼·고도화) / feature(기능·모듈 개발)
 ═════════════════════════════ -->
 <nav class="plFilter" aria-label="프로젝트 필터">
-    <button class="plFilter__btn is-active" data-filter="all"      data-count="14">All</button>
-    <button class="plFilter__btn"           data-filter="commerce"  data-count="7">Commerce</button>
-    <button class="plFilter__btn"           data-filter="corporate" data-count="4">Corporate</button>
-    <button class="plFilter__btn"           data-filter="landing"   data-count="3">Landing</button>
+    <button class="plFilter__btn is-active" data-filter="all"     data-count="13">All</button>
+    <button class="plFilter__btn"           data-filter="skin"    data-count="3">스킨 제작</button>
+    <button class="plFilter__btn"           data-filter="renewal" data-count="4">리뉴얼</button>
+    <button class="plFilter__btn"           data-filter="feature" data-count="6">기능개발</button>
 </nav>
 
 <!-- ════════════════════════════
      PROJECT LIST
      새 프로젝트 추가: 아이템 복사 후 번호·내용·data-cat 교체
-     data-cat: commerce / corporate / landing
+     data-cat: skin(신규 스킨 제작) / renewal(리뉴얼·고도화) / feature(기능·모듈 개발)
 ═════════════════════════════ -->
 <section class="plList" id="prjList">
 
     <!-- ─ 01 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="renewal">
         <a href="{{ '/project/detail/tirepro.html' | relative_url }}">
             <span class="plItem__num">01</span>
             <div>
@@ -171,7 +173,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">리뉴얼</span>
                 <span class="plItem__year">2025–2026</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -179,7 +181,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 02 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="renewal">
         <a href="{{ '/project/detail/josun_tns.html' | relative_url }}">
             <span class="plItem__num">02</span>
             <div>
@@ -193,7 +195,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">리뉴얼</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -201,7 +203,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 03 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/pandora.html' | relative_url }}">
             <span class="plItem__num">03</span>
             <div>
@@ -215,7 +217,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2024</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -223,7 +225,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 04 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="skin">
         <a href="{{ '/project/detail/open_palette.html' | relative_url }}">
             <span class="plItem__num">04</span>
             <div>
@@ -237,7 +239,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">스킨 제작</span>
                 <span class="plItem__year">2024</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -245,7 +247,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 05 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="skin">
         <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}">
             <span class="plItem__num">05</span>
             <div>
@@ -259,7 +261,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">스킨 제작</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -267,7 +269,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 06 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="renewal">
         <a href="{{ '/project/detail/spofl.html' | relative_url }}">
             <span class="plItem__num">06</span>
             <div>
@@ -281,7 +283,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">리뉴얼</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -289,7 +291,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 07 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/speed_order.html' | relative_url }}">
             <span class="plItem__num">07</span>
             <div>
@@ -303,7 +305,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -311,7 +313,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 08 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/ryan.html' | relative_url }}">
             <span class="plItem__num">08</span>
             <div>
@@ -325,7 +327,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2024</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -333,7 +335,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 09 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/joie.html' | relative_url }}">
             <span class="plItem__num">09</span>
             <div>
@@ -347,7 +349,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2024</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -355,7 +357,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 10 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="renewal">
         <a href="{{ '/project/detail/kared.html' | relative_url }}">
             <span class="plItem__num">10</span>
             <div>
@@ -369,7 +371,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">리뉴얼</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -377,7 +379,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 11 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/kovea.html' | relative_url }}">
             <span class="plItem__num">11</span>
             <div>
@@ -391,7 +393,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -399,7 +401,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 12 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="feature">
         <a href="{{ '/project/detail/teva.html' | relative_url }}">
             <span class="plItem__num">12</span>
             <div>
@@ -413,7 +415,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">기능개발</span>
                 <span class="plItem__year">2025</span>
             </div>
             <div class="plItem__arrow">→</div>
@@ -421,7 +423,7 @@ title: "Works — 김유진 포트폴리오"
     </div>
 
     <!-- ─ 13 ─ -->
-    <div class="plItem" data-cat="commerce">
+    <div class="plItem" data-cat="skin">
         <a href="{{ '/project/detail/migung365.html' | relative_url }}">
             <span class="plItem__num">13</span>
             <div>
@@ -435,7 +437,7 @@ title: "Works — 김유진 포트폴리오"
                 </ul>
             </div>
             <div class="plItem__meta">
-                <span class="plItem__cat">Commerce</span>
+                <span class="plItem__cat">스킨 제작</span>
                 <span class="plItem__year">2024</span>
             </div>
             <div class="plItem__arrow">→</div>
