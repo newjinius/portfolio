@@ -116,16 +116,12 @@ title: "Kared — 김유진 포트폴리오"
         <div class="js-fade is-left">
             <p class="pj-feat__num">Feature 02</p>
             <h3 class="pj-feat__title">이미지 로드 지연으로 인한<br>앵커 이동 오류 개선</h3>
-            <p class="pj-feat__desc">상품 상세 페이지에서 "상세정보 / 리뷰 / 배송안내" 탭 클릭 시 스크롤이 잘못된 위치로 이동하는 버그를 해결했습니다. 고해상도 상세 이미지가 로드되기 전에 앵커 이동이 실행되어 레이아웃 높이가 확정되지 않은 것이 원인이었습니다.</p>
+            <p class="pj-feat__desc">상세 페이지 탭(상세정보·리뷰·배송안내) 클릭 시 스크롤이 잘못된 위치로 이동하는 버그를 근본 원인부터 분석해 해결했습니다.</p>
             <ul class="pj-feat__list">
-                <li>이미지 미로드 상태에서 앵커 이동 → 이미지 로드 후 높이 확정 → 스크롤 위치 어긋나는 원인 분석</li>
-                <li>이미지에 고정 <code>aspect-ratio</code> 부여 → 로드 전부터 레이아웃 공간 확보로 레이아웃 시프트 차단</li>
-                <li>앵커 클릭 이벤트에 <code>requestAnimationFrame</code> 래핑 → 렌더링 완료 후 스크롤 실행 보장</li>
-                <li>Cafe24 기본 앵커 이벤트와 충돌 없이 동작하도록 이벤트 위임 구조로 처리</li>
+                <li>원인: 이미지 미로드 → 레이아웃 높이 미확정 → 앵커 좌표 오류</li>
+                <li>이미지에 <code>aspect-ratio</code> 고정 → 로드 전부터 공간 확보, CLS 차단</li>
+                <li>앵커 이벤트에 <code>requestAnimationFrame</code> 래핑 → 렌더링 후 스크롤 실행</li>
             </ul>
-            <div class="pj-feat__note">
-                <strong>핵심 원인:</strong> 이미지 높이가 확정되지 않은 시점에 스크롤 위치를 계산하므로 앵커 좌표가 틀어짐. <code>aspect-ratio</code>로 레이아웃 공간을 미리 확보하면 이미지 로드 전후 높이가 동일하게 유지되어 CLS(Cumulative Layout Shift)와 앵커 오류를 동시에 해결.
-            </div>
         </div>
     </div>
 </section>

@@ -9,10 +9,7 @@ title: "Works — 김유진 포트폴리오"
     padding: 56px 24px 32px;
     border-bottom: var(--border-w) solid var(--pink-hot);
 }
-.plHero__eyebrow {
-    font-family: var(--font-pixel);
-    font-size: 16px; color: var(--pink-hot);
-}
+.plHero__eyebrow { font-family: var(--font-pixel); font-size: 16px; color: var(--pink-hot); }
 .plHero__title {
     font-family: var(--font-pixel);
     font-size: clamp(40px, 9vw, 84px);
@@ -46,58 +43,114 @@ title: "Works — 김유진 포트폴리오"
     background: var(--white);
     border: 2px solid var(--pink-hot);
     color: var(--pink-hot);
+    cursor: pointer;
 }
 .plFilter__btn:hover     { background: var(--pink-pale); }
 .plFilter__btn.is-active { background: var(--pink-hot); color: var(--white); }
 
-/* ── LIST ── */
-.plList { max-width: 900px; margin: 0 auto; padding: 32px 20px; display: flex; flex-direction: column; gap: 14px; }
-.plItem.is-hidden { display: none; }
-
-.plItem a {
+/* ── GRID ── */
+.plGrid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
     display: grid;
-    grid-template-columns: 44px 1fr auto 32px;
-    align-items: center;
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.plCard.is-hidden { display: none; }
+
+.plCard a {
+    display: flex;
+    flex-direction: column;
     background: var(--white);
     border: 2px solid var(--pink-hot);
-    box-shadow: 3px 3px 0 var(--pink-hot);
-    padding: 16px 18px;
-    transition: none;
+    box-shadow: 4px 4px 0 var(--pink-hot);
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    transition: transform .12s, box-shadow .12s;
 }
-.plItem a:hover { background: var(--pink-pale); }
-.plItem a:active { transform: translate(3px, 3px); box-shadow: none; }
-
-.plItem__num { font-family: var(--font-pixel); font-size: 17px; color: var(--pink-hot); }
-
-.plItem__client {
-    font-size: 15px; font-family: var(--font-bold); letter-spacing: .06em;
-    color: var(--pink-mid); margin: 0 0 3px;
+.plCard a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--pink-hot);
 }
-.plItem__name { font-size: 20px; font-family: var(--font-bold); margin: 0 0 8px; }
-.plItem__tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.plItem__tag {
-    font-size: 15px; padding: 2px 8px;
+.plCard a:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* 썸네일 */
+.plCard__thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 2px solid var(--pink-hot);
+    background: var(--pink-soft);
+}
+.plCard__thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s;
+}
+.plCard a:hover .plCard__thumb img { transform: scale(1.04); }
+
+/* 텍스트 영역 */
+.plCard__body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+.plCard__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.plCard__client {
+    font-size: 13px;
+    font-family: var(--font-bold);
+    letter-spacing: .06em;
+    color: var(--pink-mid);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.plCard__cat {
+    font-size: 12px;
+    font-family: var(--font-pixel);
+    padding: 2px 7px;
+    border: 1px solid var(--pink-hot);
+    color: var(--pink-hot);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.plCard__name {
+    font-size: 17px;
+    font-family: var(--font-bold);
+    line-height: 1.4;
+    margin: 0;
+}
+.plCard__tags {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    margin-top: 4px;
+}
+.plCard__tag {
+    font-size: 12px;
+    padding: 2px 7px;
     border: 1px solid var(--pink-hot);
     background: var(--pink-pale);
+    list-style: none;
 }
+.plCard__year { font-size: 13px; color: var(--pink-mid); margin-top: auto; padding-top: 8px; }
 
-.plItem__meta { text-align: right; white-space: nowrap; }
-.plItem__cat {
-    display: inline-block;
-    font-size: 15px; font-family: var(--font-bold);
-    padding: 3px 9px;
-    border: 1px solid var(--pink-hot);
-    color: var(--pink-hot);
-    margin-bottom: 4px;
+/* ── 반응형 ── */
+@media (max-width: 900px) {
+    .plGrid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 }
-.plItem__year { display: block; font-size: 16px; color: var(--pink-mid); }
-
-.plItem__arrow {
-    width: 26px; height: 26px;
-    border: 2px solid var(--pink-hot);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--pink-hot);
+@media (max-width: 540px) {
+    .plGrid { grid-template-columns: 1fr; gap: 14px; padding: 24px 16px 48px; }
 }
 
 /* ── FOOTER ── */
@@ -116,11 +169,6 @@ title: "Works — 김유진 포트폴리오"
     border: 2px solid var(--pink-hot);
     padding: 6px 12px;
     background: var(--white);
-}
-
-@media (max-width: 640px) {
-    .plItem a { grid-template-columns: 32px 1fr 28px; }
-    .plItem__meta { display: none; }
 }
 </style>
 
@@ -141,8 +189,6 @@ title: "Works — 김유진 포트폴리오"
 
 <!-- ════════════════════════════
      FILTER
-     data-cat 기준 — 업종이 아니라 "무슨 작업을 했는지":
-     skin(신규 스킨 제작) / renewal(리뉴얼·고도화) / feature(기능·모듈 개발)
 ═════════════════════════════ -->
 <nav class="plFilter" aria-label="프로젝트 필터">
     <button class="plFilter__btn is-active" data-filter="all"     data-count="13">All</button>
@@ -152,295 +198,306 @@ title: "Works — 김유진 포트폴리오"
 </nav>
 
 <!-- ════════════════════════════
-     PROJECT LIST
-     새 프로젝트 추가: 아이템 복사 후 번호·내용·data-cat 교체
-     data-cat: skin(신규 스킨 제작) / renewal(리뉴얼·고도화) / feature(기능·모듈 개발)
+     PROJECT GRID
 ═════════════════════════════ -->
-<section class="plList" id="prjList">
+<section class="plGrid" id="prjList">
 
     <!-- ─ 01 ─ -->
-    <div class="plItem" data-cat="renewal">
+    <div class="plCard" data-cat="renewal">
         <a href="{{ '/project/detail/tirepro.html' | relative_url }}">
-            <span class="plItem__num">01</span>
-            <div>
-                <p class="plItem__client">TIREPRO</p>
-                <p class="plItem__name">타이어프로 쇼핑몰 고도화 리뉴얼</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">예약 시스템</li>
-                    <li class="plItem__tag">Google Maps API</li>
-                    <li class="plItem__tag">WebGL</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/tirepro-hero2.jpg' | relative_url }}" alt="타이어프로">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">TIREPRO</span>
+                    <span class="plCard__cat">리뉴얼</span>
+                </div>
+                <p class="plCard__name">타이어프로 쇼핑몰 고도화 리뉴얼</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">예약 시스템</li>
+                    <li class="plCard__tag">Google Maps</li>
+                    <li class="plCard__tag">WebGL</li>
                 </ul>
+                <span class="plCard__year">2025–2026</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">리뉴얼</span>
-                <span class="plItem__year">2025–2026</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 02 ─ -->
-    <div class="plItem" data-cat="renewal">
+    <div class="plCard" data-cat="renewal">
         <a href="{{ '/project/detail/josun_tns.html' | relative_url }}">
-            <span class="plItem__num">02</span>
-            <div>
-                <p class="plItem__client">JOSUN T&amp;S</p>
-                <p class="plItem__name">조선호텔 공식 온라인몰 리뉴얼</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">모듈커스터마이징</li>
-                    <li class="plItem__tag">VIP전용관</li>
-                    <li class="plItem__tag">브랜드리뉴얼</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/josun_tns-hero.jpg' | relative_url }}" alt="조선T&S">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">JOSUN T&amp;S</span>
+                    <span class="plCard__cat">리뉴얼</span>
+                </div>
+                <p class="plCard__name">조선호텔 공식 온라인몰 리뉴얼</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">모듈커스터마이징</li>
+                    <li class="plCard__tag">VIP전용관</li>
+                    <li class="plCard__tag">브랜드리뉴얼</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">리뉴얼</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 03 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/pandora.html' | relative_url }}">
-            <span class="plItem__num">03</span>
-            <div>
-                <p class="plItem__client">PANDORA</p>
-                <p class="plItem__name">판도라 주얼리 온라인몰 커스터마이징</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">GoogleMap</li>
-                    <li class="plItem__tag">컬러칩API</li>
-                    <li class="plItem__tag">쇼핑큐레이션</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/pandora-hero.jpg' | relative_url }}" alt="판도라">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">PANDORA</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">판도라 주얼리 온라인몰 커스터마이징</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">GoogleMap</li>
+                    <li class="plCard__tag">컬러칩API</li>
+                    <li class="plCard__tag">쇼핑큐레이션</li>
                 </ul>
+                <span class="plCard__year">2024</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2024</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 04 ─ -->
-    <div class="plItem" data-cat="skin">
+    <div class="plCard" data-cat="skin">
         <a href="{{ '/project/detail/open_palette.html' | relative_url }}">
-            <span class="plItem__num">04</span>
-            <div>
-                <p class="plItem__client">오픈팔레트</p>
-                <p class="plItem__name">오픈팔레트 아트 커머스 플랫폼 구축</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">쇼핑큐레이션</li>
-                    <li class="plItem__tag">WebGL</li>
-                    <li class="plItem__tag">지디웹수상</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/open_palette-hero.jpg' | relative_url }}" alt="오픈팔레트">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">오픈팔레트</span>
+                    <span class="plCard__cat">스킨 제작</span>
+                </div>
+                <p class="plCard__name">오픈팔레트 아트 커머스 플랫폼 구축</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">쇼핑큐레이션</li>
+                    <li class="plCard__tag">WebGL</li>
+                    <li class="plCard__tag">지디웹수상</li>
                 </ul>
+                <span class="plCard__year">2024</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">스킨 제작</span>
-                <span class="plItem__year">2024</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 05 ─ -->
-    <div class="plItem" data-cat="skin">
+    <div class="plCard" data-cat="skin">
         <a href="{{ '/project/detail/cafe24_skin.html' | relative_url }}">
-            <span class="plItem__num">05</span>
-            <div>
-                <p class="plItem__client">Cafe24 디자인 스킨</p>
-                <p class="plItem__name">Boska 실판매용 디자인 스킨 제작</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">디자인스킨</li>
-                    <li class="plItem__tag">배너매니저</li>
-                    <li class="plItem__tag">모듈커스터마이징</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/cafe24_skin-hero.jpg' | relative_url }}" alt="Cafe24 스킨">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">Cafe24 디자인 스킨</span>
+                    <span class="plCard__cat">스킨 제작</span>
+                </div>
+                <p class="plCard__name">Boska 실판매용 디자인 스킨 제작</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">디자인스킨</li>
+                    <li class="plCard__tag">배너매니저</li>
+                    <li class="plCard__tag">모듈커스터마이징</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">스킨 제작</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 06 ─ -->
-    <div class="plItem" data-cat="renewal">
+    <div class="plCard" data-cat="renewal">
         <a href="{{ '/project/detail/spofl.html' | relative_url }}">
-            <span class="plItem__num">06</span>
-            <div>
-                <p class="plItem__client">SPOFL</p>
-                <p class="plItem__name">SPOFL 스포츠 플랫폼 고도화</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">KakaoMap</li>
-                    <li class="plItem__tag">브랜드관개편</li>
-                    <li class="plItem__tag">숏폼UX</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/spofl-hero.jpg' | relative_url }}" alt="스포플">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">SPOFL</span>
+                    <span class="plCard__cat">리뉴얼</span>
+                </div>
+                <p class="plCard__name">SPOFL 스포츠 플랫폼 고도화</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">KakaoMap</li>
+                    <li class="plCard__tag">브랜드관개편</li>
+                    <li class="plCard__tag">숏폼UX</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">리뉴얼</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 07 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/speed_order.html' | relative_url }}">
-            <span class="plItem__num">07</span>
-            <div>
-                <p class="plItem__client">스피드랙</p>
-                <p class="plItem__name">스피드랙 선택형 주문서 UI 개발</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">선택형UI</li>
-                    <li class="plItem__tag">Swiper</li>
-                    <li class="plItem__tag">분기처리</li>
-                    <li class="plItem__tag">JavaScript</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/speed_order-hero.jpg' | relative_url }}" alt="스피드랙">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">스피드랙</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">스피드랙 선택형 주문서 UI 개발</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">선택형UI</li>
+                    <li class="plCard__tag">Swiper</li>
+                    <li class="plCard__tag">분기처리</li>
+                    <li class="plCard__tag">JavaScript</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 08 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/ryan.html' | relative_url }}">
-            <span class="plItem__num">08</span>
-            <div>
-                <p class="plItem__client">리안베이비</p>
-                <p class="plItem__name">리안베이비 공식몰 UI 개발</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">Swiper</li>
-                    <li class="plItem__tag">YouTube연동</li>
-                    <li class="plItem__tag">배너매니저</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/ryan-hero.jpg' | relative_url }}" alt="리안베이비">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">리안베이비</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">리안베이비 공식몰 UI 개발</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">Swiper</li>
+                    <li class="plCard__tag">YouTube연동</li>
+                    <li class="plCard__tag">배너매니저</li>
                 </ul>
+                <span class="plCard__year">2024</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2024</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 09 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/joie.html' | relative_url }}">
-            <span class="plItem__num">09</span>
-            <div>
-                <p class="plItem__client">Joie Baby Korea</p>
-                <p class="plItem__name">Joie Baby Korea 공식몰 UI 개발</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">Swiper</li>
-                    <li class="plItem__tag">YouTube연동</li>
-                    <li class="plItem__tag">게시판커스텀</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/joie-hero.jpg' | relative_url }}" alt="Joie Baby">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">Joie Baby Korea</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">Joie Baby Korea 공식몰 UI 개발</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">Swiper</li>
+                    <li class="plCard__tag">YouTube연동</li>
+                    <li class="plCard__tag">게시판커스텀</li>
                 </ul>
+                <span class="plCard__year">2024</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2024</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 10 ─ -->
-    <div class="plItem" data-cat="renewal">
+    <div class="plCard" data-cat="renewal">
         <a href="{{ '/project/detail/kared.html' | relative_url }}">
-            <span class="plItem__num">10</span>
-            <div>
-                <p class="plItem__client">케어드</p>
-                <p class="plItem__name">케어드 스킨 리뉴얼 · UX 개선</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">스킨리뉴얼</li>
-                    <li class="plItem__tag">업셀링앱연동</li>
-                    <li class="plItem__tag">UX개선</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/kared-hero.jpg' | relative_url }}" alt="케어드">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">케어드</span>
+                    <span class="plCard__cat">리뉴얼</span>
+                </div>
+                <p class="plCard__name">케어드 스킨 리뉴얼 · UX 개선</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">스킨리뉴얼</li>
+                    <li class="plCard__tag">업셀링앱연동</li>
+                    <li class="plCard__tag">UX개선</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">리뉴얼</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 11 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/kovea.html' | relative_url }}">
-            <span class="plItem__num">11</span>
-            <div>
-                <p class="plItem__client">코베아</p>
-                <p class="plItem__name">코베아 쇼핑몰 모듈 커스터마이징</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">프론트API</li>
-                    <li class="plItem__tag">모듈커스터마이징</li>
-                    <li class="plItem__tag">기획전구현</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/kovea-hero.jpg' | relative_url }}" alt="코베아">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">코베아</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">코베아 쇼핑몰 모듈 커스터마이징</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">프론트API</li>
+                    <li class="plCard__tag">모듈커스터마이징</li>
+                    <li class="plCard__tag">기획전구현</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 12 ─ -->
-    <div class="plItem" data-cat="feature">
+    <div class="plCard" data-cat="feature">
         <a href="{{ '/project/detail/teva.html' | relative_url }}">
-            <span class="plItem__num">12</span>
-            <div>
-                <p class="plItem__client">테바 / Teva</p>
-                <p class="plItem__name">테바 상품 컬러칩 UX 개발</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">쇼핑큐레이션</li>
-                    <li class="plItem__tag">컬러칩API</li>
-                    <li class="plItem__tag">관련상품연동</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/teva-hero.jpg' | relative_url }}" alt="테바">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">테바 / Teva</span>
+                    <span class="plCard__cat">기능개발</span>
+                </div>
+                <p class="plCard__name">테바 상품 컬러칩 UX 개발</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">쇼핑큐레이션</li>
+                    <li class="plCard__tag">컬러칩API</li>
+                    <li class="plCard__tag">관련상품연동</li>
                 </ul>
+                <span class="plCard__year">2025</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">기능개발</span>
-                <span class="plItem__year">2025</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
     <!-- ─ 13 ─ -->
-    <div class="plItem" data-cat="skin">
+    <div class="plCard" data-cat="skin">
         <a href="{{ '/project/detail/migung365.html' | relative_url }}">
-            <span class="plItem__num">13</span>
-            <div>
-                <p class="plItem__client">대장사랑</p>
-                <p class="plItem__name">대장사랑 Cafe24 스킨 퍼블리싱</p>
-                <ul class="plItem__tags">
-                    <li class="plItem__tag">Cafe24</li>
-                    <li class="plItem__tag">모듈분석</li>
-                    <li class="plItem__tag">커스텀스킨</li>
-                    <li class="plItem__tag">사내교육자료</li>
+            <div class="plCard__thumb">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/migung365-hero.jpg' | relative_url }}" alt="대장사랑">
+            </div>
+            <div class="plCard__body">
+                <div class="plCard__header">
+                    <span class="plCard__client">대장사랑</span>
+                    <span class="plCard__cat">스킨 제작</span>
+                </div>
+                <p class="plCard__name">대장사랑 Cafe24 스킨 퍼블리싱</p>
+                <ul class="plCard__tags">
+                    <li class="plCard__tag">Cafe24</li>
+                    <li class="plCard__tag">모듈분석</li>
+                    <li class="plCard__tag">커스텀스킨</li>
+                    <li class="plCard__tag">사내교육자료</li>
                 </ul>
+                <span class="plCard__year">2024</span>
             </div>
-            <div class="plItem__meta">
-                <span class="plItem__cat">스킨 제작</span>
-                <span class="plItem__year">2024</span>
-            </div>
-            <div class="plItem__arrow">→</div>
         </a>
     </div>
 
@@ -458,9 +515,8 @@ title: "Works — 김유진 포트폴리오"
 (function () {
     'use strict';
 
-    /* ── 필터 ── */
     var filterBtns = document.querySelectorAll('.plFilter__btn');
-    var listItems  = document.querySelectorAll('.plItem');
+    var listItems  = document.querySelectorAll('.plCard');
     var countEl    = document.getElementById('visibleCount');
 
     var catCount = { all: listItems.length };
@@ -492,7 +548,6 @@ title: "Works — 김유진 포트폴리오"
         });
     });
 
-    /* ── Back to Top (즉시 이동) ── */
     var backBtn = document.getElementById('plBack');
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
