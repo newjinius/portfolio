@@ -1,0 +1,292 @@
+---
+layout: default
+title: "FROM9 — 김유진 포트폴리오"
+---
+
+
+<!-- ══ HERO ══ -->
+<section class="pj-hero">
+    <div class="pj-hero__bg" style="background-image:url('{{ '/assets/img/detail/from9-hero.jpg' | relative_url }}')"></div>
+    <div class="pj-hero__overlay"></div>
+    <div class="pj-hero__body">
+        <p class="pj-hero__cat">Commerce · Campaign · Cosmetics</p>
+        <h1 class="pj-hero__title">
+            <em>Project.</em>
+            FROM9
+        </h1>
+        <div class="pj-hero__meta">
+            <div class="pj-hero__meta-item"><strong>Period</strong><span>2026.09 – 2026.10</span></div>
+            <div class="pj-hero__meta-item"><strong>Platform</strong><span>Cafe24 (모바일)</span></div>
+            <div class="pj-hero__meta-item"><strong>Role</strong><span>구현 지시·시안대조검수·운영 도구</span></div>
+            <div class="pj-hero__meta-item"><strong>Type</strong><span>캠페인 프로모션몰 리뉴얼</span></div>
+        </div>
+    </div>
+    <div class="pj-hero__scroll">
+        <div class="pj-hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ══ OVERVIEW ══ -->
+<section class="pj-overview">
+    <div class="js-fade">
+        <p class="pj-overview__eyebrow">Project Overview</p>
+        <div class="pj-overview__bignum">5</div>
+        <ul class="pj-overview__infolist">
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Period</span><span class="pj-overview__info-v">2026.09 – 2026.10</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Platform</span><span class="pj-overview__info-v">Cafe24 모바일 스킨</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Role</span><span class="pj-overview__info-v">구현 지시 · 시안대조검수 · 운영 도구</span></li>
+            <li class="pj-overview__info" style="border-bottom:none;">
+                <span class="pj-overview__info-k">Scale</span>
+                <span class="pj-overview__info-v">HTML 10,057줄 · JS 3,595줄 / HTML 31개</span>
+            </li>
+        </ul>
+    </div>
+    <div class="js-fade">
+        <p class="pj-overview__desc">
+            화장품 브랜드 <strong>FROM9</strong>의 품질평가 캠페인 프로모션몰을 리뉴얼했습니다.<br>
+            평가자 전용 모바일 스킨으로, 750px Figma 시안을 <strong>480px 1:1로 구현</strong>했습니다. 사용자 권한에 따라 5개 시나리오(s0–s4)가 단일 메인에서 분기되며, 평가 API·월 구매한도 가드·JSON 편집기 등 운영 자동화 도구까지 포함합니다.
+        </p>
+        <div class="pj-overview__tags">
+            <span class="pj-overview__tag">#Cafe24</span>
+            <span class="pj-overview__tag">#모바일스킨</span>
+            <span class="pj-overview__tag">#시나리오분기</span>
+            <span class="pj-overview__tag">#FigmaMCP</span>
+            <span class="pj-overview__tag">#평가API</span>
+            <span class="pj-overview__tag">#구매한도가드</span>
+            <span class="pj-overview__tag">#JSON편집기</span>
+            <span class="pj-overview__tag">#WebP</span>
+        </div>
+    </div>
+</section>
+
+<!-- 풀이미지 -->
+<div class="pj-fullimg">
+    <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-full.jpg' | relative_url }}" alt="FROM9 화면">
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="pj-sec">
+    <div class="pj-sec__hd js-fade">
+        <div>
+            <p class="pj-sec__eyebrow">— Key Features</p>
+            <h2 class="pj-sec__title">
+                <em>주요 구현 기능</em>
+                시나리오 분기 · API · 운영 도구
+            </h2>
+        </div>
+    </div>
+
+    <!-- F01: 5개 시나리오 분기 메인 -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-main.jpg' | relative_url }}" alt="시나리오 분기 메인">
+            <span class="pj-feat__badge">Feature</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 01</p>
+            <h3 class="pj-feat__title">사용자 상태별<br>5개 시나리오 분기 메인</h3>
+            <p class="pj-feat__desc">평가자의 권한·참여 상태에 따라 단일 메인 페이지에서 s0(비회원)·s1(참여 전)·s2(참여 중)·s3(평가 완료)·s4(혜택 적용) 5개 시나리오가 자동 분기됩니다. API 응답 전까지 로딩 상태를 처리해 화면 깜빡임을 제거했고, 각 시나리오별 노출 영역이 다른 계정에 보이지 않도록 분기 매트릭스를 정밀하게 관리했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>권한 API 응답 기반 s0–s4 자동 분기, 오노출 방지</li>
+                <li>API 응답 전 로딩 상태 처리 — opacity fade-in으로 깜빡임 제거</li>
+                <li>시나리오별 노출 매트릭스 문서화, 회원명·평가 버튼·참여완료 배너 분기</li>
+                <li>프리뷰 환경 shop·skin 경로 <code>SkinPath.to()</code> 공통 유틸 일원화</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- F02: Figma 1:1 구현 -->
+    <div class="pj-feat pj-feat--rev">
+        <div class="pj-feat__img js-fade is-right">
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-scroll1.jpg' | relative_url }}" alt="Figma 1:1 구현">
+            <span class="pj-feat__badge">Design</span>
+        </div>
+        <div class="js-fade is-left">
+            <p class="pj-feat__num">Feature 02</p>
+            <h3 class="pj-feat__title">750px Figma 시안<br>480px 1:1 구현</h3>
+            <p class="pj-feat__desc">750px 기준 Figma 시안을 480px 모바일 스킨에 1:1로 옮겼습니다. Playwright의 getBoundingClientRect로 여백·크기를 실측해 시안과 대조했습니다. 영상 영역·텍스트 노드·투명 자산을 이미지 처리하지 않도록 지속 감시했고, 피그마 프레임 밖 주석(영상/이미지 구분, 스크롤 지시)까지 확인하도록 검수 프로세스를 수립했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>Figma MCP 연결 → 섹션 단위 구현 지시 → Playwright 픽셀 실측 반복</li>
+                <li>영상 영역을 정지 이미지로 처리한 3곳 지적·영상으로 교정</li>
+                <li>텍스트 노드를 이미지 크롭에 담지 않도록 HTML 재구성</li>
+                <li>여백 198px 누락 등 "모든 영역 반영" 보고 후에도 차이 발견·재작업</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- F03: API 연동 & 운영 도구 -->
+    <div class="pj-feat">
+        <div class="pj-feat__img js-fade is-left">
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s3.jpg' | relative_url }}" alt="평가 API & 운영 도구">
+            <span class="pj-feat__badge">API &amp; Tool</span>
+        </div>
+        <div class="js-fade is-right">
+            <p class="pj-feat__num">Feature 03</p>
+            <h3 class="pj-feat__title">평가 API · 구매한도 가드 &<br>JSON 편집기</h3>
+            <p class="pj-feat__desc">평가자 수·평가금액 집계 API 연동, 월 구매한도를 실제 결제 단계에서 차단하는 가드를 구현했습니다. 고객사가 시나리오별 상세 데이터를 직접 관리할 수 있도록 웹 기반 JSON 편집기도 제작했습니다. sharp WebP 변환으로 이미지 로딩을 최적화하고, 파일명 버전 규칙으로 배포 캐시 문제를 해결했습니다.</p>
+            <ul class="pj-feat__list">
+                <li>평가자 수·금액 API 연동, 첫 평가 완료·이후 평가 팝업 분기</li>
+                <li>구매한도 가드 — 알럿에서 그치지 않고 실제 결제 진행 차단</li>
+                <li>웹 기반 상세 JSON 편집기 신규 제작 (고객사 직접 운영)</li>
+                <li>sharp WebP 변환 · 파일명 버전 suffix(v2/v3)로 CDN 캐시 관리</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<div class="pj-gallery">
+    <div class="pj-gallery__inner">
+        <p class="pj-gallery__eyebrow js-fade">Screen Gallery</p>
+        <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
+        <div class="pj-gallery__grid">
+            <div class="pj-gallery__item pj-gallery__item--wide js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-scroll2.jpg' | relative_url }}" alt="FROM9 메인">
+                <span class="pj-gallery__caption">시나리오 분기 메인</span>
+            </div>
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s4.jpg' | relative_url }}" alt="시나리오 s1">
+                <span class="pj-gallery__caption">s1 참여 전 화면</span>
+            </div>
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s5.jpg' | relative_url }}" alt="평가 화면">
+                <span class="pj-gallery__caption">품질평가 화면</span>
+            </div>
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s6.jpg' | relative_url }}" alt="평가 완료">
+                <span class="pj-gallery__caption">평가 완료 · 혜택</span>
+            </div>
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s7.jpg' | relative_url }}" alt="JSON 편집기">
+                <span class="pj-gallery__caption">JSON 편집기</span>
+            </div>
+            <div class="pj-gallery__item js-fade">
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s8.jpg' | relative_url }}" alt="상품 상세">
+                <span class="pj-gallery__caption">상품 상세 페이지</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ MOBILE ══ -->
+<div class="pj-mobile">
+    <div class="pj-mobile__inner">
+        <div>
+            <p class="pj-mobile__eyebrow js-fade">Mobile First</p>
+            <h2 class="pj-mobile__title js-fade">480px 모바일 전용<br>캠페인 스킨</h2>
+            <p class="pj-mobile__desc js-fade">
+                FROM9 프로모션몰은 처음부터 모바일 전용으로 설계된 캠페인 스킨입니다. 750px Figma 시안을 480px 기준으로 1:1 구현했으며, 5개 시나리오가 모두 모바일에서 끊김 없이 분기됩니다. 권한 확인 전 화면이 깜빡이지 않도록 로딩 상태 설계도 모바일 기준으로 검증했습니다.
+            </p>
+            <div class="pj-mobile__checklist js-fade">
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">★</div>
+                    <div>
+                        <strong>시나리오별 모바일 분기</strong>
+                        <span>s0–s4 각 시나리오가 480px에서 시안과 동일하게 노출</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">★</div>
+                    <div>
+                        <strong>로딩 상태 처리</strong>
+                        <span>권한 API 응답 전 화면 깜빡임 없이 자연스럽게 전환</span>
+                    </div>
+                </div>
+                <div class="pj-mobile__check">
+                    <div class="pj-mobile__check-icon">★</div>
+                    <div>
+                        <strong>구매 한도 가드</strong>
+                        <span>모바일 주문서에서 월 구매한도 초과 시 실제 결제 차단</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pj-phones js-fade">
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-01.jpg' | relative_url }}" alt="모바일 메인"></div>
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-02.jpg' | relative_url }}" alt="모바일 평가"></div>
+            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-03.jpg' | relative_url }}" alt="모바일 혜택"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ CONTRIBUTION ══ -->
+<section class="pj-contrib">
+    <div class="pj-contrib__hd js-fade">
+        <p class="pj-contrib__eyebrow">My Contribution</p>
+        <h2 class="pj-contrib__title">담당 역할 요약</h2>
+    </div>
+    <div class="pj-contrib__grid">
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">01</div>
+            <h3 class="pj-card__title">Figma 1:1 구현 검수</h3>
+            <p class="pj-card__desc">750px 시안 → 480px 1:1, Playwright 실측으로 여백·크기·색상 픽셀 단위 대조</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">02</div>
+            <h3 class="pj-card__title">5개 시나리오 분기</h3>
+            <p class="pj-card__desc">s0–s4 권한·상태 기반 노출 매트릭스 설계, 오노출 차단, 로딩 상태 처리</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">03</div>
+            <h3 class="pj-card__title">평가 API 연동</h3>
+            <p class="pj-card__desc">평가자 수·금액 집계 API, 첫 평가·이후 평가 팝업 분기, 기간 계산 오류 수정</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">04</div>
+            <h3 class="pj-card__title">구매한도 가드</h3>
+            <p class="pj-card__desc">알럿에서 그치지 않고 실제 결제 차단, 상품 단위 한도 판정으로 오차단 수정</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">05</div>
+            <h3 class="pj-card__title">운영 도구 제작</h3>
+            <p class="pj-card__desc">웹 기반 JSON 편집기, sharp WebP 변환, 파일명 버전 규칙으로 배포 캐시 관리</p>
+        </div>
+        <div class="pj-card js-fade">
+            <div class="pj-card__num">06</div>
+            <h3 class="pj-card__title">시안 검수 체계 수립</h3>
+            <p class="pj-card__desc">영상/이미지 구분, 프레임 밖 시안 주석 확인, 여백 계산 의무화 등 검수 규칙 정착</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="pj-stats">
+    <div class="pj-stats__inner">
+        <div class="js-fade"><div class="pj-stats__num">5</div><div class="pj-stats__lbl">사용자 시나리오</div></div>
+        <div class="js-fade"><div class="pj-stats__num">31</div><div class="pj-stats__lbl">HTML 파일</div></div>
+        <div class="js-fade"><div class="pj-stats__num">2mo</div><div class="pj-stats__lbl">작업 기간</div></div>
+        <div class="js-fade"><div class="pj-stats__num">480</div><div class="pj-stats__lbl">모바일 기준 px</div></div>
+    </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="pj-nav">
+    <div class="pj-nav__inner">
+        <a href="{{ '/project/detail/packplus.html' | relative_url }}" class="pj-nav__item">
+            <span class="pj-nav__dir">← Prev Project</span>
+            <span class="pj-nav__name">PACK PLUS</span>
+        </a>
+        <a href="{{ '/project/detail/tirepro.html' | relative_url }}" class="pj-nav__item" style="text-align:right;">
+            <span class="pj-nav__dir">Next Project →</span>
+            <span class="pj-nav__name">타이어프로</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+(function () {
+    'use strict';
+    var fadeEls = document.querySelectorAll('.js-fade');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+    } else {
+        fadeEls.forEach(function (el) { el.classList.add('in'); });
+    }
+}());
+</script>
