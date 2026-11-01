@@ -353,42 +353,42 @@ title: "PackPlus — 김유진 포트폴리오"
             <p class="pj-ai__eyebrow">— AI-Assisted Development</p>
             <h2 class="pj-ai__title">
                 <em>작업 방식</em>
-                Claude Code로 구현하고, 직접 검수했습니다
+                Claude Code 기반 협업 개발
             </h2>
         </div>
         <div class="pj-ai__flow js-fade">
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 01</div>
-                <div class="pj-ai__step-label">Figma 연결 · 지시</div>
-                <div class="pj-ai__step-desc">Figma MCP로 시안을 연결해 섹션 단위로 구현을 지시했습니다</div>
+                <div class="pj-ai__step-label">Figma MCP 연결 · 구현 지시</div>
+                <div class="pj-ai__step-desc">Figma MCP 기반 시안 연결, 섹션 단위 구현 지시</div>
             </div>
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 02</div>
-                <div class="pj-ai__step-label">결과물 검수</div>
-                <div class="pj-ai__step-desc">Playwright 실측으로 시안과 대조하고, 카페24 동작을 기준으로 교정했습니다</div>
+                <div class="pj-ai__step-label">실측 검수 · 교정</div>
+                <div class="pj-ai__step-desc">Playwright 실측·시안 대조, 카페24 동작 기준 교정</div>
             </div>
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 03</div>
-                <div class="pj-ai__step-label">규칙 문서화</div>
-                <div class="pj-ai__step-desc">지적한 실수를 규칙으로 남겨 다음 작업에 자동 적용했습니다</div>
+                <div class="pj-ai__step-label">규칙 문서화 · 재적용</div>
+                <div class="pj-ai__step-desc">오류 패턴 규칙화, 후속 작업 자동 적용</div>
             </div>
         </div>
         <div class="pj-ai__cases js-fade">
             <div class="pj-ai__case">
                 <strong>플랫폼 함정 포착</strong>
-                숨긴 옵션 행을 <code>display:none</code>으로 처리 → 카페24 <code>:visible</code> 필터로 값이 주문에 전송되지 않음. 화면 밖 배치 패턴으로 표준화
+                <code>display:none</code> 숨김 처리 → Cafe24 <code>:visible</code> 필터 미전송 / 화면 밖 배치 패턴 표준화
             </div>
             <div class="pj-ai__case">
                 <strong>과잉 구현 제지</strong>
-                카테고리 이름 하나를 API 조회 + grid 재배치로 구현 → <code>{$title_text}</code> 한 줄이면 충분. 4단계 구현 제거, grid 여백 버그 함께 해소
+                카테고리명 API+grid 재배치 → native var 단일 치환 / 4단계 코드 제거, grid 버그 해소
             </div>
             <div class="pj-ai__case">
                 <strong>데이터 흐름 검증</strong>
-                견적 email 입력칸·검증만 추가, API 전송 매핑 누락 → "보낼 때도 email 넣고 있어?" 배포 전 발견
+                견적 email 입력 검증만 구현, API 전송 매핑 누락 / 배포 전 발견·수정
             </div>
             <div class="pj-ai__case">
                 <strong>범위 통제</strong>
-                margin 조정 요청에 padding·border까지 제거 → 요청 범위만 수정하도록 반복 지시, 최소 변경 원칙 문서화
+                단일 속성 수정 요청 → 연관 속성 연쇄 변경 / 최소 변경 원칙 문서화
             </div>
         </div>
     </div>

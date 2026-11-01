@@ -353,42 +353,42 @@ title: "FROM9 — 김유진 포트폴리오"
             <p class="pj-ai__eyebrow">— AI-Assisted Development</p>
             <h2 class="pj-ai__title">
                 <em>작업 방식</em>
-                Claude Code로 구현하고, 직접 검수했습니다
+                Claude Code 기반 협업 개발
             </h2>
         </div>
         <div class="pj-ai__flow js-fade">
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 01</div>
-                <div class="pj-ai__step-label">Figma 연결 · 지시</div>
-                <div class="pj-ai__step-desc">Figma MCP로 시안을 연결해 섹션 단위로 구현을 지시했습니다</div>
+                <div class="pj-ai__step-label">Figma MCP 연결 · 구현 지시</div>
+                <div class="pj-ai__step-desc">Figma MCP 기반 시안 연결, 섹션 단위 구현 지시</div>
             </div>
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 02</div>
-                <div class="pj-ai__step-label">결과물 검수</div>
-                <div class="pj-ai__step-desc">Playwright 실측으로 시안과 대조하고, 카페24 동작을 기준으로 교정했습니다</div>
+                <div class="pj-ai__step-label">실측 검수 · 교정</div>
+                <div class="pj-ai__step-desc">Playwright 실측·시안 대조, 카페24 동작 기준 교정</div>
             </div>
             <div class="pj-ai__step">
                 <div class="pj-ai__step-num">STEP 03</div>
-                <div class="pj-ai__step-label">규칙 문서화</div>
-                <div class="pj-ai__step-desc">지적한 실수를 규칙으로 남겨 다음 작업에 자동 적용했습니다</div>
+                <div class="pj-ai__step-label">규칙 문서화 · 재적용</div>
+                <div class="pj-ai__step-desc">오류 패턴 규칙화, 후속 작업 자동 적용</div>
             </div>
         </div>
         <div class="pj-ai__cases js-fade">
             <div class="pj-ai__case">
-                <strong>시안 대조</strong>
-                "모든 영역 반영" 보고 후에도 여백 198px 누락·아이콘 위치 차이 발견. Playwright <code>getBoundingClientRect</code>로 실측해 재작업 지시
+                <strong>시안 대조 정확도</strong>
+                완료 보고 후 여백·위치 차이 잔존 / Playwright 실측 기반 재작업 지시
             </div>
             <div class="pj-ai__case">
                 <strong>영상 영역 판별</strong>
-                시안의 영상 자리를 정지 이미지로 삽입(3곳) → 프레임 밖 주석까지 확인하도록 지시, 영상·이미지 판별 규칙 수립
+                영상 자리에 정지 이미지 삽입(3건) / 시안 주석 기반 판별 규칙 수립
             </div>
             <div class="pj-ai__case">
                 <strong>구매 한도 재구현</strong>
-                알럿만 띄우는 가드로 완료 보고 → "알럿만 뜨고 구매 진행 가능" 지적 → 실제 결제 차단으로 재구현
+                알럿 표시만으로 완료 처리 → 실제 결제 흐름 차단으로 재구현
             </div>
             <div class="pj-ai__case">
                 <strong>FTP·CDN 캐시</strong>
-                같은 파일명으로 재업로드 → 이미지가 갱신되지 않음. 파일명 버전 suffix(v2/v3) 규칙 수립
+                동일 파일명 재업로드 시 미갱신 / 파일명 버전 suffix 규칙 수립
             </div>
         </div>
     </div>
