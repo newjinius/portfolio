@@ -3,22 +3,117 @@ layout: default
 title: "PackPlus — 김유진 포트폴리오"
 ---
 
+<style>
+.pj-ai {
+    background: #f8f7f5;
+    padding: 72px 0;
+}
+.pj-ai__inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.pj-ai__hd {
+    margin-bottom: 40px;
+}
+.pj-ai__eyebrow {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    letter-spacing: .15em;
+    color: var(--pink-hot);
+    margin-bottom: 8px;
+}
+.pj-ai__title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    line-height: 1.3;
+}
+.pj-ai__title em {
+    display: block;
+    font-size: .55em;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--gray-mid);
+    margin-bottom: 4px;
+}
+.pj-ai__flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: 36px;
+    border: 1px solid #e0ddd8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.pj-ai__step {
+    flex: 1;
+    min-width: 160px;
+    padding: 20px 24px;
+    border-right: 1px solid #e0ddd8;
+    background: #fff;
+}
+.pj-ai__step:last-child { border-right: none; }
+.pj-ai__step-num {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--pink-hot);
+    margin-bottom: 6px;
+}
+.pj-ai__step-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.pj-ai__step-desc {
+    font-size: 12px;
+    color: var(--gray-mid);
+    line-height: 1.5;
+}
+.pj-ai__cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+.pj-ai__case {
+    background: #fff;
+    border: 1px solid #e0ddd8;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.pj-ai__case strong {
+    display: block;
+    font-size: 12px;
+    color: var(--pink-hot);
+    margin-bottom: 4px;
+    font-family: var(--font-pixel);
+    letter-spacing: .05em;
+}
+@media (max-width: 767px) {
+    .pj-ai { padding: 48px 0; }
+    .pj-ai__inner { padding: 0 20px; }
+    .pj-ai__flow { flex-direction: column; }
+    .pj-ai__step { border-right: none; border-bottom: 1px solid #e0ddd8; }
+    .pj-ai__step:last-child { border-bottom: none; }
+}
+</style>
 
 <!-- ══ HERO ══ -->
 <section class="pj-hero">
     <div class="pj-hero__bg" style="background-image:url('{{ '/assets/img/detail/packplus-hero.jpg' | relative_url }}')"></div>
     <div class="pj-hero__overlay"></div>
     <div class="pj-hero__body">
-        <p class="pj-hero__cat">Commerce · Packaging</p>
+        <p class="pj-hero__cat">Commerce · Custom Print Order</p>
         <h1 class="pj-hero__title">
             <em>Project.</em>
             PACK PLUS
         </h1>
         <div class="pj-hero__meta">
             <div class="pj-hero__meta-item"><strong>Period</strong><span>2026.08 – 2026.10</span></div>
-            <div class="pj-hero__meta-item"><strong>Platform</strong><span>Cafe24</span></div>
-            <div class="pj-hero__meta-item"><strong>Role</strong><span>구현 지시·검수·운영</span></div>
-            <div class="pj-hero__meta-item"><strong>Type</strong><span>스킨 리뉴얼 · S3 파일첨부 · 영문몰 이관</span></div>
+            <div class="pj-hero__meta-item"><strong>Platform</strong><span>Cafe24 PC · 모바일 반응형</span></div>
+            <div class="pj-hero__meta-item"><strong>Role</strong><span>Web Publisher · Front-end</span></div>
+            <div class="pj-hero__meta-item"><strong>Type</strong><span>전면 리뉴얼 · 주문제작 · 영문몰 런칭</span></div>
         </div>
     </div>
     <div class="pj-hero__scroll">
@@ -31,11 +126,11 @@ title: "PackPlus — 김유진 포트폴리오"
 <section class="pj-overview">
     <div class="js-fade">
         <p class="pj-overview__eyebrow">Project Overview</p>
-        <div class="pj-overview__bignum">37</div>
+        <div class="pj-overview__bignum">8</div>
         <ul class="pj-overview__infolist">
-            <li class="pj-overview__info"><span class="pj-overview__info-k">Period</span><span class="pj-overview__info-v">2026.08 – 2026.10</span></li>
-            <li class="pj-overview__info"><span class="pj-overview__info-k">Platform</span><span class="pj-overview__info-v">Cafe24 커스텀 스킨</span></li>
-            <li class="pj-overview__info"><span class="pj-overview__info-k">Role</span><span class="pj-overview__info-v">구현 지시 · 검수 · 운영</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Period</span><span class="pj-overview__info-v">2026.08 – 2026.10 (약 3개월)</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Platform</span><span class="pj-overview__info-v">Cafe24 커스텀 스킨 (PC · 모바일 반응형)</span></li>
+            <li class="pj-overview__info"><span class="pj-overview__info-k">Role</span><span class="pj-overview__info-v">Web Publisher · Front-end</span></li>
             <li class="pj-overview__info" style="border-bottom:none;">
                 <span class="pj-overview__info-k">Scale</span>
                 <span class="pj-overview__info-v">HTML 5,020 · CSS 8,549 · JS 6,805줄 / partial 37개</span>
@@ -44,18 +139,19 @@ title: "PackPlus — 김유진 포트폴리오"
     </div>
     <div class="js-fade">
         <p class="pj-overview__desc">
-            포장재 전문 쇼핑몰 <strong>팩플러스(PackPlus)</strong>의 Cafe24 스킨 전면 리뉴얼을 담당했습니다.<br>
-            국문몰 전 페이지 PC·모바일 반응형 리뉴얼, Cafe24에 없는 <strong>S3 디자인 파일첨부 기능</strong> 구현, 인쇄 유형별 주문 폼 및 견적게시판 API 연동, 그리고 영문몰 이관 336개 파일 자동 분류까지 진행했습니다.
+            포장재(봉투) 커머스 <strong>팩플러스</strong>의 Cafe24 스킨을 전면 리뉴얼했습니다.<br>
+            기성 봉투 판매에 더해 <strong>인쇄 유형 선택 → 옵션 → 디자인 파일 첨부 → 주문</strong>으로 이어지는 주문제작 흐름을 구현했고, 오픈 후 운영·영문몰 런칭까지 진행했습니다.
         </p>
         <div class="pj-overview__tags">
             <span class="pj-overview__tag">#Cafe24</span>
-            <span class="pj-overview__tag">#스킨리뉴얼</span>
+            <span class="pj-overview__tag">#반응형리뉴얼</span>
+            <span class="pj-overview__tag">#주문제작</span>
             <span class="pj-overview__tag">#AWS-S3</span>
-            <span class="pj-overview__tag">#파일첨부</span>
-            <span class="pj-overview__tag">#견적게시판API</span>
-            <span class="pj-overview__tag">#영문몰이관</span>
-            <span class="pj-overview__tag">#자동분류스크립트</span>
-            <span class="pj-overview__tag">#반응형</span>
+            <span class="pj-overview__tag">#REST-API</span>
+            <span class="pj-overview__tag">#견적게시판</span>
+            <span class="pj-overview__tag">#영문몰</span>
+            <span class="pj-overview__tag">#Swiper</span>
+            <span class="pj-overview__tag">#JavaScript</span>
         </div>
     </div>
 </section>
@@ -72,64 +168,64 @@ title: "PackPlus — 김유진 포트폴리오"
             <p class="pj-sec__eyebrow">— Key Features</p>
             <h2 class="pj-sec__title">
                 <em>주요 구현 기능</em>
-                리뉴얼 · 파일첨부 · 영문몰 이관
+                주문제작 · 파일첨부 · 견적 API
             </h2>
         </div>
     </div>
 
-    <!-- F01: 전 페이지 반응형 리뉴얼 -->
+    <!-- F01: 인쇄 주문제작 -->
     <div class="pj-feat">
         <div class="pj-feat__img js-fade is-left">
-            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-main.jpg' | relative_url }}" alt="팩플러스 리뉴얼">
-            <span class="pj-feat__badge">Renewal</span>
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-main.jpg' | relative_url }}" alt="인쇄 주문제작 상세">
+            <span class="pj-feat__badge">Core</span>
         </div>
         <div class="js-fade is-right">
             <p class="pj-feat__num">Feature 01</p>
-            <h3 class="pj-feat__title">국문몰 전 페이지<br>PC·모바일 반응형 리뉴얼</h3>
-            <p class="pj-feat__desc">포장재 전문 쇼핑몰 팩플러스의 전 페이지를 새 디자인 시안에 맞게 리뉴얼했습니다. 메인·리스트·상세·주문서·마이페이지 등 모든 페이지를 PC와 모바일 반응형으로 구현했으며, Claude Code로 구현하고 Figma 시안과 픽셀 단위로 대조해 완성했습니다.</p>
+            <h3 class="pj-feat__title">인쇄 유형별<br>주문제작 상세 페이지</h3>
+            <p class="pj-feat__desc">인쇄 유형 4종(동판·인디고·디지털·스티커)마다 옵션 구조가 달라, 유형별 주문 폼을 따로 구현했습니다. 디지털 인쇄는 형태 → 제품 → 사이즈를 단계적으로 고르는 선택형 UI로 제작했습니다.</p>
             <ul class="pj-feat__list">
-                <li>전 페이지 Cafe24 partial(37개) 시안 기반 재구성</li>
-                <li>헤더·푸터·LNB·메가메뉴 공통 레이아웃 전면 재정의</li>
-                <li>상품 리스트·상세·옵션 UI 브랜드 아이덴티티에 맞게 재구성</li>
-                <li>Playwright 실측으로 Figma 시안 수치와 픽셀 단위 대조</li>
+                <li>유형별 옵션 폼 분리 : 원단 1·2차, 후가공, 용지·코팅·모양·사이즈</li>
+                <li>디지털 인쇄 : 카테고리 클릭 시에만 Cafe24 Front API 호출, 페이지네이션</li>
+                <li>옵션 간 연동 — "인쇄없음" 선택 시 디자인 유무 "없음"으로 자동 세팅</li>
+                <li>무료배송 게이지 : 총 결제금액 감지해 10만원 기준 잔여 금액 표시</li>
             </ul>
         </div>
     </div>
 
-    <!-- F02: S3 파일첨부 & 주문 연결 -->
+    <!-- F02: S3 파일첨부 -->
     <div class="pj-feat pj-feat--rev">
         <div class="pj-feat__img js-fade is-right">
-            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-scroll1.jpg' | relative_url }}" alt="S3 디자인 파일첨부">
-            <span class="pj-feat__badge">Feature</span>
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-scroll1.jpg' | relative_url }}" alt="S3 파일첨부">
+            <span class="pj-feat__badge">Upload</span>
         </div>
         <div class="js-fade is-left">
             <p class="pj-feat__num">Feature 02</p>
-            <h3 class="pj-feat__title">S3 디자인 파일첨부 &<br>인쇄 유형별 주문 폼</h3>
-            <p class="pj-feat__desc">Cafe24에 기본 제공되지 않는 디자인 파일 첨부 기능을 직접 구현했습니다. 고객이 상세 페이지에서 인쇄 디자인 파일을 업로드하면 AWS S3에 저장되고, URL이 주문 옵션에 자동 연결됩니다. 인쇄 유형 4종(디지털인쇄·동판인쇄·스티커·맞춤제작)에 맞는 주문 폼과 견적문의 게시판 API도 함께 연동했습니다.</p>
+            <h3 class="pj-feat__title">디자인 파일 첨부<br>S3 연동</h3>
+            <p class="pj-feat__desc">Cafe24 기본 기능으로는 고객 파일을 받을 수 없어, 외부 스토리지 업로드와 주문 옵션을 직접 연결했습니다. 회원 토큰을 담은 미들웨어 API로 S3에 업로드하고, 반환된 URL이 추가입력옵션에 자동으로 들어갑니다.</p>
             <ul class="pj-feat__list">
-                <li>AWS S3 업로드 → URL 자동 주문 옵션 연결</li>
-                <li>인쇄 유형별 분기 폼 (4종) · 파일첨부 필수/선택 조건 검증</li>
-                <li>견적문의 게시판 커스텀 API 연동 (이메일·파일첨부·페이지네이션)</li>
-                <li>카페24 <code>:visible</code> 필터 함정 선제 차단 — 숨긴 input 값 off-screen 배치</li>
+                <li>파일 검사 : 이미지·pdf·ai·psd, 최대 2개, 건당 30MB, 썸네일 미리보기·삭제</li>
+                <li>미들웨어 업로드 API → S3 저장 → 파일 URL 반환 → 추가입력옵션 자동 입력</li>
+                <li>디자인 유무에 따라 파일첨부 영역 노출·필수 조건 전환</li>
+                <li>화면에서 숨긴 옵션도 주문에 전송되도록 화면 밖 배치 처리</li>
             </ul>
         </div>
     </div>
 
-    <!-- F03: 영문몰 이관 -->
+    <!-- F03: 견적 게시판 API -->
     <div class="pj-feat">
         <div class="pj-feat__img js-fade is-left">
-            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s3.jpg' | relative_url }}" alt="영문몰 이관">
-            <span class="pj-feat__badge">Migration</span>
+            <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s6.jpg' | relative_url }}" alt="견적문의 게시판">
+            <span class="pj-feat__badge">API</span>
         </div>
         <div class="js-fade is-right">
             <p class="pj-feat__num">Feature 03</p>
-            <h3 class="pj-feat__title">영문몰 이관 336파일<br>자동 분류 & 체크리스트</h3>
-            <p class="pj-feat__desc">국문몰 완성 후 영문몰 이관 작업을 진행했습니다. 국문/영문 차이가 나는 파일 336개를 Node.js 스크립트로 자동 분류해 이관 범위를 빠르게 파악했습니다. 이관 후 고객사가 직접 운영할 수 있도록 체크리스트와 운영 가이드도 제작했습니다.</p>
+            <h3 class="pj-feat__title">견적문의 게시판<br>API 연동</h3>
+            <p class="pj-feat__desc">미들웨어 API로 견적문의 목록·작성·조회 화면을 구현했습니다. 회원/비회원 인증을 분리하고, 재발행 상태일 때만 컨펌 버튼을 활성화하는 등 견적 흐름에 맞는 상태 관리를 추가했습니다.</p>
             <ul class="pj-feat__list">
-                <li>국문·영문몰 파일 diff 자동 분류 스크립트 (336개 파일 처리)</li>
-                <li>한글 텍스트 잔존 여부 자동 검출, 대분류·중분류 카테고리명 번역</li>
-                <li>영문몰 전용 설정(세금계산서·부가세 표기) 별도 처리</li>
-                <li>고객사 운영 체크리스트 제작 — 배포 후 즉시 확인 항목 정리</li>
+                <li>조회 인증 : 회원은 토큰, 비회원은 비밀번호</li>
+                <li>작성자명 마스킹, 견적 상태값 한글 매핑, 연락처 하이픈 자동 입력</li>
+                <li>재발행 상태일 때만 견적 컨펌 버튼 활성화</li>
+                <li>이메일 필드를 입력 → 전송 → 조회까지 전 구간 API 연동</li>
             </ul>
         </div>
     </div>
@@ -142,28 +238,28 @@ title: "PackPlus — 김유진 포트폴리오"
         <h2 class="pj-gallery__title js-fade">주요 화면 모음</h2>
         <div class="pj-gallery__grid">
             <div class="pj-gallery__item pj-gallery__item--wide js-fade">
-                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-scroll2.jpg' | relative_url }}" alt="팩플러스 메인 리뉴얼">
-                <span class="pj-gallery__caption">리뉴얼 메인 화면</span>
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-scroll2.jpg' | relative_url }}" alt="팩플러스 메인">
+                <span class="pj-gallery__caption">메인 화면</span>
             </div>
             <div class="pj-gallery__item js-fade">
                 <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-list.jpg' | relative_url }}" alt="상품 목록">
-                <span class="pj-gallery__caption">상품 목록 페이지</span>
+                <span class="pj-gallery__caption">상품 목록</span>
             </div>
             <div class="pj-gallery__item js-fade">
-                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s4.jpg' | relative_url }}" alt="상품 상세 & 파일첨부">
-                <span class="pj-gallery__caption">상세 페이지 파일첨부</span>
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s4.jpg' | relative_url }}" alt="상품 상세">
+                <span class="pj-gallery__caption">상품 상세 페이지</span>
             </div>
             <div class="pj-gallery__item js-fade">
-                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s5.jpg' | relative_url }}" alt="인쇄 주문 폼">
-                <span class="pj-gallery__caption">인쇄 유형별 주문 폼</span>
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s5.jpg' | relative_url }}" alt="장바구니">
+                <span class="pj-gallery__caption">장바구니</span>
             </div>
             <div class="pj-gallery__item js-fade">
-                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s6.jpg' | relative_url }}" alt="견적 게시판">
-                <span class="pj-gallery__caption">견적문의 게시판</span>
+                <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s3.jpg' | relative_url }}" alt="검색">
+                <span class="pj-gallery__caption">상품 검색</span>
             </div>
             <div class="pj-gallery__item js-fade">
                 <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/packplus-gallery-s7.jpg' | relative_url }}" alt="영문몰">
-                <span class="pj-gallery__caption">영문몰 이관 화면</span>
+                <span class="pj-gallery__caption">영문몰 화면</span>
             </div>
         </div>
     </div>
@@ -174,30 +270,30 @@ title: "PackPlus — 김유진 포트폴리오"
     <div class="pj-mobile__inner">
         <div>
             <p class="pj-mobile__eyebrow js-fade">Responsive Design</p>
-            <h2 class="pj-mobile__title js-fade">모바일에서도<br>완결된 주문 경험</h2>
+            <h2 class="pj-mobile__title js-fade">복잡한 주문제작,<br>모바일에서도 완결</h2>
             <p class="pj-mobile__desc js-fade">
-                포장재 B2B 주문은 모바일에서도 복잡한 옵션을 다뤄야 합니다. 인쇄 유형 선택, 파일첨부, 견적 요청까지 모바일에서도 끊기지 않도록 반응형을 설계했습니다. 카페24의 `:visible` 필터 함정도 모바일 주문 흐름에서 선제 차단했습니다.
+                포장재 B2B 주문은 모바일에서도 인쇄 유형 선택, 파일첨부, 옵션 확인이 모두 필요합니다. 화면에서 숨긴 input이 주문에 전송되도록 화면 밖 배치 방식을 적용해, 복잡한 옵션 흐름을 모바일에서도 끊김 없이 동작하게 했습니다.
             </p>
             <div class="pj-mobile__checklist js-fade">
                 <div class="pj-mobile__check">
                     <div class="pj-mobile__check-icon">★</div>
                     <div>
-                        <strong>모바일 주문 폼 완결성</strong>
-                        <span>인쇄 유형별 분기 폼이 모바일에서도 정확하게 작동, 숨긴 input 값 손실 없음</span>
+                        <strong>모바일 하단 고정 구매 버튼</strong>
+                        <span>Cafe24 하단 고정 모듈을 활용, 스크롤 중에도 항상 구매 버튼 노출</span>
                     </div>
                 </div>
                 <div class="pj-mobile__check">
                     <div class="pj-mobile__check-icon">★</div>
                     <div>
-                        <strong>파일첨부 UX</strong>
-                        <span>모바일에서 디자인 파일 첨부·S3 업로드 흐름 전 기기 검증</span>
+                        <strong>썸네일 슬라이더 재초기화</strong>
+                        <span>모바일에서 ResizeObserver로 슬라이더를 재초기화해 흐림 현상 해결</span>
                     </div>
                 </div>
                 <div class="pj-mobile__check">
                     <div class="pj-mobile__check-icon">★</div>
                     <div>
                         <strong>반응형 전 페이지</strong>
-                        <span>메인부터 마이페이지까지 전 페이지 모바일 최적 레이아웃·타이포·여백 조정</span>
+                        <span>partial 37개 전체 모바일 최적 레이아웃·타이포·여백 조정</span>
                     </div>
                 </div>
             </div>
@@ -219,33 +315,81 @@ title: "PackPlus — 김유진 포트폴리오"
     <div class="pj-contrib__grid">
         <div class="pj-card js-fade">
             <div class="pj-card__num">01</div>
-            <h3 class="pj-card__title">전 페이지 반응형 리뉴얼</h3>
-            <p class="pj-card__desc">Cafe24 partial 37개 전체를 Figma 시안 기반으로 재구성, PC·모바일 반응형 완성</p>
+            <h3 class="pj-card__title">인쇄 주문제작 상세</h3>
+            <p class="pj-card__desc">4종 유형별 옵션 폼, 단계 선택 UI, Front API 연동, 옵션 간 자동 연동 로직</p>
         </div>
         <div class="pj-card js-fade">
             <div class="pj-card__num">02</div>
             <h3 class="pj-card__title">S3 디자인 파일첨부</h3>
-            <p class="pj-card__desc">카페24 기본 기능 없는 파일첨부를 AWS S3 업로드 → 주문 옵션 자동 연결로 직접 구현</p>
+            <p class="pj-card__desc">미들웨어 API → S3 업로드 → URL을 추가입력옵션에 자동 연결, 필수 검증</p>
         </div>
         <div class="pj-card js-fade">
             <div class="pj-card__num">03</div>
-            <h3 class="pj-card__title">인쇄 유형별 주문 폼</h3>
-            <p class="pj-card__desc">4종 인쇄 방식별 분기 폼, 파일첨부 조건 검증, 견적게시판 API 연동</p>
+            <h3 class="pj-card__title">견적문의 게시판</h3>
+            <p class="pj-card__desc">목록·작성·조회 API 연동, 회원/비회원 인증 분리, 견적 상태별 UI 제어</p>
         </div>
         <div class="pj-card js-fade">
             <div class="pj-card__num">04</div>
-            <h3 class="pj-card__title">플랫폼 함정 선제 차단</h3>
-            <p class="pj-card__desc">카페24 <code>:visible</code> 필터 함정·모듈 변수 우선 활용·주석 중첩 방지 등 반복 문제 전역 규칙화</p>
+            <h3 class="pj-card__title">구매 UX</h3>
+            <p class="pj-card__desc">무료배송 게이지, PC 썸네일 원본 교체, 모바일 슬라이더 재초기화, 부가세 표기</p>
         </div>
         <div class="pj-card js-fade">
             <div class="pj-card__num">05</div>
-            <h3 class="pj-card__title">영문몰 이관 자동화</h3>
-            <p class="pj-card__desc">336개 파일 차이 자동 분류 스크립트, 이관 체크리스트, 운영 가이드 제작</p>
+            <h3 class="pj-card__title">장바구니 · 주문서</h3>
+            <p class="pj-card__desc">부가세 분리 표기, 현금영수증·세금계산서 선택, 무료샘플 장바구니 오류 해결</p>
         </div>
         <div class="pj-card js-fade">
             <div class="pj-card__num">06</div>
-            <h3 class="pj-card__title">AI 결과물 검수</h3>
-            <p class="pj-card__desc">구현 지시·Playwright 실측·시안 대조로 AI 오류 수백 건 교정, 규칙 문서 최종 6개로 압축</p>
+            <h3 class="pj-card__title">영문몰 런칭</h3>
+            <p class="pj-card__desc">차이 파일 336개 자동 분류 스크립트, 한글 잔존 검출, 고객사 체크리스트</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ AI WORKFLOW ══ -->
+<section class="pj-ai">
+    <div class="pj-ai__inner">
+        <div class="pj-ai__hd js-fade">
+            <p class="pj-ai__eyebrow">— AI-Assisted Development</p>
+            <h2 class="pj-ai__title">
+                <em>작업 방식</em>
+                Claude Code로 구현하고, 직접 검수했습니다
+            </h2>
+        </div>
+        <div class="pj-ai__flow js-fade">
+            <div class="pj-ai__step">
+                <div class="pj-ai__step-num">STEP 01</div>
+                <div class="pj-ai__step-label">Figma 연결 · 지시</div>
+                <div class="pj-ai__step-desc">Figma MCP로 시안을 연결해 섹션 단위로 구현을 지시했습니다</div>
+            </div>
+            <div class="pj-ai__step">
+                <div class="pj-ai__step-num">STEP 02</div>
+                <div class="pj-ai__step-label">결과물 검수</div>
+                <div class="pj-ai__step-desc">Playwright 실측으로 시안과 대조하고, 카페24 동작을 기준으로 교정했습니다</div>
+            </div>
+            <div class="pj-ai__step">
+                <div class="pj-ai__step-num">STEP 03</div>
+                <div class="pj-ai__step-label">규칙 문서화</div>
+                <div class="pj-ai__step-desc">지적한 실수를 규칙으로 남겨 다음 작업에 자동 적용했습니다</div>
+            </div>
+        </div>
+        <div class="pj-ai__cases js-fade">
+            <div class="pj-ai__case">
+                <strong>플랫폼 함정 포착</strong>
+                숨긴 옵션 행을 <code>display:none</code>으로 처리 → 카페24 <code>:visible</code> 필터로 값이 주문에 전송되지 않음. 화면 밖 배치 패턴으로 표준화
+            </div>
+            <div class="pj-ai__case">
+                <strong>과잉 구현 제지</strong>
+                카테고리 이름 하나를 API 조회 + grid 재배치로 구현 → <code>{$title_text}</code> 한 줄이면 충분. 4단계 구현 제거, grid 여백 버그 함께 해소
+            </div>
+            <div class="pj-ai__case">
+                <strong>데이터 흐름 검증</strong>
+                견적 email 입력칸·검증만 추가, API 전송 매핑 누락 → "보낼 때도 email 넣고 있어?" 배포 전 발견
+            </div>
+            <div class="pj-ai__case">
+                <strong>범위 통제</strong>
+                margin 조정 요청에 padding·border까지 제거 → 요청 범위만 수정하도록 반복 지시, 최소 변경 원칙 문서화
+            </div>
         </div>
     </div>
 </section>
