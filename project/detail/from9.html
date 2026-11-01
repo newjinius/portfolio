@@ -97,6 +97,10 @@ title: "FROM9 — 김유진 포트폴리오"
     .pj-ai__step { border-right: none; border-bottom: 1px solid #e0ddd8; }
     .pj-ai__step:last-child { border-bottom: none; }
 }
+
+/* FROM9 gallery: portrait mobile captures */
+.pj-gallery .pj-gallery__item { aspect-ratio: 9/16; }
+.pj-gallery .pj-gallery__item--wide { aspect-ratio: 9/8; }
 </style>
 
 <!-- ══ HERO ══ -->
@@ -261,47 +265,6 @@ title: "FROM9 — 김유진 포트폴리오"
                 <img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-gallery-s8.jpg' | relative_url }}" alt="시나리오 추가">
                 <span class="pj-gallery__caption">추가 시나리오</span>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══ MOBILE ══ -->
-<div class="pj-mobile">
-    <div class="pj-mobile__inner">
-        <div>
-            <p class="pj-mobile__eyebrow js-fade">Mobile First</p>
-            <h2 class="pj-mobile__title js-fade">750px 시안을<br>480px에 1:1로</h2>
-            <p class="pj-mobile__desc js-fade">
-                루트 font-size를 vw로 고정한 rem 스케일(750 → 480, 0.64 비율)로 시안 비율을 그대로 유지했습니다. 절대좌표로 짜인 영역은 흐름 기반 구조로 재구성해 콘텐츠 양 변화에 대응하고, 텍스트는 이미지가 아닌 HTML로, 사진 105장은 WebP, 아이콘은 SVG로 처리했습니다.
-            </p>
-            <div class="pj-mobile__checklist js-fade">
-                <div class="pj-mobile__check">
-                    <div class="pj-mobile__check-icon">★</div>
-                    <div>
-                        <strong>rem 스케일 비율 유지</strong>
-                        <span>vw 기반 루트 font-size로 750→480px 시안 비율 그대로 구현</span>
-                    </div>
-                </div>
-                <div class="pj-mobile__check">
-                    <div class="pj-mobile__check-icon">★</div>
-                    <div>
-                        <strong>lazy loading 160곳</strong>
-                        <span>WebP(105장)·SVG 자산 최적화, lazy loading 전 페이지 적용</span>
-                    </div>
-                </div>
-                <div class="pj-mobile__check">
-                    <div class="pj-mobile__check-icon">★</div>
-                    <div>
-                        <strong>슬라이더 터치 제어</strong>
-                        <span>터치 시 한 번에 한 칸씩만 넘어가도록 스냅 설정</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="pj-phones js-fade">
-            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-01.jpg' | relative_url }}" alt="모바일 메인"></div>
-            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-02.jpg' | relative_url }}" alt="모바일 평가"></div>
-            <div class="pj-phone"><img loading="lazy" decoding="async" src="{{ '/assets/img/detail/from9-mobile-03.jpg' | relative_url }}" alt="모바일 혜택"></div>
         </div>
     </div>
 </div>
